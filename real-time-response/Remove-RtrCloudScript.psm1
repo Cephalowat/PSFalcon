@@ -1,0 +1,29 @@
+function Remove-RtrCloudScript {
+<#
+    .SYNOPSIS
+        Delete a custom-script based on the ID given. Can only delete one file at a time
+
+    .PARAMETER ID
+        File ID
+#>
+    [CmdletBinding()]
+    [OutputType([psobject])]
+    param(
+        [string]
+        $Id
+    )
+    process{
+        $Param = @{
+            Uri = '/real-time-response/entities/scripts/v1?ids=' + $Id
+            Method = 'delete'
+            Header = @{
+                accept = 'application/json'
+                'content-type' = 'application/json'
+            }
+        }
+        switch ($PSBoundParameters.Keys) {
+            'Verbose' { $Param['Verbose'] = $true }
+        }
+        Invoke-FalconAPI @Param
+    }
+}
