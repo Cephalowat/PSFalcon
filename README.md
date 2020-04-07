@@ -57,35 +57,47 @@ token will be checked and refreshed when needed while running PSFalcon commands.
 
 # Commands
 
-**[CrowdStrike Falcon Discover for AWS API](/cloud-connect-aws)**
-
-**[CrowdStrike Falcon Detections API](/detects)**
-
-**[CrowdStrike Falcon Device Control Policy API](/device-control-policies)**
-
-**[CrowdStrike Falcon X Sandbox API](/falconx-sandbox)**
-
-**[CrowdStrike Falcon Firewall Management API](/firewall-management)**
-
-**[CrowdStrike Falcon Host Group API](/host-group)**
-
-**[CrowdStrike Falcon Host API](/hosts)**
-
-**[CrowdStrike CrowdScore Incident API](/incidents)**
-
-**[CrowdStrike Threat Intelligence API](/intel)**
+### Authentication
 
 **[CrowdStrike OAuth2 Token API](/oauth2)**
 
+### Detections and Incidents
+
+**[CrowdStrike Falcon Detections API](/detects)**
+
+**[CrowdStrike CrowdScore Incident API](/incidents)**
+
+### Hosts and Host Management
+
+**[CrowdStrike Falcon Host API](/hosts)**
+
+**[CrowdStrike Falcon Host Group API](/host-group)**
+
+### Falcon Discover
+
+**[CrowdStrike Falcon Discover for AWS API](/cloud-connect-aws)**
+
+### Falcon X
+
+**[CrowdStrike Falcon X Sandbox API](/falconx-sandbox)**
+
+**[CrowdStrike Threat Intelligence API](/intel)**
+
+### Policies and Sensor Management
+
+**[CrowdStrike Falcon Device Control Policy API](/device-control-policies)**
+
 **[CrowdStrike Falcon Prevention Policy API](/prevention-policies)**
-
-**[CrowdStrike Falcon Real-time Response API](/real-time-response)**
-
-**[CrowdStrike Falcon Sensor Download API](/sensor-download)**
 
 **[CrowdStrike Falcon Sensor Update Policy API](/sensor-update-policies)**
 
-**[CrowdStrike Falcon Spotlight API](/spotlight-vulnerabilities)**
+**[CrowdStrike Falcon Sensor Download API](/sensor-download)**
+
+### Real-time Response
+
+**[CrowdStrike Falcon Real-time Response API](/real-time-response)**
+
+### Users and User Management
 
 **[CrowdStrike Falcon User Management API](/user-management)**
 
