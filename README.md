@@ -55,7 +55,7 @@ The `-Proxy` parameter can be added to a token request to define a proxy. Your c
 and all requests will be directed to your proxy until a new `Get-CsToken` request is made.
 
 Once a valid OAuth2 token is received, it is cached under `$Falcon` with your credentials. Your cached
-token will be checked and refreshed when needed while running PSFalcon **[commands](#Commands)**.
+token will be checked and refreshed when needed while running PSFalcon commands.
 
 # Commands
 
