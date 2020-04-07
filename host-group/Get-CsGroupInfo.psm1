@@ -1,5 +1,5 @@
 function Get-CsGroupInfo {
-<#
+    <#
     .SYNOPSIS
         Search for info about Host Groups
 
@@ -15,27 +15,31 @@ function Get-CsGroupInfo {
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0] (when IDs are not provided)
 #>
-    [CmdletBinding()]
+    [CmdLetBinding(DefaultParameterSetName = 'Default')]
     [OutputType([psobject])]
     param(
+        [Parameter(ParameterSetName = 'Id')]
         [array]
         $Id,
 
+        [Parameter(ParameterSetName = 'noId')]
         [string]
         $Filter,
 
-        [ValidateRange(2,500)]
+        [Parameter(ParameterSetName = 'noId')]
+        [ValidateRange(2, 500)]
         [int]
         $Limit = 500,
 
+        [Parameter(ParameterSetName = 'noId')]
         [int]
         $Offset = 0
     )
-    process{
+    process {
         $Param = @{
             Method = 'get'
             Header = @{
-                accept = 'application/json'
+                accept         = 'application/json'
                 'content-type' = 'application/json'
             }
         }
