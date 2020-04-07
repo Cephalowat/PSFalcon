@@ -1,6 +1,4 @@
-**WARNING**: The PSFalcon modules are not a product of CrowdStrike and are not officially supported by
-CrowdStrike. Neither CrowdStrike, nor the creator and/or associated contributors of PSFalcon shall be
-responsible for any damages inflicted as a result of their use.
+**WARNING**: The PSFalcon modules are an independent project and not supported by CrowdStrike.
 
 # Installation
 
