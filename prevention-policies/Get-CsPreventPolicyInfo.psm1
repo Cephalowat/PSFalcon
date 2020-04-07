@@ -15,8 +15,7 @@ function Get-CsPreventPolicyInfo {
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0] (when IDs are not provided)
 #>
-    [CmdLetBinding(DefaultParameterSetName = 'Default')]
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     [OutputType([psobject])]
     param(
         [Parameter(ParameterSetName = 'Id')]
