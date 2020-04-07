@@ -79,7 +79,6 @@ NestedModules = @(
 
     # detects
     '.\detects\Edit-CsDetect.psm1',
-    '.\detects\Get-CsDetectAggregates.psm1',
     '.\detects\Get-CsDetectId.psm1',
     '.\detects\Get-CsDetectInfo.psm1',
 
@@ -249,7 +248,6 @@ FunctionsToExport = @(
 
     # detects
     'Edit-CsDetect',
-    'Get-CsDetectAggregates',
     'Get-CsDetectId',
     'Get-CsDetectInfo',
 
