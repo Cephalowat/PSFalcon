@@ -103,6 +103,7 @@ NestedModules = @(
     '.\falconx-sandbox\Get-FXReportInfo.psm1',
     '.\falconx-sandbox\Get-FXSubmissionId.psm1',
     '.\falconx-sandbox\Get-FXSubmissionInfo.psm1',
+    '.\falconx-sandbox\Get-FXQuota.psm1',
     '.\falconx-sandbox\Receive-FXArtifact.psm1',
     '.\falconx-sandbox\Submit-FXSandboxFile.psm1',
 
@@ -272,6 +273,7 @@ FunctionsToExport = @(
     'Get-FXReportInfo',
     'Get-FXSubmissionId',
     'Get-FXSubmissionInfo',
+    'Get-FXQuota',
     'Receive-FXArtifact',
     'Submit-FXSandboxFile',
 
