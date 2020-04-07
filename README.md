@@ -4,7 +4,7 @@ responsible for any damages inflicted as a result of their use.
 
 # Installation
 
-1. Install **[PowerShell](https://github.com/PowerShell/PowerShell)** 6.1 or newer
+1. Install **[PowerShell](https://github.com/PowerShell/PowerShell#Get-PowerShell)** 6.1 or newer
 2. Place the PSFalcon modules in `$PSHOME\Modules\PSFalcon`
 
 **NOTE**: You can find your `$PSHOME` path in a PowerShell session.
