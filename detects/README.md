@@ -13,20 +13,6 @@ Modify the state, assignee, and visibility of detections
 PS> Edit-CsDetect -Properties @(@{ assigned_to_uuid = <string>; ids = @(<string>); status = <string> })
 ```
 
-# Get-CsDetectAggregates
-
-## API References
-**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/detects/GetAggregateDetects)**
-
-## Parameters
-
-`-Body`: An array of query criteria and settings
-
-## Example
-```powershell
-PS>
-```
-
 # Get-CsDetectId
 Search for detection IDs
 
