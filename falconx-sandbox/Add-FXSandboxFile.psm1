@@ -34,9 +34,6 @@ function Add-FXSandboxFile {
                 accept = 'application/json'
                 'content-type' = 'application/octet-stream'
             }
-            Body = @{
-                body = [System.IO.File]::ReadAllBytes($Path)
-            }
         }
         switch ($PSBoundParameters.Keys) {
             'Comment' { $Param.Uri += '&comment=' + $Comment }
