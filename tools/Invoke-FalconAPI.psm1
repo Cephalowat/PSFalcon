@@ -87,7 +87,7 @@ function Invoke-FalconAPI {
         # Output error
         catch {
             if ($_.ErrorDetails.Message) {
-                if ($_.ErrorDetails.Message -match '{\n.*"meta":.*{\n') {
+                if ($_.ErrorDetails.Message -match 'meta') {
                     $_.ErrorDetails.Message | ConvertFrom-Json
                 }
                 else {
