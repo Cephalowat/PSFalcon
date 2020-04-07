@@ -15,24 +15,30 @@ function Get-CsPreventPolicyInfo {
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0] (when IDs are not provided)
 #>
+    [CmdLetBinding(DefaultParameterSetName = 'Default')]
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [Parameter(ParameterSetName = 'Id')]
         [array]
         $Id,
 
+        [Parameter(ParameterSetName = 'noId')]
         [string]
         $Filter,
 
+        [Parameter(ParameterSetName = 'noId')]
         [ValidateRange(2,500)]
         [int]
         $Limit = 500,
 
+        [Parameter(ParameterSetName = 'noId')]
         [int]
         $Offset = 0
     )
     process{
         $Param = @{
+            Uri = '/policy/combined/prevention/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -40,17 +46,9 @@ function Get-CsPreventPolicyInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Id' { 
-                $Param['Uri'] = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=')
-            }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Id' { $Param['Uri'] = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
-            default { 
-                $Param['Uri'] = '/policy/combined/prevention/v1?limit=' + [string] $Limit +
-                '&offset=' + [string] $Offset
-                if ($Filter) {
-                    $Param.Uri += '&filter=' + $Filter
-                }
-            }
         }
         Invoke-FalconAPI @Param
     }
