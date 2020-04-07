@@ -15,7 +15,7 @@ function Get-CsGroupInfo {
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0] (when IDs are not provided)
 #>
-    [CmdLetBinding(DefaultParameterSetName = 'Default')]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     [OutputType([psobject])]
     param(
         [Parameter(ParameterSetName = 'Id')]
@@ -27,7 +27,7 @@ function Get-CsGroupInfo {
         $Filter,
 
         [Parameter(ParameterSetName = 'noId')]
-        [ValidateRange(2, 500)]
+        [ValidateRange(2,500)]
         [int]
         $Limit = 500,
 
@@ -35,7 +35,7 @@ function Get-CsGroupInfo {
         [int]
         $Offset = 0
     )
-    process {
+    process{
         $Param = @{
             Uri = '/devices/combined/host-groups/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
