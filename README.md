@@ -17,8 +17,8 @@ C:\Program Files\PowerShell\<version>
 # Usage
 
 Interacting with the CrowdStrike Falcon OAuth2 APIs requires an **[API Client ID and Secret](https://falcon.crowdstrike.com/support/api-clients-and-keys)**, and a valid
-OAuth2 token. If you attempt to run a PSFalcon **[command](#Commands)** without a valid token, you will be forced to make
-a token request. You can make a manual request using the `Get-CsToken` command.
+OAuth2 token. If you attempt to run a PSFalcon command without a valid token, you will be forced to make a token
+request. You can make a manual request using the `Get-CsToken` command.
 
 ```powershell
 PS> Get-CsToken
