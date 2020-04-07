@@ -1,7 +1,67 @@
-# Get-FFMFieldId
+# Add-FFMGroup - IN_DEVELOPMENT
+
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Edit-FFMGroup - IN_DEVELOPMENT
+
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Edit-FFMPolicy - IN_DEVELOPMENT
+
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Get-FFMEventId - IN_DEVELOPMENT
+
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Get-FFMEventInfo - IN_DEVELOPMENT
+
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Get-FFMFieldId - IN_DEVELOPMENT
 Get the firewall field specification IDs for the provided platform
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -11,10 +71,10 @@ Get the firewall field specification IDs for the provided platform
 PS>
 ```
 
-# Get-FFMFieldInfo
+# Get-FFMFieldInfo - IN_DEVELOPMENT
 Get the firewall field specifications by ID
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -24,10 +84,10 @@ Get the firewall field specifications by ID
 PS>
 ```
 
-# Get-FFMGroupId
+# Get-FFMGroupId - IN_DEVELOPMENT
 Find all rule group IDs matching the query with filter
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -37,10 +97,10 @@ Find all rule group IDs matching the query with filter
 PS>
 ```
 
-# Get-FFMGroupInfo
+# Get-FFMGroupInfo - IN_DEVELOPMENT
 Get rule group entities by ID
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -50,10 +110,10 @@ Get rule group entities by ID
 PS>
 ```
 
-# Get-FFMPlatformId
+# Get-FFMPlatformId - IN_DEVELOPMENT
 Get the list of platform names
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -63,10 +123,10 @@ Get the list of platform names
 PS>
 ```
 
-# Get-FFMPlatformInfo
+# Get-FFMPlatformInfo - IN_DEVELOPMENT
 Get platforms by ID
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -76,10 +136,10 @@ Get platforms by ID
 PS>
 ```
 
-# Get-FFMPolicyId
+# Get-FFMPolicyId - IN_DEVELOPMENT
 Find all firewall policy IDs matching the query with filter
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -89,9 +149,9 @@ Find all firewall policy IDs matching the query with filter
 PS>
 ```
 
-# Get-FFMPolicyInfo
+# Get-FFMPolicyInfo - IN_DEVELOPMENT
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -101,10 +161,10 @@ PS>
 PS>
 ```
 
-# Get-FFMRuleId
+# Get-FFMRuleId - IN_DEVELOPMENT
 Get firewall rule ids
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -114,10 +174,22 @@ Get firewall rule ids
 PS>
 ```
 
-# Get-FFMRuleInfo
+# Get-FFMRuleInfo - IN_DEVELOPMENT
 Get firewall rule detail
 
-## References
+## API References
+**[Documentation]()**, **[Swagger]()**
+
+## Parameters
+
+## Example
+```powershell
+PS>
+```
+
+# Remove-FFMGroup - IN_DEVELOPMENT
+
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
