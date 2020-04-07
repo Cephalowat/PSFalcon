@@ -37,14 +37,14 @@ function Get-CsGroupInfo {
     )
     process {
         $Param = @{
+            Uri = '/devices/combined/host-groups/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
-                accept         = 'application/json'
+                accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Uri    = '/devices/combined/host-groups/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
         }
-        Switch ($PSBoundParameters.Keys) {
+        switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param['Uri'] = '/devices/entities/host-groups/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
