@@ -17,19 +17,15 @@ C:\Program Files\PowerShell\<version>
 # Usage
 
 Interacting with the CrowdStrike Falcon OAuth2 APIs requires an **[API Client ID and Secret](https://falcon.crowdstrike.com/support/api-clients-and-keys)** and a valid
-OAuth2 token. If you attempt to run a PSFalcon command without a valid token, you will be forced to make a token
-request. You can make a manual request using the `Get-CsToken` command.
+OAuth2 token.
+
+If you attempt to run a PSFalcon command without a valid token, you will be forced to make a token
+request. You can make a manual request using the `Get-CsToken` command:
 
 ```powershell
 PS> Get-CsToken
 Client Id: <string>
 Client Secret: <string>
-```
-
-If you need to choose a different cloud or use a proxy when making requests, you will need to issue a
-manual `Get-CsToken` command at the beginning of your PowerShell session.
-
-```powershell
 PS> $Falcon
 
 Name                           Value
@@ -41,7 +37,11 @@ secret                         System.Security.SecureString
 host                           <string>
 ```
 
-**WARNING**: Using the optional `-Id` and `-Secret` parameters with `Get-CsToken` will result in your API credentials being displayed in plain text. This could expose them to a third party.
+**WARNING**: Using the optional `-Id` and `-Secret` parameters with `Get-CsToken` will result in your API
+credentials being displayed in plain text. This could expose them to a third party.
+
+If you need to choose a different cloud or use a proxy when making requests, you will need to issue a manual
+`Get-CsToken` command at the beginning of your PowerShell session.
 
 ### Choosing a Cloud
 
@@ -93,8 +93,7 @@ token will be checked and refreshed when needed while running PSFalcon commands.
 
 # Responses
 
-PowerShell objects are generated as you use PSFalcon commands. The members of the response object
-can be referenced to retrieve specific data.
+PowerShell objects are generated in response to PSFalcon commands:
 
 ```powershell
 PS> Get-CsHostId
@@ -104,7 +103,8 @@ meta                                                                        reso
 @{query_time=<int>; pagination=; powered_by=<string>; trace_id=<string>}    @{...}
 ```
 
-`$PSObject.meta` contains information about the request itself.
+The members of the response object can be referenced to retrieve specific data. `$PSObject.meta`
+contains information about the request itself:
 
 ```powershell
 PS> $HostIds = Get-CsHostId
@@ -118,14 +118,14 @@ query_time  pagination                                  powered_by trace_id
 Results of a successful request are typically contained within `$PSObject.resources`. For some request
 types, resources may fall under `$PSObject.combined`, or another specific field like `$PSObject.batch_id`.
 
-You can return the results themselves by calling `$PSObject.resources` or a related sub-object.
+You can return the results themselves by calling `$PSObject.resources` or a related sub-object:
 
 ```powershell
 PS> $HostIds.resources
 <array>
 ```
 
-`$PSObject.errors` is populated when a request was received by the server and an error was returned.
+`$PSObject.errors` is populated when a request was received by the server and an error was returned:
 
 ```powershell
 PS> $HostIds.errors
