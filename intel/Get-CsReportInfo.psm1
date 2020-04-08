@@ -20,7 +20,7 @@ function Get-CsReportInfo {
 
     .PARAMETER FIELD
         The fields to return, or a predefined set of fields in the form of the collection
-        name surrounded by two underscores [Default: __basic__]
+        name surrounded by two underscores [Default: '__basic__']
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]

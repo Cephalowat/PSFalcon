@@ -4,7 +4,7 @@ function Get-CsRuleInfo {
         Retrieve details for rule sets
 
     .PARAMETER ID
-        The IDs of rules to return
+        IDs of rules to return
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

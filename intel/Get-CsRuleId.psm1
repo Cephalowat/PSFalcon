@@ -4,7 +4,7 @@ function Get-CsRuleId {
         Search for rule IDs
 
     .PARAMETER TYPE
-        The rule news report type [Default: 'yara-master']
+        The rule news report type
 
     .PARAMETER NAME
         Search by rule title
