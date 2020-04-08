@@ -1,10 +1,10 @@
 # Add-CsUser
 Create a new user
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#create-a-new-user)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/CreateUser)**
 
-## Parameters
+### Parameters
 
 `-Username`: The user's email address (or username)
 
@@ -12,7 +12,7 @@ Create a new user
 
 `-Last`: The user's last name
 
-## Example
+### Example
 ```powershell
 PS> Add-CsUser -Username <string> -First <string> -Last <string>
 ```
@@ -20,16 +20,16 @@ PS> Add-CsUser -Username <string> -First <string> -Last <string>
 # Add-CsUserRole
 Assign one or more roles to an existing user
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#assign-a-role-to-a-user)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/GrantUserRoleIds)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of a user
 
 `-Role`: An array of one or more roles to assign to the user
 
-## Example
+### Example
 ```powershell
 PS> Add-CsUserRole -Id <string> -Role @(<string>, <string>)
 ```
@@ -37,10 +37,10 @@ PS> Add-CsUserRole -Id <string> -Role @(<string>, <string>)
 # Edit-CsUser
 Modify an existing user's first or last name
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#modify-an-existing-user)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/UpdateUser)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of a user
 
@@ -48,7 +48,7 @@ Modify an existing user's first or last name
 
 `-Last`: The user's last name
 
-## Example
+### Example
 ```powershell
 PS> Edit-CsUser -Id <string> -Last <string>
 ```
@@ -56,10 +56,10 @@ PS> Edit-CsUser -Id <string> -Last <string>
 # Get-CsRole
 List all roles available in your account
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#find-all-roles-available-in-your-customer-account)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/GetAvailableRoleIds)**
 
-## Example
+### Example
 ```powershell
 PS> Get-CsRole
 ```
@@ -67,14 +67,14 @@ PS> Get-CsRole
 # Get-CsUserId
 Retrieve all User Ids in your account, or an Id for a specific Username
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#find-existing-users)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/RetrieveUserUUID)**
 
-## Parameters
+### Parameters
 
 `-Username`: This is usually the user’s email address, but may vary based on your configuration
 
-## Example
+### Example
 ```powershell
 PS> Get-CsUserId
 ```
@@ -82,14 +82,14 @@ PS> Get-CsUserId
 # Get-CsUserInfo
 Get info about user IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#find-existing-users)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/RetrieveUser)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of one or more users
 
-## Example
+### Example
 ```powershell
 PS> Get-CsUserInfo -Id @(<string>, <string>)
 ```
@@ -97,10 +97,10 @@ PS> Get-CsUserInfo -Id @(<string>, <string>)
 # Get-CsUsername
 List all usernames (typically email addresses) in your account
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#find-existing-users)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/RetrieveUserUUIDsByCID)**
 
-## Example
+### Example
 ```powershell
 PS> Get-CsUsername
 ```
@@ -108,14 +108,14 @@ PS> Get-CsUsername
 # Get-CsUserRole
 Show roles assigned to a user
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/GetRoles)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of a user
 
-## Example
+### Example
 ```powershell
 PS> Get-CsUserRole -Id <string>
 ```
@@ -123,14 +123,14 @@ PS> Get-CsUserRole -Id <string>
 # Remove-CsUser
 Delete a user permanently
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#delete-an-existing-user)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/DeleteUser)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of a user
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsUser -Id <string>
 ```
@@ -138,17 +138,17 @@ PS> Remove-CsUser -Id <string>
 # Remove-CsUserRole
 Revoke one or more roles from a user
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/87/users-and-roles-apis#revoke-a-role-from-a-user)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/user-management/RevokeUserRoleIds)**
 
-## Parameters
+### Parameters
 
 
 `-Id`: ID of a user
 
 `-Role`: An array of one or more roles to remove from the user
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsUserRole -Id <string> -Role @(<string>, <string>)
 ```

@@ -1,10 +1,10 @@
 # Get-CsActorId
 Get actor IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#actors-query-api)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelActorIds)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
@@ -14,7 +14,7 @@ Get actor IDs
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsActorId
 ```
@@ -22,10 +22,10 @@ PS> Get-CsActorId
 # Get-CsActorInfo
 Retrieve specific actors
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#actor-combined-api)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelActorEntities)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
@@ -40,7 +40,7 @@ Retrieve specific actors
 `-Field`: The fields to return, or a predefined set of fields in the form of the collection name surrounded
 by two underscores [Default: '\__basic__']
 
-## Example
+### Example
 ```powershell
 PS> Get-CsActorInfo
 ```
@@ -48,10 +48,10 @@ PS> Get-CsActorInfo
 # Get-CsIndicatorId
 Get indicators IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#indicator-query-api)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelIndicatorIds)**
 
-## Parameters
+### Parameters
 
 `-Deleted`: If $true, include both published and deleted indicators in the response [Default: $false]
 
@@ -63,7 +63,7 @@ Get indicators IDs
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsIndicatorId
 ```
@@ -71,10 +71,10 @@ PS> Get-CsIndicatorId
 # Get-CsIndicatorInfo
 Retrieve info about specific indicators
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#indicator-combined-api)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelIndicatorEntities)**
 
-## Parameters
+### Parameters
 
 `-Deleted`: If $true, include both published and deleted indicators in the response [Default: $false]
 
@@ -88,7 +88,7 @@ Retrieve info about specific indicators
 
 `-Id`: IDs of specific indicators to return
 
-## Example
+### Example
 ```powershell
 PS> Get-CsIndicatorInfo
 ```
@@ -96,10 +96,10 @@ PS> Get-CsIndicatorInfo
 # Get-CsReportId
 Get report IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#reports-query-API)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelReportIds)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
@@ -109,7 +109,7 @@ Get report IDs
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsReportId
 ```
@@ -117,10 +117,10 @@ PS> Get-CsReportId
 # Get-CsReportInfo
 Retrieve info about specific reports
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#reports-combined-api)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelReportEntities)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
@@ -135,7 +135,7 @@ Retrieve info about specific reports
 `-Field`: The fields to return, or a predefined set of fields in the form of the collection name surrounded
 by two underscores [Default: '\__basic__']
 
-## Example
+### Example
 ```powershell
 PS> Get-CsReportInfo
 ```
@@ -143,10 +143,10 @@ PS> Get-CsReportInfo
 # Get-CsRuleId
 Search for rule IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#how-the-rules-api-works)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/QueryIntelRuleIds)**
 
-## Parameters
+### Parameters
 
 `-Type`: The rule news report type
 
@@ -166,7 +166,7 @@ Search for rule IDs
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsRuleId -Type <string>
 ```
@@ -174,14 +174,14 @@ PS> Get-CsRuleId -Type <string>
 # Get-CsRuleInfo
 Retrieve details for rule sets
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#how-the-rules-api-works)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/GetIntelRuleEntities)**
 
-## Parameters
+### Parameters
 
 `-Id`: IDs of rules to return
 
-## Example
+### Example
 ```powershell
 PS> Get-CsRuleInfo -Id @(<string>, <string>)
 ```
@@ -189,16 +189,16 @@ PS> Get-CsRuleInfo -Id @(<string>, <string>)
 # Receive-CsReport
 Download a CrowdStrike Intel Report PDF
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/GetIntelReportPDF)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of the report
 
 `-Path`: Destination path
 
-## Example
+### Example
 ```powershell
 PS> Receive-CsReport -Id <string> -Path <string>
 ```
@@ -206,10 +206,10 @@ PS> Receive-CsReport -Id <string> -Path <string>
 # Receive-CsRuleSet
 Download the latest rule set by type, or specific rule set by id
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/72/intel-apis#download-the-latest-rule-set)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/intel/GetLatestIntelRuleFile)**
 
-## Parameters
+### Parameters
 
 `-Type`: Type of rule set
 
@@ -219,7 +219,7 @@ Download the latest rule set by type, or specific rule set by id
 
 `-Path`: Destination path
 
-## Example
+### Example
 ```powershell
 PS> Receive-CsRuleSet -Type <string> -Path <string>
 ```

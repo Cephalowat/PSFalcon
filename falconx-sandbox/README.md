@@ -1,10 +1,10 @@
 # Get-FXReportId
 Find sandbox reports
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#find-malware-samples-or-sandbox-reports)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/QueryReports)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Optional filter and sort criteria in the form of an FQL query
 
@@ -12,7 +12,7 @@ Find sandbox reports
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-FXReportId
 ```
@@ -20,14 +20,14 @@ PS> Get-FXReportId
 # Get-FXReportInfo
 Get a short summary version of a sandbox report
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#find-malware-samples-or-sandbox-reports)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/GetSummaryReports)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of one or more summaries
 
-## Example
+### Example
 ```powershell
 PS> Get-FXReportInfo -Id @(<string>, <string>)
 ```
@@ -35,10 +35,10 @@ PS> Get-FXReportInfo -Id @(<string>, <string>)
 # Get-FXSubmissionId
 Find submission IDs for uploaded files
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/QuerySubmissions)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Optional filter and sort criteria in the form of an FQL query
 
@@ -46,7 +46,7 @@ Find submission IDs for uploaded files
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-FXSubmissionId
 ```
@@ -54,14 +54,14 @@ PS> Get-FXSubmissionId
 # Get-FXSubmissionInfo
 Check the status of a sandbox analysis
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/GetSubmissions)**
 
-## Parameters
+### Parameters
 
 `-Id`: Id of a submitted malware sample
 
-## Example
+### Example
 ```powershell
 PS> Get-FXSubmissionInfo -Id @(<string>, <string>)
 ```
@@ -69,10 +69,10 @@ PS> Get-FXSubmissionInfo -Id @(<string>, <string>)
 # Get-FXQuota
 Get your current Falcon X quota status
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#check-your-submission-quota)**
 
-## Example
+### Example
 ```powershell
 PS> Get-FXQuota
 ```
@@ -80,10 +80,10 @@ PS> Get-FXQuota
 # New-FXSample
 Upload a file for sandbox analysis
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/UploadSampleV2)**
 
-## Parameters
+### Parameters
 
 `-Path`: The full path to the file to upload
 
@@ -91,7 +91,7 @@ Upload a file for sandbox analysis
 
 `-Confidential`: Defines visibility of this file in Falcon MalQuery [Default: True]
 
-## Example
+### Example
 ```powershell
 PS> New-FXSample -Path <string>
 ```
@@ -99,10 +99,10 @@ PS> New-FXSample -Path <string>
 # Receive-FXArtifact
 Download IOC packs, PCAP files, and other analysis artifacts
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#download-reports,-ioc-packs,-and-pcap-files)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/GetArtifacts)**
 
-## Parameters
+### Parameters
 
 `-Id`: ID of an artifact, such as an IOC pack, PCAP file or actor image
 
@@ -110,7 +110,7 @@ Download IOC packs, PCAP files, and other analysis artifacts
 
 `-Name`: The name given to your downloaded file
 
-## Example
+### Example
 ```powershell
 PS> Receive-FXArtifact -Id <string> -Path <string>
 ```
@@ -119,14 +119,14 @@ PS> Receive-FXArtifact -Id <string> -Path <string>
 Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is
 usually less than 15 minutes
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/Submit)**
 
-## Parameters
+### Parameters
 
 `-Sandbox`: An array of Sandbox submission properties
 
-## Example
+### Example
 ```powershell
 PS> Submit-FXSample -Sandbox @(@{})
 ```

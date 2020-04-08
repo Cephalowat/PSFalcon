@@ -1,10 +1,10 @@
 # Get-FSVulnId
 Search for Vulnerabilities in your environment
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/98/spotlight-apis#find-vulnerabilities)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/spotlight-vulnerabilities/queryVulnerabilities)**
 
-## Parameters
+### Parameters
 
 `-Filter`: Filter items using a query in Falcon Query Language (FQL) [Default: Created in last 24 hours]
 
@@ -12,7 +12,7 @@ Search for Vulnerabilities in your environment
 
 `-After`: The pagination token to continue results after an initial request
 
-## Example
+### Example
 ```powershell
 PS> Get-FSVulnId
 ```
@@ -20,14 +20,14 @@ PS> Get-FSVulnId
 # Get-FSVulnInfo
 Get details on vulnerabilities by providing one or more IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/98/spotlight-apis#find-vulnerabilities)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/spotlight-vulnerabilities/getVulnerabilities)**
 
-## Parameters
+### Parameters
 
 `-Id`: One or more vulnerability IDs
 
-## Example
+### Example
 ```powershell
 PS> Get-FSVulnInfo -Id @(<string>, <string>)
 ```

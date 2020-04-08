@@ -1,10 +1,10 @@
 # Confirm-RtrBatch
 Batch refresh a RTR session on multiple hosts
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#send-real-time-response-commands-to-a-batch-of-hosts)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/BatchRefreshSessions)**
 
-## Parameters
+### Parameters
 
 `-Id`: Batch ID to execute the command on
 
@@ -13,7 +13,7 @@ Batch refresh a RTR session on multiple hosts
 `-Remove`: An array of agent IDs to remove from the batch session. Heartbeats will no longer happen on these
 hosts and the sessions will expire
 
-## Example
+### Example
 ```powershell
 PS> Confirm-RtrBatch -Id <string>
 ```
@@ -21,16 +21,16 @@ PS> Confirm-RtrBatch -Id <string>
 # Confirm-RtrGetFile
 Retrieves the status of the specified batch get command
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/BatchGetCmdStatus)**
 
-## Parameters
+### Parameters
 
 `-Id`: Batch Get Command Request ID received from
 
 `-Timeout`: Time to wait for the command request in seconds [default: 30, maximum 600]
 
-## Example
+### Example
 ```powershell
 PS> Confirm-RtrGetFile -Id <string>
 ```
@@ -38,10 +38,10 @@ PS> Confirm-RtrGetFile -Id <string>
 # Get-RtrCloudFileId
 Get a list of 'put' file IDs that are available to the user for the 'put' command
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#find-and-get-info-on-an-existing-real-time-response-file)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_ListPut_Files)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -49,7 +49,7 @@ Get a list of 'put' file IDs that are available to the user for the 'put' comman
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-RtrCloudFileId
 ```
@@ -57,14 +57,14 @@ PS> Get-RtrCloudFileId
 # Get-RtrCloudFileInfo
 Get 'put' files based on the ID's given
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#find-and-get-info-on-an-existing-real-time-response-file)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_GetPut_Files)**
 
-## Parameters
+### Parameters
 
 `-Id`: File IDs
 
-## Example
+### Example
 ```powershell
 PS> Get-RtrCloudFileInfo -Id @(<string>, <string>)
 ```
@@ -72,10 +72,10 @@ PS> Get-RtrCloudFileInfo -Id @(<string>, <string>)
 # Get-RtrCloudScriptId
 Get a list of custom-script ID's that are available to the user for the 'runscript' command
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#find-and-get-info-on-an-existing-real-time-response-script)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_ListScripts)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -83,7 +83,7 @@ Get a list of custom-script ID's that are available to the user for the 'runscri
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-RtrCloudScriptId
 ```
@@ -91,14 +91,14 @@ PS> Get-RtrCloudScriptId
 # Get-RtrCloudScriptInfo
 Get custom-scripts based on the ID's given
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#find-and-get-info-on-an-existing-real-time-response-script)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_GetScripts)**
 
-## Parameters
+### Parameters
 
 `-Id`: Script IDs
 
-## Example
+### Example
 ```powershell
 PS> Get-RtrCloudScriptInfo -Id @(<string>, <string>)
 ```
@@ -106,10 +106,10 @@ PS> Get-RtrCloudScriptInfo -Id @(<string>, <string>)
 # New-RtrCloudFile
 Upload a new put-file to use for the RTR 'put' command
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#create-a-new-real-time-response-file)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_CreatePut_Files)**
 
-## Parameters
+### Parameters
 
 `-Path`: Full path to the file to upload
 
@@ -119,7 +119,7 @@ Upload a new put-file to use for the RTR 'put' command
 
 `-Comment`: The audit log comment
 
-## Example
+### Example
 ```powershell
 PS> New-RtrCloudFile -Path <string> -Description <string>
 ```
@@ -127,10 +127,10 @@ PS> New-RtrCloudFile -Path <string> -Description <string>
 # New-RtrCloudScript
 Upload a new custom-script to use for the RTR 'runscript' command
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#create-a-new-real-time-response-script)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_CreateScripts)**
 
-## Parameters
+### Parameters
 
 `-Path`: Full path to the script you wish to upload
 
@@ -142,7 +142,7 @@ Upload a new custom-script to use for the RTR 'runscript' command
 
 `-Comment`: The audit log comment
 
-## Example
+### Example
 ```powershell
 PS> New-RtrCloudScript -Path <string> -Permission <string> -Description <string>
 ```
@@ -150,10 +150,10 @@ PS> New-RtrCloudScript -Path <string> -Permission <string> -Description <string>
 # Receive-RtrGetFile
 Get RTR extracted file contents for specified session and sha256
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/RTR_GetExtractedFileContents)**
 
-## Parameters
+### Parameters
 
 `-Id`: RTR Session Id
 
@@ -161,7 +161,7 @@ Get RTR extracted file contents for specified session and sha256
 
 `-Path`: Destination path
 
-## Example
+### Example
 ```powershell
 PS> Receive-RtrGetFile -Id <string> -Hash <string> -Path <string>
 ```
@@ -169,14 +169,14 @@ PS> Receive-RtrGetFile -Id <string> -Hash <string> -Path <string>
 # Remove-RtrCloudFile
 Delete a 'put' file based on the ID given
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#delete-an-existing-real-time-response-file)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_DeletePut_Files)**
 
-## Parameters
+### Parameters
 
 `-Id`: File ID
 
-## Example
+### Example
 ```powershell
 PS> Remove-RtrCloudFile -Id <string>
 ```
@@ -184,14 +184,14 @@ PS> Remove-RtrCloudFile -Id <string>
 # Remove-RtrCloudScript
 Delete a custom-script based on the ID given
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#delete-an-existing-real-time-response-script)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response-admin/RTR_DeleteScripts)**
 
-## Parameters
+### Parameters
 
 `-Id`: Script ID
 
-## Example
+### Example
 ```powershell
 PS> Remove-RtrCloudScript -Id <string>
 ```
@@ -199,10 +199,10 @@ PS> Remove-RtrCloudScript -Id <string>
 # Send-RtrCommand
 Batch executes a RTR command across the hosts mapped to the given batch ID
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#send-real-time-response-commands-to-a-batch-of-hosts)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/BatchCmd)**
 
-## Parameters
+### Parameters
 
 `-Id`: Batch ID to execute the command on
 
@@ -215,7 +215,7 @@ Batch executes a RTR command across the hosts mapped to the given batch ID
 `-Optional`: List of a subset of hosts we want to run the command on. If this list is supplied, only
 these hosts will receive the command
 
-## Example
+### Example
 ```powershell
 PS> Send-RtrCommand -Id <string> -Command <string> -String <string>
 ```
@@ -223,10 +223,10 @@ PS> Send-RtrCommand -Id <string> -Command <string> -String <string>
 # Send-RtrGetCommand
 Batch executes 'get' command across hosts to retrieve files
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#send-real-time-response-commands-to-a-batch-of-hosts)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/BatchGetCmd)**
 
-## Parameters
+### Parameters
 
 `-Id`: Batch ID to execute the command on
 
@@ -237,7 +237,7 @@ Batch executes 'get' command across hosts to retrieve files
 `-Optional`: List of a subset of hosts we want to run the command on. If this list is supplied, only
 these hosts will receive the command
 
-## Example
+### Example
 ```powershell
 PS> Send-RtrGetCommand -Id <string> -Path <string>
 ```
@@ -245,10 +245,10 @@ PS> Send-RtrGetCommand -Id <string> -Path <string>
 # Start-RtrBatch
 Batch initialize a RTR session on multiple hosts
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/90/real-time-response-apis#send-real-time-response-commands-to-a-batch-of-hosts)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/real-time-response/BatchInitSessions)**
 
-## Parameters
+### Parameters
 
 `-Id`: List of host agent IDs to initialize a RTR session on
 
@@ -257,7 +257,7 @@ add them to an existing batch
 
 `-Timeout`: Time to wait for the command request to complete, in seconds [default: 30, maximum 600]
 
-## Example
+### Example
 ```powershell
 PS> Start-RtrBatch -Id @(<string>, <string>)
 ```

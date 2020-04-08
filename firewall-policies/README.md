@@ -1,16 +1,16 @@
 # Add-CsFirewallGroup
 Add a Host Group to a Firewall policy
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/performFirewallPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Firewall Policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Add-CsFirewallGroup -Id <string> -Group <string>
 ```
@@ -18,14 +18,14 @@ PS> Add-CsFirewallGroup -Id <string> -Group <string>
 # Disable-CsFirewallPolicy
 Disable Firewall policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/performFirewallPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Firewall policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Disable-CsFirewallPolicy -Id @(<string>, <string>)
 ```
@@ -33,14 +33,14 @@ PS> Disable-CsFirewallPolicy -Id @(<string>, <string>)
 # Edit-CsFirewallPolicy
 Update Firewall Policies by specifying the ID of the policy and details to update
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/updateFirewallPolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Firewall policy properties
 
-## Example
+### Example
 ```powershell
 PS> Edit-CsFirewallPolicy -Resources @(@{ id = <string>; name = <string>; description = <string> })
 ```
@@ -48,14 +48,14 @@ PS> Edit-CsFirewallPolicy -Resources @(@{ id = <string>; name = <string>; descri
 # Enable-CsFirewallPolicy
 Enable Firewall policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/performFirewallPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Firewall policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Enable-CsFirewallPolicy -Id @(<string>, <string>)
 ```
@@ -63,10 +63,10 @@ PS> Enable-CsFirewallPolicy -Id @(<string>, <string>)
 # Get-CsFirewallMemberId
 Search for members of a Firewall policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/queryFirewallPolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Firewall policy to search for members of
 
@@ -76,7 +76,7 @@ Search for members of a Firewall policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsFirewallMemberId -Id <string>
 ```
@@ -84,10 +84,10 @@ PS> Get-CsFirewallMemberId -Id <string>
 # Get-CsFirewallMemberInfo
 Search for details about members of a Firewall policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/queryCombinedFirewallPolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Firewall policy to search for members of
 
@@ -97,7 +97,7 @@ Search for details about members of a Firewall policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsFirewallMemberInfo -Id <string>
 ```
@@ -105,10 +105,10 @@ PS> Get-CsFirewallMemberInfo -Id <string>
 # Get-CsFirewallPolicyId
 Search for Firewall policies in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/queryFirewallPolicies)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -116,7 +116,7 @@ Search for Firewall policies in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsFirewallPolicyId
 ```
@@ -124,10 +124,10 @@ PS> Get-CsFirewallPolicyId
 # Get-CsFirewallPolicyInfo
 Search for info about Firewall policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/queryCombinedFirewallPolicies)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of specific Firewall policies to return
 
@@ -137,7 +137,7 @@ Search for info about Firewall policies
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsFirewallPolicyInfo
 ```
@@ -145,14 +145,14 @@ PS> Get-CsFirewallPolicyInfo
 # New-CsFirewallPolicy
 Create Firewall policies by specifying details about the policy to create
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/createFirewallPolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Firewall policy properties
 
-## Example
+### Example
 ```powershell
 PS> New-CsFirewallPolicy -Resources @(@{ name = <string>; platform_name = <string> })
 ```
@@ -160,16 +160,16 @@ PS> New-CsFirewallPolicy -Resources @(@{ name = <string>; platform_name = <strin
 # Remove-CsFirewallGroup
 Remove a Host Group from a Firewall policy
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/performFirewallPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Firewall policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsFirewallGroup -Id <string> -Group <string>
 ```
@@ -177,14 +177,14 @@ PS> Remove-CsFirewallGroup -Id <string> -Group <string>
 # Remove-CsFirewallPolicy
 Delete a set of Firewall policies by specifying their IDs
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/deleteFirewallPolicies)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of the Firewall policies to delete
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsFirewallPolicy -Id @(<string>, <string>)
 ```
@@ -192,14 +192,14 @@ PS> Remove-CsFirewallPolicy -Id @(<string>, <string>)
 # Set-CsFirewallPrecedence
 Sets the precedence of Firewall policies based on the order of IDs specified in the request
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-policies/setFirewallPoliciesPrecedence)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Firewall policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Set-CsFirewallPrecedence -Id @(<string>, <string>)
 ```

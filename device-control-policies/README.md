@@ -1,16 +1,16 @@
 # Add-FDCGroup
 Add a host group to a Device Control policy
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/performDeviceControlPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Device Control Policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Add-FDCGroup -Id <string> -Group <string>
 ```
@@ -18,14 +18,14 @@ PS> Add-FDCGroup -Id <string> -Group <string>
 # Disable-FDCPolicy
 Disable Device Control policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/performDeviceControlPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Device Control policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Disable-FDCPolicy -Id @(<string>, <string>)
 ```
@@ -33,14 +33,14 @@ PS> Disable-FDCPolicy -Id @(<string>, <string>)
 # Edit-FDCPolicy
 Update Device Control Policies by specifying the ID of the policy and details to update
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/updateDeviceControlPolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Device Control policy properties
 
-## Example
+### Example
 ```powershell
 PS> Edit-FDCPolicy -Resources @(@{ id = <string>; name = <string>; description = <string> })
 ```
@@ -48,14 +48,14 @@ PS> Edit-FDCPolicy -Resources @(@{ id = <string>; name = <string>; description =
 # Enable-FDCPolicy
 Enable Device Control policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/performDeviceControlPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Device Control policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Enable-FDCPolicy -Id @(<string>, <string>)
 ```
@@ -63,10 +63,10 @@ PS> Enable-FDCPolicy -Id @(<string>, <string>)
 # Get-FDCMemberId
 Search for members of a Device Control Policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/queryDeviceControlPolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Device Control policy to search for members of
 
@@ -76,7 +76,7 @@ Search for members of a Device Control Policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-FDCMemberId -Id <string>
 ```
@@ -84,10 +84,10 @@ PS> Get-FDCMemberId -Id <string>
 # Get-FDCMemberInfo
 Search for details about members of a Device Control policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/queryCombinedDeviceControlPolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Device Control policy to search for members of
 
@@ -97,7 +97,7 @@ Search for details about members of a Device Control policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-FDCMemberInfo -Id <string>
 ```
@@ -105,10 +105,10 @@ PS> Get-FDCMemberInfo -Id <string>
 # Get-FDCPolicyId
 Search for Device Control policies in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/queryDeviceControlPolicies)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -116,7 +116,7 @@ Search for Device Control policies in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-FDCPolicyId
 ```
@@ -124,10 +124,10 @@ PS> Get-FDCPolicyId
 # Get-FDCPolicyInfo
 Search for info about Device Control policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/queryCombinedDeviceControlPolicies)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of specific Device Control policies to return
 
@@ -138,7 +138,7 @@ Search for info about Device Control policies
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
 
-## Example
+### Example
 ```powershell
 PS> Get-FDCPolicyInfo
 ```
@@ -146,14 +146,14 @@ PS> Get-FDCPolicyInfo
 # New-FDCPolicy
 Create Device Control policies by specifying details about the policy to create
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/createDeviceControlPolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Device Control policy properties
 
-## Example
+### Example
 ```powershell
 PS> New-FDCPolicy -Resources @(@{ name = <string>; platform_name = <string> })
 ```
@@ -161,16 +161,16 @@ PS> New-FDCPolicy -Resources @(@{ name = <string>; platform_name = <string> })
 # Remove-FDCGroup
 Remove a Host Group from a Device Control policy
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/performDeviceControlPoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Device Control policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Remove-FDCGroup -Id <string> -Group <string>
 ```
@@ -178,14 +178,14 @@ PS> Remove-FDCGroup -Id <string> -Group <string>
 # Remove-FDCPolicy
 Delete a set of Device Control policies by specifying their IDs
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/deleteDeviceControlPolicies)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of the Device Control policies to delete
 
-## Example
+### Example
 ```powershell
 PS> Remove-FDCPolicy -Id @(<string>, <string>)
 ```
@@ -193,16 +193,16 @@ PS> Remove-FDCPolicy -Id @(<string>, <string>)
 # Set-FDCPrecedence
 Sets the precedence of Device Control policies based on the order of IDs specified in the request
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/device-control-policies/setDeviceControlPoliciesPrecedence)**
 
-## Parameters
+### Parameters
 
 `-Platform`: The operating system platform the Device Control policies are assigned to
 
 `-Id`: An array of one or more Device Control policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Set-FDCPrecedence -Platform <string> -Id @(<string>, <string>)
 ```
