@@ -38,8 +38,11 @@ host                           <string>
 **WARNING**: Using the optional `-Id` and `-Secret` parameters with `Get-CsToken` will result in your API
 credentials being displayed in plain text. This could expose them to a third party.
 
+Once a valid OAuth2 token is received, it is cached under `$Falcon` with your credentials. Your cached
+token will be checked and refreshed when needed while running PSFalcon commands.
+
 If you need to choose a different cloud or use a proxy when making requests, you will need to issue a manual
-`Get-CsToken` command at the beginning of your PowerShell session.
+`Get-CsToken` command with the appropriate parameters at the beginning of your PowerShell session.
 
 ### Choosing a Cloud
 
@@ -51,9 +54,6 @@ destination. Your choice is saved in `$Falcon` and all requests will be sent to 
 
 The `-Proxy` parameter can be added to a token request to define a proxy. Your choice is saved in `$Falcon`
 and all requests will be directed to your proxy until a new `Get-CsToken` request is made.
-
-Once a valid OAuth2 token is received, it is cached under `$Falcon` with your credentials. Your cached
-token will be checked and refreshed when needed while running PSFalcon commands.
 
 # Commands
 
