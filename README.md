@@ -77,7 +77,7 @@ and all requests will be directed to your proxy until a new `Get-CsToken` reques
 
 **[CrowdStrike Falcon Host Group API](/host-group)**
 
-### Installer Downloads
+### Installers
 
 **[CrowdStrike Falcon Sensor Download API](/sensor-download)**
 
