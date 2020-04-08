@@ -48,6 +48,7 @@ function Get-CsSensorPolicyInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/policy/entities/sensor-update/v2?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

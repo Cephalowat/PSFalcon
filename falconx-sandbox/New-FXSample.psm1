@@ -39,6 +39,7 @@ function New-FXSample {
         switch ($PSBoundParameters.Keys) {
             'Comment' { $Param.Uri += '&comment=' + $Comment }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

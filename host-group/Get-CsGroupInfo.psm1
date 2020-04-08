@@ -48,6 +48,7 @@ function Get-CsGroupInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/devices/entities/host-groups/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

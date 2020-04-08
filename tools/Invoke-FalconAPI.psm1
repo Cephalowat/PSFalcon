@@ -104,11 +104,27 @@ function Invoke-FalconAPI {
         }
         # Check for rate limiting
         if ($Response.'X-Ratelimit-RetryAfter') {
-            $Wait = (([int] ([string] $Response.'X-Ratelimit-RetryAfter')) - ([int] (Get-Date -UFormat %s)))
+            $Wait = (([int] $Response.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
 
-        Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
+            Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
 
-        Start-Sleep -Seconds $Wait
+            Start-Sleep -Seconds $Wait
+        }
+        # Add response headers for verbose and debug
+        if (($PSBoundParameters.Verbose -eq $true) -or ($PSBoundParameters.Debug -eq $true)) {
+            $Output | Add-Member -MemberType NoteProperty -Name header -Value $Response
+        }
+        # Output json of result and include inputs for debug
+        if (($PSBoundParameters.Debug -eq $true) -and ($Output)) {
+            $Output | Add-Member -MemberType NoteProperty -Name PSFalcon -Value ([PSCustomObject] @{
+                uri = $Param.Uri
+                method = $Param.Method
+                accept = $Param.Header.accept
+                'content-type' = $Param.Header.'content-type'
+                body = $Param.Body
+                form = $Param.Form
+            })
+            $Output | ConvertTo-Json -Depth 32 | Out-File -FilePath ('.\' + $Output.meta.trace_id + '.json')
         }
     }
     end {

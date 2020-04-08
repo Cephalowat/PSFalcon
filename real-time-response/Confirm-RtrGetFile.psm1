@@ -17,6 +17,7 @@ function Confirm-RtrGetFile {
         [string]
         $Id,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30
     )
@@ -32,6 +33,7 @@ function Confirm-RtrGetFile {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

@@ -69,6 +69,7 @@ function Get-CsActorInfo {
                 '&fields=' + ($Field -join '&fields=')
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

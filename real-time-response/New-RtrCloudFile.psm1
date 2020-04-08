@@ -4,7 +4,7 @@ function New-RtrCloudFile {
         Upload a new put-file to use for the RTR 'put' command
 
     .PARAMETER PATH
-        The full path to the file to upload
+        Full path to the file to upload
 
     .PARAMETER DESCRIPTION
         File description
@@ -49,6 +49,7 @@ function New-RtrCloudFile {
             'Name' { $Param.Form['name'] = $Name }
             'Comment' { $Param.Form['comments_for_audit_log'] = $Comment }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

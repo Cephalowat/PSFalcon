@@ -49,6 +49,7 @@ function Get-FDAwsAccountInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/cloud-connect-aws/entities/accounts/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

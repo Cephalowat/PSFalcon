@@ -51,6 +51,7 @@ function Get-CsInstallerInfo {
                 $Param['Uri'] = '/sensors/entities/installers/v1?ids=' + ($Id -join '&ids=')
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

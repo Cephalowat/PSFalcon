@@ -25,6 +25,7 @@ function Edit-CsDetect {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

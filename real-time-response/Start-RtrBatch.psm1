@@ -24,6 +24,7 @@ function Start-RtrBatch {
         [string]
         $Existing,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30
     )
@@ -40,6 +41,7 @@ function Start-RtrBatch {
         switch ($PSBoundParameters.Keys) {
             'Existing' { $Param.Body['existing_batch_id'] = $Existing }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

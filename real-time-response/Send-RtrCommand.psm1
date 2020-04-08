@@ -77,6 +77,7 @@ function Send-RtrCommand {
             'Timeout' { $Param.Uri += '?timeout=' + [string] $Timeout + 's' }
             'Optional' { $Param.Body['optional_hosts'] = $Optional }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

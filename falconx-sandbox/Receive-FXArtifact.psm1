@@ -40,6 +40,7 @@ function Receive-FXArtifact {
         switch ($PSBoundParameters.Keys) {
             'Name' { $Param.Uri += ("&name=" + $Name) }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

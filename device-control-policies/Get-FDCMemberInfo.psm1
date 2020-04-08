@@ -46,6 +46,7 @@ function Get-FDCMemberInfo {
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

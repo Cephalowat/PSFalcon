@@ -53,6 +53,7 @@ function Receive-CsRuleSet {
                 $Param.Uri = '/intel/entities/rules-files/v1?id=' + $Id + '&format=' + $Format
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

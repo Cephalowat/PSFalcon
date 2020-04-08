@@ -4,7 +4,7 @@ function Get-RtrCloudScriptInfo {
         Get custom-scripts based on the ID's given
 
     .PARAMETER ID
-        File IDs
+        Script IDs
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -24,6 +24,7 @@ function Get-RtrCloudScriptInfo {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

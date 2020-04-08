@@ -48,6 +48,7 @@ function Get-CsPreventPolicyInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

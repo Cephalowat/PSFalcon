@@ -80,6 +80,7 @@ function Get-CsRuleId {
             'Tag' { $Param.Uri += ('&tags=' + ($Tag -join '&tags=')) }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

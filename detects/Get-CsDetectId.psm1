@@ -43,6 +43,7 @@ function Get-CsDetectId {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

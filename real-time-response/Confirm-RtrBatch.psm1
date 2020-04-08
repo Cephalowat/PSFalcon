@@ -21,6 +21,7 @@ function Confirm-RtrBatch {
         [string]
         $Id,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30,
 
@@ -40,6 +41,7 @@ function Confirm-RtrBatch {
         switch ($PSBoundParameters.Keys) {
             'Remove' { $Param.Body['hosts_to_remove'] }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

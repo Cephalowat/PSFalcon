@@ -67,6 +67,7 @@ function Get-CsIndicatorInfo {
                 $Param['Body'] = @{ 'ids' = $Id } | ConvertTo-Json
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }
