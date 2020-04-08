@@ -77,7 +77,7 @@ Get your current Falcon X quota status
 PS> Get-FXQuota
 ```
 
-# New-FXSample - IN_DEVELOPMENT
+# New-FXSample
 Upload a file for sandbox analysis
 
 ## API References
@@ -93,7 +93,7 @@ Upload a file for sandbox analysis
 
 ## Example
 ```powershell
-PS> New-FXSample -Path <string> 
+PS> New-FXSample -Path <string>
 ```
 
 # Receive-FXArtifact
