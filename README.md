@@ -77,11 +77,9 @@ token will be checked and refreshed when needed while running PSFalcon commands.
 
 **[CrowdStrike Falcon Discover for AWS API](/cloud-connect-aws)**
 
-### Falcon X and Threat Intelligence
+### Falcon X
 
 **[CrowdStrike Falcon X Sandbox API](/falconx-sandbox)**
-
-**[CrowdStrike Threat Intelligence API](/intel)**
 
 ### Policies and Sensor Management
 
@@ -96,6 +94,10 @@ token will be checked and refreshed when needed while running PSFalcon commands.
 ### Real-time Response
 
 **[CrowdStrike Falcon Real-time Response API](/real-time-response)**
+
+### Threat Intelligence
+
+**[CrowdStrike Threat Intelligence API](/intel)**
 
 ### Users and User Management
 
