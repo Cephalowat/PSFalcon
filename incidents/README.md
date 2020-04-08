@@ -1,7 +1,7 @@
 # Edit-CsIncident
 Perform a set of actions on one or more incidents
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Get-CrowdScore
 Query CrowdScores
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-CsBehaviorId
 Search for behavior IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Get-CsBehaviorInfo
 Get details on behaviors by providing behavior IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -53,7 +53,7 @@ PS>
 # Get-CsIncidentId
 Search for incident IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -66,7 +66,7 @@ PS> $IncidentIds = (Get-CsIncidentId).resources
 # Get-CsIncidentInfo
 Get details on incidents by providing incident IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

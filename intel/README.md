@@ -1,7 +1,7 @@
 # Get-CsActorId
 Get actor IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Get-CsActorInfo
 Retrieve specific actors
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-CsIndicatorId
 Get indicators IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Get-CsIndicatorInfo
 Retrieve info about specific indicators
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -53,7 +53,7 @@ PS>
 # Get-CsReportId
 Get report IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -66,7 +66,7 @@ PS>
 # Get-CsReportInfo
 Retrieve info about specific reports
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -79,7 +79,7 @@ PS>
 # Get-CsRuleId
 Search for rule IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -92,7 +92,7 @@ PS>
 # Get-CsRuleInfo
 Retrieve details for rule sets
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -105,7 +105,7 @@ PS>
 # Receive-CsReport
 Download a CrowdStrike Intel Report PDF
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -118,7 +118,7 @@ PS>
 # Receive-CsLatestRuleSet
 Download the latest rule set by type
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -131,7 +131,7 @@ PS>
 # Receive-CsRuleSet
 Download a specific rule set
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

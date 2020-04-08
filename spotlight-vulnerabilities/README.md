@@ -1,7 +1,7 @@
 # Get-FSVulnId
 Search for Vulnerabilities in your environment
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Get-FSVulnInfo
 Get details on vulnerabilities by providing one or more IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

@@ -1,7 +1,7 @@
 # Add-CsGroupMember
 Add Hosts to a static Host Group
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Edit-CsGroup
 Update Host Groups by specifying the ID of the group and details to update
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-CsGroupId
 Search for Host Groups IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Get-CsGroupInfo
 Search for info about Host Groups
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -53,7 +53,7 @@ PS>
 # Get-CsGroupMemberId
 Search for members of a Host Group in your environment
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -66,7 +66,7 @@ PS>
 # Get-CsGroupMemberInfo
 Search for detail about members of a Host Group in your environment
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -79,7 +79,7 @@ PS>
 # New-CsGroup
 Create Host Groups by specifying details about the group to create
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -92,7 +92,7 @@ PS>
 # Remove-CsGroup
 Remove hosts from a static group
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -105,7 +105,7 @@ PS>
 # Remove-CsGroupMember
 Delete a set of Host Groups by specifying their IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
