@@ -8,10 +8,10 @@ function Send-RtrCommand {
         Batch ID to execute the command on
 
     .PARAMETER COMMAND
-        Command type to execute
+        Command to execute
 
     .PARAMETER STRING
-        Command string (that follows the 'base command')
+        Command string (text that follows the 'base command')
 
     .PARAMETER TIMEOUT
         Time to wait for the command request in seconds [default: 30, maximum 600]
