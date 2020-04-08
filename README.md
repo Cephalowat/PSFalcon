@@ -67,39 +67,43 @@ and all requests will be directed to your proxy until a new `Get-CsToken` reques
 
 **[CrowdStrike CrowdScore Incident API](/incidents)**
 
-### Hosts and Host Management
+### Falcon Discover
+
+**[CrowdStrike Falcon Discover for AWS API](/cloud-connect-aws)**
+
+### Hosts and Groups
 
 **[CrowdStrike Falcon Host API](/hosts)**
 
 **[CrowdStrike Falcon Host Group API](/host-group)**
 
-### Falcon Discover
+### Installer Downloads
 
-**[CrowdStrike Falcon Discover for AWS API](/cloud-connect-aws)**
+**[CrowdStrike Falcon Sensor Download API](/sensor-download)**
 
-### Falcon X
-
-**[CrowdStrike Falcon X Sandbox API](/falconx-sandbox)**
-
-### Policies and Sensor Management
+### Policies
 
 **[CrowdStrike Falcon Device Control Policy API](/device-control-policies)**
+
+**[CrowdStrike Falcon Firewall Management Policy API](/firewall-policies)**
 
 **[CrowdStrike Falcon Prevention Policy API](/prevention-policies)**
 
 **[CrowdStrike Falcon Sensor Update Policy API](/sensor-update-policies)**
 
-**[CrowdStrike Falcon Sensor Download API](/sensor-download)**
-
 ### Real-time Response
 
 **[CrowdStrike Falcon Real-time Response API](/real-time-response)**
+
+### Sandbox
+
+**[CrowdStrike Falcon X Sandbox API](/falconx-sandbox)**
 
 ### Threat Intelligence
 
 **[CrowdStrike Threat Intelligence API](/intel)**
 
-### Users and User Management
+### User Management
 
 **[CrowdStrike Falcon User Management API](/user-management)**
 
