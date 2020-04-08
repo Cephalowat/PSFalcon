@@ -15,24 +15,29 @@ function Get-CsInstallerInfo {
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0] (when hashes are not provided)
 #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
     param(
+        [Parameter(ParameterSetName = 'entities')]
         [array]
         $Id,
-
+        
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Filter,
 
+        [Parameter(ParameterSetName = 'combined')]
         [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 
+        [Parameter(ParameterSetName = 'combined')]
         [int]
         $Offset = 0
     )
     process{
         $Param = @{
+            Uri = '/sensors/combined/installers/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -44,17 +49,8 @@ function Get-CsInstallerInfo {
                 $Param['Uri'] = '/sensors/entities/installers/v1?ids=' + ($Id -join '&ids=')
             }
             'Verbose' { $Param['Verbose'] = $true }
-            default { 
-                $Param['Uri'] = '/sensors/combined/installers/v1?limit=' + [string] $Limit +
-                '&offset=' + [string] $Offset
-
-                if ($Filter) {
-                    $Param.Uri += '&filter=' + $Filter
-                }
-                if ($Query) {
-                    $Param.Uri += '&q=' + $Query
-                }
-            }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Query' { $Param.Uri += '&q=' + $Query }
         }
         Invoke-FalconAPI @Param
     }
