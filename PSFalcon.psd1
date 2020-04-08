@@ -106,6 +106,20 @@ NestedModules = @(
     '.\falconx-sandbox\Receive-FXArtifact.psm1',
     '.\falconx-sandbox\Submit-FXSample.psm1',
 
+    # firewall-policies
+    '.\firewall-policies\Add-CsFirewallGroup.psm1',
+    '.\firewall-policies\Disable-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Edit-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Enable-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Get-CsFirewallMemberId.psm1',
+    '.\firewall-policies\Get-CsFirewallMemberInfo.psm1',
+    '.\firewall-policies\Get-CsFirewallPolicyId.psm1',
+    '.\firewall-policies\Get-CsFirewallPolicyInfo.psm1',
+    '.\firewall-policies\New-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Remove-CsFirewallGroup.psm1',
+    '.\firewall-policies\Remove-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Set-CsFirewallPrecedence.psm1',
+
     # host-group
     '.\host-group\Add-CsGroupMember.psm1',
     '.\host-group\Edit-CsGroup.psm1',
@@ -261,6 +275,20 @@ FunctionsToExport = @(
     'New-FXSample',
     'Receive-FXArtifact',
     'Submit-FXSample',
+
+    # firewall-policies
+    'Add-CsFirewallGroup',
+    'Disable-CsFirewallPolicy',
+    'Edit-CsFirewallPolicy',
+    'Enable-CsFirewallPolicy',
+    'Get-CsFirewallMemberId',
+    'Get-CsFirewallMemberInfo',
+    'Get-CsFirewallPolicyId',
+    'Get-CsFirewallPolicyInfo',
+    'New-CsFirewallPolicy',
+    'Remove-CsFirewallGroup',
+    'Remove-CsFirewallPolicy',
+    'Set-CsFirewallPrecedence',
 
     # host-group
     'Add-CsGroupMember',
