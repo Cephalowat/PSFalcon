@@ -193,7 +193,7 @@ PS> Remove-CsPreventPolicy -Id @(<string>, <string>)
 Sets the precedence of Prevention policies based on the order of IDs specified in the request
 
 ## API References
-**[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#manage-policy-precedence)**, **[Swagger]()**
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#manage-policy-precedence)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/prevention-policies/setPreventionPoliciesPrecedence)**
 
 ## Parameters
 
