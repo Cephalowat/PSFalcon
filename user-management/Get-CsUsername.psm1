@@ -1,7 +1,7 @@
-function Get-CsUser {
+function Get-CsUsername {
 <#
     .SYNOPSIS
-        List all users (typically email addresses) in your account
+        List all usernames (typically email addresses) in your account
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

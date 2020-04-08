@@ -143,7 +143,6 @@ NestedModules = @(
     '.\intel\Get-CsRuleId.psm1',
     '.\intel\Get-CsRuleInfo.psm1',
     '.\intel\Receive-CsReport.psm1',
-    '.\intel\Receive-CsLatestRuleSet.psm1',
     '.\intel\Receive-CsRuleSet.psm1',
 
     # oauth2
@@ -212,13 +211,14 @@ NestedModules = @(
     # user-management
     '.\user-management\Add-CsUser.psm1',
     '.\user-management\Add-CsUserRole.psm1',
+    '.\user-management\Edit-CsUser.psm1',
     '.\user-management\Get-CsRole.psm1',
-    '.\user-management\Get-CsUser.psm1',
     '.\user-management\Get-CsUserId.psm1',
     '.\user-management\Get-CsUserInfo.psm1',
+    '.\user-management\Get-CsUsername.psm1',
     '.\user-management\Get-CsUserRole.psm1',
     '.\user-management\Remove-CsUser.psm1',
-    '.\user-management\Remove-CsUserRole.psm1'#>
+    '.\user-management\Remove-CsUserRole.psm1'
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
@@ -299,7 +299,6 @@ FunctionsToExport = @(
     'Get-CsRuleId',
     'Get-CsRuleInfo',
     'Receive-CsReport',
-    'Receive-CsLatestRuleSet',
     'Receive-CsRuleSet',
 
     # oauth2
@@ -368,10 +367,11 @@ FunctionsToExport = @(
     # user-management
     'Add-CsUser',
     'Add-CsUserRole',
+    'Edit-CsUser',
     'Get-CsRole',
-    'Get-CsUser',
     'Get-CsUserId',
     'Get-CsUserInfo',
+    'Get-CsUsername',
     'Get-CsUserRole',
     'Remove-CsUser',
     'Remove-CsUserRole'
