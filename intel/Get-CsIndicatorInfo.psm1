@@ -19,7 +19,7 @@ function Get-CsIndicatorInfo {
         The offset to start retrieving records from [Default: 0]
 
     .PARAMETER ID
-        The IDs of the indicators you want to retrieve
+        IDs of specific indicators to return
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
