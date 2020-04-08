@@ -4,9 +4,9 @@ function Receive-CsReport {
         Download a CrowdStrike Intel Report PDF
 
     .PARAMETER ID
-        The ID of the report
+        ID of the report
 
-    .PARAMETER OUTPUT
+    .PARAMETER PATH
         Destination path
 #>
     [CmdletBinding()]
@@ -18,7 +18,7 @@ function Receive-CsReport {
 
         [Parameter(Mandatory=$true)]
         [string]
-        $Output
+        $Path
     )
     process{
         $Param = @{
@@ -27,7 +27,7 @@ function Receive-CsReport {
             Header = @{
                 accept = 'application/pdf'
             }
-            OutFile = $Output
+            OutFile = $Path
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

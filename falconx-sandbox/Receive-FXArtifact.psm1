@@ -6,7 +6,7 @@ function Receive-FXArtifact {
     .PARAMETER ID
         ID of an artifact, such as an IOC pack, PCAP file or actor image
 
-    .PARAMETER OUTPUT
+    .PARAMETER PATH
         Destination path
 
     .PARAMETER NAME
@@ -21,7 +21,7 @@ function Receive-FXArtifact {
 
         [Parameter(Mandatory=$true)]
         [string]
-        $Output,
+        $Path,
 
         [string]
         $Name
@@ -35,7 +35,7 @@ function Receive-FXArtifact {
                 'accept-encoding' = 'gzip'
                 'content-type' = 'application/json'
             }
-            Outfile = $Output
+            Outfile = $Path
         }
         switch ($PSBoundParameters.Keys) {
             'Name' { $Param.Uri += ("&name=" + $Name) }

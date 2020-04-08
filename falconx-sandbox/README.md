@@ -106,13 +106,13 @@ Download IOC packs, PCAP files, and other analysis artifacts
 
 `-Id`: ID of an artifact, such as an IOC pack, PCAP file or actor image
 
-`-Output`: Destination path
+`-Path`: Destination path
 
 `-Name`: The name given to your downloaded file
 
 ## Example
 ```powershell
-PS> Receive-FXArtifact -Id <string> -Output <string>
+PS> Receive-FXArtifact -Id <string> -Path <string>
 ```
 
 # Submit-FXSample

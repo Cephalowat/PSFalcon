@@ -6,7 +6,7 @@ function Receive-CsInstaller {
     .PARAMETER ID
         Falcon Sensor Installer hash
 
-    .PARAMETER OUTPUT
+    .PARAMETER PATH
         Destination path
 #>
     [CmdletBinding()]
@@ -19,7 +19,7 @@ function Receive-CsInstaller {
 
         [Parameter(Mandatory=$true)]
         [string]
-        $Output
+        $Path
     )
     process{
         $Param = @{
@@ -29,7 +29,7 @@ function Receive-CsInstaller {
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            OutFile = $Output
+            OutFile = $Path
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
