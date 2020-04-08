@@ -3,48 +3,56 @@ function Get-CsIndicatorInfo {
     .SYNOPSIS
         Retrieve info about specific indicators
 
-    .PARAMETER ID
-        The IDs of the indicators you want to retrieve
-
     .PARAMETER DELETED
         If $true, include both published and deleted indicators in the response [Default: $false]
 
     .PARAMETER FILTER
-        Filter your query by specifying FQL filter parameters (when IDs are not provided)
+        Filter your query by specifying FQL filter parameters
 
     .PARAMETER QUERY
-        Perform a generic substring search across all fields (when IDs are not provided)
+        Perform a generic substring search across all fields
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 150000] (when IDs are not provided)
+        The maximum records to return [Default: 150000]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+        The offset to start retrieving records from [Default: 0]
+
+    .PARAMETER ID
+        The IDs of the indicators you want to retrieve
 #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
     param(
-        [array]
-        $Id,
-
+        [Parameter(ParameterSetName = 'combined')]
         [boolean]
         $Deleted = $false,
 
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Filter,
 
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Query,
 
-        [ValidateRange(2,150000)]
+        [Parameter(ParameterSetName = 'combined')]
+        [ValidateRange(1,150000)]
         [int]
         $Limit = 150000,
 
+        [Parameter(ParameterSetName = 'combined')]
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [array]
+        $Id
     )
     process{
         $Param = @{
+            Uri = '/intel/combined/indicators/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset +
+            '&include_deleted=' + $Deleted
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -52,22 +60,13 @@ function Get-CsIndicatorInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Query' { $Param.Uri += '&q=' + $Query }
             'Id' { 
-                $Param['Uri'] = '/intel/entities/indicators/GET/v1'
+                $Param.Uri = '/intel/entities/indicators/GET/v1'
                 $Param['Body'] = @{ 'ids' = $Id } | ConvertTo-Json
             }
             'Verbose' { $Param['Verbose'] = $true }
-            default { 
-                $Param['Uri'] = '/intel/combined/indicators/v1?limit=' + [string] $Limit +
-                '&offset=' + [string] $Offset + '&include_deleted=' + $Deleted
-
-                if ($Filter) {
-                    $Param.Uri += '&filter=' + $Filter
-                }
-                if ($Query) {
-                    $Param.Uri += '&q=' + $Query
-                }
-            }
         }
         Invoke-FalconAPI @Param
     }

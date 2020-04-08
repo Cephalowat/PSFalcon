@@ -1,7 +1,7 @@
 # Get-CsHostId
 Search for hosts in your environment
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -19,7 +19,7 @@ PS> $HostIds = (Get-CsHostId).resources
 # Get-CsHostInfo
 Get details on one or more hosts by providing agent IDs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -33,7 +33,7 @@ PS> (Get-CsHostInfo -Id $HostIds).resources
 # Hide-CsHost
 Delete hosts. After a host is deleted, no new detections for that host will be reported in the UI or APIs
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -47,7 +47,7 @@ PS> (Hide-CsHost -Id $HostIds).resources
 # Show-CsHost
 Restore hosts. Detection reporting will resume after the host is restored
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -62,7 +62,7 @@ PS> (Show-CsHost -Id $HostIds).resources
 Contain hosts. Stops any network communication to locations other than the CrowdStrike cloud and IPs specified
 in your containment policy
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -76,7 +76,7 @@ PS> (Start-CsContain -Id $HostIds).resources
 # Stop-CsContain
 Lift containment on hosts. Returns network communications to normal
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

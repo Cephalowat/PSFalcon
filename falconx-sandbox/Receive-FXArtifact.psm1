@@ -6,11 +6,11 @@ function Receive-FXArtifact {
     .PARAMETER ID
         ID of an artifact, such as an IOC pack, PCAP file or actor image
 
-    .PARAMETER NAME
-        The name given to your downloaded file
-
     .PARAMETER OUTPUT
         Destination path
+
+    .PARAMETER NAME
+        The name given to your downloaded file
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

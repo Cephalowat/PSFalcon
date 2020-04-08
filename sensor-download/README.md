@@ -1,7 +1,7 @@
 # Get-CsCCID
 Request your Customer ID and Checksum
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Get-CsInstallerId
 Search for Falcon Sensor Installer hashes
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-CsInstallerInfo
 Search for info about Falcon Sensor Installers
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Receive-CsInstaller
 Get binary contents of specified Falcon Sensor Installer hash
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

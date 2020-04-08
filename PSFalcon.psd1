@@ -79,7 +79,6 @@ NestedModules = @(
 
     # detects
     '.\detects\Edit-CsDetect.psm1',
-    '.\detects\Get-CsDetectAggregates.psm1',
     '.\detects\Get-CsDetectId.psm1',
     '.\detects\Get-CsDetectInfo.psm1',
 
@@ -103,21 +102,9 @@ NestedModules = @(
     '.\falconx-sandbox\Get-FXReportInfo.psm1',
     '.\falconx-sandbox\Get-FXSubmissionId.psm1',
     '.\falconx-sandbox\Get-FXSubmissionInfo.psm1',
+    '.\falconx-sandbox\Get-FXQuota.psm1',
     '.\falconx-sandbox\Receive-FXArtifact.psm1',
     '.\falconx-sandbox\Submit-FXSandboxFile.psm1',
-
-
-    # firewall-management
-    '.\firewall-management\Get-FFMFieldId.psm1',
-    '.\firewall-management\Get-FFMFieldInfo.psm1',
-    '.\firewall-management\Get-FFMGroupId.psm1',
-    '.\firewall-management\Get-FFMGroupInfo.psm1',
-    '.\firewall-management\Get-FFMPlatformId.psm1',
-    '.\firewall-management\Get-FFMPlatformInfo.psm1',
-    '.\firewall-management\Get-FFMPolicyId.psm1',
-    '.\firewall-management\Get-FFMPolicyInfo.psm1',
-    '.\firewall-management\Get-FFMRuleId.psm1',
-    '.\firewall-management\Get-FFMRuleInfo.psm1',
 
     # host-group
     '.\host-group\Add-CsGroupMember.psm1',
@@ -248,7 +235,6 @@ FunctionsToExport = @(
 
     # detects
     'Edit-CsDetect',
-    'Get-CsDetectAggregates',
     'Get-CsDetectId',
     'Get-CsDetectInfo',
 
@@ -272,20 +258,9 @@ FunctionsToExport = @(
     'Get-FXReportInfo',
     'Get-FXSubmissionId',
     'Get-FXSubmissionInfo',
+    'Get-FXQuota',
     'Receive-FXArtifact',
     'Submit-FXSandboxFile',
-
-    # firewall-management
-    'Get-FFMFieldId',
-    'Get-FFMFieldInfo',
-    'Get-FFMGroupId',
-    'Get-FFMGroupInfo',
-    'Get-FFMPlatformId',
-    'Get-FFMPlatformInfo',
-    'Get-FFMPolicyId',
-    'Get-FFMPolicyInfo',
-    'Get-FFMRuleId',
-    'Get-FFMRuleInfo',
 
     # host-group
     'Add-CsGroupMember',

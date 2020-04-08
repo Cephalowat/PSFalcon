@@ -7,13 +7,13 @@ function Get-CsSensorMemberInfo {
         The ID of the Sensor Update policy to search for members of
 
     .PARAMETER FILTER
-        The filter expression that should be used to limit the results (when IDs are not provided)
+        The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 5000] (when IDs are not provided)
+        The maximum records to return [Default: 5000]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+        The offset to start retrieving records from [Default: 0]
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -26,7 +26,7 @@ function Get-CsSensorMemberInfo {
         [string]
         $Filter,
 
-        [ValidateRange(2,5000)]
+        [ValidateRange(1,5000)]
         [int]
         $Limit = 5000,
 

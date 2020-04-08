@@ -1,10 +1,7 @@
-function Get-FFMGroupInfo {
+function Get-FXQuota {
 <#
     .SYNOPSIS
-        Get rule group entities by ID
-
-    .PARAMETER ID
-        The IDs of rule groups to retrieve
+        Get your current Falcon X quota status
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -15,10 +12,11 @@ function Get-FFMGroupInfo {
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/entities/rule-groups/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/falconx/entities/submissions/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
+                'content-type' = 'application/json'
             }
         }
         switch ($PSBoundParameters.Keys) {

@@ -4,7 +4,7 @@ function Get-FXReportInfo {
         Get a short summary version of a sandbox report
 
     .PARAMETER ID
-        ID of one or more summaries. Find a summary ID with 'Get-FXSandboxId'
+        ID of one or more summaries
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

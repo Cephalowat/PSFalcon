@@ -5,7 +5,7 @@ function Get-FXSubmissionInfo {
         is usually less than 15 minutes
 
     .PARAMETER ID
-        Id of a submitted malware sample. Find a submission ID with 'Get-FXSubmissionId'
+        Id of a submitted malware sample
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

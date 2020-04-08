@@ -1,7 +1,7 @@
 # Add-CsUser
 Create a new user
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Add-CsUserRole
 Assign one or more roles to an existing user
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-CsRole
 List all roles available in your account
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Get-CsUser
 List all users (typically email addresses) in your account
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -53,7 +53,7 @@ PS>
 # Get-CsUserId
 Retrieve a user ID by providing a username (typically email address)
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -66,7 +66,7 @@ PS>
 # Get-CsUserInfo
 Get info about a user ID
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -79,7 +79,7 @@ PS>
 # Get-CsUserRole
 Show roles assigned to a user
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -92,7 +92,7 @@ PS>
 # Remove-CsUser
 Delete a user permanently
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -105,7 +105,7 @@ PS>
 # Remove-CsUserRole
 Revoke one or more roles from a user
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

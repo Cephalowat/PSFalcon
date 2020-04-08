@@ -1,7 +1,7 @@
 # Confirm-RtrBatch
 Batch refresh a RTR session on multiple hosts
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -14,7 +14,7 @@ PS>
 # Confirm-RtrGetFile
 Retrieves the status of the specified batch get command
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -27,7 +27,7 @@ PS>
 # Get-RtrCloudFileId
 Get a list of 'put' file IDs that are available to the user for the 'put' command
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -40,7 +40,7 @@ PS>
 # Get-RtrCloudFileInfo
 Get 'put' files based on the ID's given
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -53,7 +53,7 @@ PS>
 # Get-RtrCloudScriptId
 Get a list of custom-script ID's that are available to the user for the 'runscript' command
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -66,7 +66,7 @@ PS>
 # Get-RtrCloudScriptInfo
 Get custom-scripts based on the ID's given
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -79,7 +79,7 @@ PS>
 # New-RtrCloudFile
 Upload a new put-file to use for the RTR 'put' command
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -92,7 +92,7 @@ PS>
 # New-RtrCloudScript
 Upload a new custom-script to use for the RTR 'runscript' command
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -105,7 +105,7 @@ PS>
 # Receive-RtrGetFile
 Get RTR extracted file contents for specified session and sha256
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -118,7 +118,7 @@ PS>
 # Remove-RtrCloudFile
 Delete a 'put' file based on the ID given
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -131,7 +131,7 @@ PS>
 # Remove-RtrCloudScript
 Delete a custom-script based on the ID given
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -144,7 +144,7 @@ PS>
 # Send-RtrCommand
 Batch executes a RTR command across the hosts mapped to the given batch ID
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -157,7 +157,7 @@ PS>
 # Send-RtrGetCommand
 Batch executes 'get' command across hosts to retrieve files
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters
@@ -170,7 +170,7 @@ PS>
 # Start-RtrBatch
 Batch initialize a RTR session on multiple hosts
 
-## References
+## API References
 **[Documentation]()**, **[Swagger]()**
 
 ## Parameters

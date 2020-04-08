@@ -3,36 +3,41 @@ function Get-FDCPolicyInfo {
     .SYNOPSIS
         Search for info about Device Control policies
 
-    .PARAMETER ID
-        The IDs of specific Device Control policies to return
-
     .PARAMETER FILTER
-        The filter expression that should be used to limit the results (when IDs are not provided)
+        The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500] (when IDs are not provided)
+        The maximum records to return [Default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+        The offset to start retrieving records from [Default: 0]
+
+    .PARAMETER ID
+        IDs of specific Device Control policies to return
 #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
     param(
-        [array]
-        $Id,
-
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Filter,
 
-        [ValidateRange(2,500)]
+        [Parameter(ParameterSetName = 'combined')]
+        [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 
+        [Parameter(ParameterSetName = 'combined')]
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [array]
+        $Id
     )
     process{
         $Param = @{
+            Uri = '/policy/combined/device-control/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -41,16 +46,8 @@ function Get-FDCPolicyInfo {
         }
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
-            'Id' { $Param['Uri'] = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=') }
+            'Id' { $Param.Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
-            default { 
-                $Param['Uri'] = '/policy/combined/device-control/v1?limit=' + [string] $Limit +
-                '&offset=' + [string] $Offset
-
-                if ($Filter) {
-                    $Param.Uri += '&filter=' + $Filter
-                }
-            }
         }
         Invoke-FalconAPI @Param
     }
