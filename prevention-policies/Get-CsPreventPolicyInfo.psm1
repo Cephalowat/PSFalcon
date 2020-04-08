@@ -3,37 +3,37 @@ function Get-CsPreventPolicyInfo {
     .SYNOPSIS
         Search for info about Prevention policies
 
-    .PARAMETER ID
-        The IDs of specific Prevention policies to return
-
     .PARAMETER FILTER
-        The filter expression that should be used to limit the results (when IDs are not provided)
+        The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500] (when IDs are not provided)
+        The maximum records to return [Default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+        The offset to start retrieving records from [Default: 0]
+
+    .PARAMETER ID
+        IDs of specific Prevention policies to return
 #>
-    [CmdletBinding(DefaultParameterSetName = 'Default')]
+    [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
     param(
-        [Parameter(ParameterSetName = 'Id')]
-        [array]
-        $Id,
-
-        [Parameter(ParameterSetName = 'noId')]
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Filter,
 
-        [Parameter(ParameterSetName = 'noId')]
-        [ValidateRange(2,500)]
+        [Parameter(ParameterSetName = 'combined')]
+        [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 
-        [Parameter(ParameterSetName = 'noId')]
+        [Parameter(ParameterSetName = 'combined')]
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [array]
+        $Id
     )
     process{
         $Param = @{
@@ -46,7 +46,7 @@ function Get-CsPreventPolicyInfo {
         }
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
-            'Id' { $Param['Uri'] = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=') }
+            'Id' { $Param.Uri = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
         }
         Invoke-FalconAPI @Param
