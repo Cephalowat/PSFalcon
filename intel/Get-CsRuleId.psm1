@@ -57,7 +57,7 @@ function Get-CsRuleId {
         [string]
         $Query,
 
-        [ValidateRange(2,100)]
+        [ValidateRange(1,100)]
         [int]
         $Limit = 100,
 

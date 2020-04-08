@@ -18,7 +18,7 @@ function Get-FXReportId {
         [string]
         $Filter,
 
-        [ValidateRange(2,5000)]
+        [ValidateRange(1,5000)]
         [int]
         $Limit = 5000,
 

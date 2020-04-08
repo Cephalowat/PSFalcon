@@ -19,7 +19,7 @@ function Get-FSVulnId {
         $Filter = ("created_timestamp:>'" + (((Get-Date).AddHours(-24)).ToUniversalTime()).ToString(
         'yyyy-MM-ddTHH:mm:ssZ') + "'"),
 
-        [ValidateRange(2,500)]
+        [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 

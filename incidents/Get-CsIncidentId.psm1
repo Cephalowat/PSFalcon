@@ -18,7 +18,7 @@ function Get-CsIncidentId {
         [string]
         $Filter,
 
-        [ValidateRange(2,500)]
+        [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 

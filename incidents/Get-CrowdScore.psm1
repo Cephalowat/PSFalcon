@@ -18,7 +18,7 @@ function Get-CrowdScore {
         [string]
         $Filter,
 
-        [ValidateRange(2,2500)]
+        [ValidateRange(1,2500)]
         [int]
         $Limit = 2500,
 
