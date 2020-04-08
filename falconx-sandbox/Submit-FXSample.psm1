@@ -1,4 +1,4 @@
-function Submit-FXSandboxFile {
+function Submit-FXSample {
     <#
     .SYNOPSIS
         Submit an uploaded file or a URL for sandbox analysis. Time required for analysis

@@ -7,13 +7,13 @@ function Get-CsInstallerInfo {
         The hashes of specific Falcon Sensor Installers to return
 
     .PARAMETER FILTER
-        The filter expression that should be used to limit the results (when hashes are not provided)
+        The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500] (when hashes are not provided)
+        The maximum records to return [Default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0] (when hashes are not provided)
+        The offset to start retrieving records from [Default: 0]
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]

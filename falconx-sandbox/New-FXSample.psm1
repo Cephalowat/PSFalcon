@@ -1,4 +1,4 @@
-function Add-FXSandboxFile {
+function New-FXSample {
 <#
     .SYNOPSIS
         Upload a file for sandbox analysis

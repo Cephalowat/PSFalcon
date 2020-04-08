@@ -97,14 +97,14 @@ NestedModules = @(
     '.\device-control-policies\Set-FDCPrecedence.psm1',
 
     # falconx-sandbox
-    '.\falconx-sandbox\Add-FXSandboxFile.psm1',
     '.\falconx-sandbox\Get-FXReportId.psm1',
     '.\falconx-sandbox\Get-FXReportInfo.psm1',
     '.\falconx-sandbox\Get-FXSubmissionId.psm1',
     '.\falconx-sandbox\Get-FXSubmissionInfo.psm1',
     '.\falconx-sandbox\Get-FXQuota.psm1',
+    '.\falconx-sandbox\New-FXSample.psm1',
     '.\falconx-sandbox\Receive-FXArtifact.psm1',
-    '.\falconx-sandbox\Submit-FXSandboxFile.psm1',
+    '.\falconx-sandbox\Submit-FXSample.psm1',
 
     # host-group
     '.\host-group\Add-CsGroupMember.psm1',
@@ -253,14 +253,14 @@ FunctionsToExport = @(
     'Set-FDCPrecedence',
 
     # falconx-sandbox
-    'Add-FXSandboxFile',
     'Get-FXReportId',
     'Get-FXReportInfo',
     'Get-FXSubmissionId',
     'Get-FXSubmissionInfo',
     'Get-FXQuota',
+    'New-FXSample',
     'Receive-FXArtifact',
-    'Submit-FXSandboxFile',
+    'Submit-FXSample',
 
     # host-group
     'Add-CsGroupMember',
