@@ -1,22 +1,3 @@
-# Add-FXSandboxFile - IN_DEVELOPMENT
-Upload a file for sandbox analysis
-
-## API References
-**[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/UploadSampleV2)**
-
-## Parameters
-
-`-Path`: The full path to the file to upload
-
-`-Comment`: A descriptive comment to identify the file for other users
-
-`-Confidential`: Defines visibility of this file in Falcon MalQuery [Default: True]
-
-## Example
-```powershell
-PS> Add-FXSandboxFile -Path <string> 
-```
-
 # Get-FXReportId
 Find sandbox reports
 
@@ -96,6 +77,25 @@ Get your current Falcon X quota status
 PS> Get-FXQuota
 ```
 
+# New-FXSample - IN_DEVELOPMENT
+Upload a file for sandbox analysis
+
+## API References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/92/falcon-x-apis#submit-a-file-for-analysis)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/falconx-sandbox/UploadSampleV2)**
+
+## Parameters
+
+`-Path`: The full path to the file to upload
+
+`-Comment`: A descriptive comment to identify the file for other users
+
+`-Confidential`: Defines visibility of this file in Falcon MalQuery [Default: True]
+
+## Example
+```powershell
+PS> New-FXSample -Path <string> 
+```
+
 # Receive-FXArtifact
 Download IOC packs, PCAP files, and other analysis artifacts
 
@@ -115,7 +115,7 @@ Download IOC packs, PCAP files, and other analysis artifacts
 PS> Receive-FXArtifact -Id <string> -Output <string>
 ```
 
-# Submit-FXSandboxFile
+# Submit-FXSample
 Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is
 usually less than 15 minutes
 
@@ -128,5 +128,5 @@ usually less than 15 minutes
 
 ## Example
 ```powershell
-PS> Submit-FXSandboxFile -Sandbox @(@{})
+PS> Submit-FXSample -Sandbox @(@{})
 ```
