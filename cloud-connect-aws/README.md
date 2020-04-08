@@ -72,11 +72,11 @@ Retrieve a set of AWS Accounts by specifying their IDs
 
 `-Id`: IDs of accounts to retrieve details
 
-`-Filter`: The filter expression that should be used to limit the results (when IDs are not provided)
+`-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500] (when IDs are not provided)
+`-Limit`: The maximum records to return [Default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+`-Offset`: The offset to start retrieving records from [Default: 0]
 
 ## Example
 ```powershell
