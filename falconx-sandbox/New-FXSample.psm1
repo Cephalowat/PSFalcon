@@ -25,6 +25,11 @@ function New-FXSample {
         [boolean]
         $Confidential = $true
     )
+    begin{
+        if (Test-Path $Path) {
+            $FileData = Get-Content $Path
+        }
+    }
     process{
         $Param = @{
             Uri = '/samples/entities/samples/v2?file_name=' + (Split-Path $Path -Leaf) +
@@ -34,6 +39,7 @@ function New-FXSample {
                 accept = 'application/json'
                 'content-type' = 'application/octet-stream'
             }
+            Body = "[ " + $FileData + " ]"
         }
         switch ($PSBoundParameters.Keys) {
             'Comment' { $Param.Uri += '&comment=' + $Comment }
