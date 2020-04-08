@@ -131,11 +131,11 @@ Search for info about Device Control policies
 
 `-Id`: The IDs of specific Device Control policies to return
 
-`-Filter`: The filter expression that should be used to limit the results (when IDs are not provided)
+`-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500] (when IDs are not provided)
+`-Limit`: The maximum records to return [Default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0] (when IDs are not provided)
+`-Offset`: The offset to start retrieving records from [Default: 0]
 
 
 ## Example
