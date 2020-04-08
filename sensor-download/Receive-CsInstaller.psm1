@@ -1,7 +1,7 @@
 function Receive-CsInstaller {
 <#
     .SYNOPSIS
-        Get binary contents of specified Falcon Sensor Installer hash
+        Download a specific Falcon Sensor Installer
 
     .PARAMETER ID
         Falcon Sensor Installer hash
