@@ -12,11 +12,11 @@ function Edit-CsIncident {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Actions
     )

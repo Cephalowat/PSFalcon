@@ -42,7 +42,7 @@ function Get-CsActorInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id,
 

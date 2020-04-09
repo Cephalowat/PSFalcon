@@ -9,7 +9,7 @@ function Enable-CsSensorPolicy {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )

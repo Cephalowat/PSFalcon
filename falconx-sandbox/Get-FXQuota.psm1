@@ -5,11 +5,7 @@ function Get-FXQuota {
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param(
-        [Parameter(Mandatory=$true)]
-        [array]
-        $Id
-    )
+    param()
     process{
         $Param = @{
             Uri =  '/falconx/entities/submissions/v1?ids='

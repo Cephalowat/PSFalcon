@@ -45,7 +45,7 @@ function Get-CsIndicatorInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )

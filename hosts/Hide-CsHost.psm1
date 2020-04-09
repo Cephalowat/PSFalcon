@@ -10,7 +10,7 @@ function Hide-CsHost {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
