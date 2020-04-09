@@ -23,11 +23,11 @@ function Send-RtrCommand {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Id,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('cat', 'cd', 'clear', 'cp', 'encrypt', 'env', 'eventlog', 'filehash', 'getsid', 'help',
         'history', 'ipconfig', 'kill', 'ls', 'map', 'memdump', 'mkdir', 'mount', 'mv', 'netstat', 'ps', 'put',
         'reg delete', 'reg load', 'reg unload', 'reg set', 'reg query', 'restart', 'rm', 'run', 'runscript',

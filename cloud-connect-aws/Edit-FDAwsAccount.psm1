@@ -9,7 +9,7 @@ function Edit-FDAwsAccount {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Resources
     )

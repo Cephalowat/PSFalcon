@@ -18,7 +18,7 @@ function Get-FDCMemberId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateLength(32,32)]
         [string]
         $Id,

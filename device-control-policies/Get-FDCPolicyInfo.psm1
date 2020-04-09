@@ -31,7 +31,7 @@ function Get-FDCPolicyInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true)]
         [array]
         $Id
     )

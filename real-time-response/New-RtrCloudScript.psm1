@@ -21,7 +21,7 @@ function New-RtrCloudScript {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Path,
 
@@ -29,7 +29,7 @@ function New-RtrCloudScript {
         [string]
         $Permission = 'private',
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Description,
 

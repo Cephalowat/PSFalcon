@@ -9,7 +9,7 @@ function Get-CsSensorBuild {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('Linux', 'Mac', 'Windows')]
         [string]
         $Platform

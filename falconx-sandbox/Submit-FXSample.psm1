@@ -10,7 +10,7 @@ function Submit-FXSample {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Sandbox
     )

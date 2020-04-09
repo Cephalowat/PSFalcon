@@ -16,7 +16,7 @@ function New-FDAwsAccount {
         [string]
         $Mode = 'manual',
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Resources
     )

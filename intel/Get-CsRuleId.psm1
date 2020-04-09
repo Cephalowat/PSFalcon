@@ -33,7 +33,7 @@ function Get-CsRuleId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('snort-suricata-master','snort-suricata-update', 'snort-suricata-changelog',
         'yara-master', 'yara-update', 'yara-changelog', 'common-event-format', 'netwitness')]
         [string]
