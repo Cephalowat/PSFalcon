@@ -191,10 +191,10 @@ query_time  pagination                                  powered_by trace_id
 <int>       @{offset=<int>; limit=<int>; total=<int>}   <string>   <string>
 ```
 
-Results of a successful request are typically contained within `$PSObject.resources`. For some request
-types, resources may fall under `$PSObject.combined`, or another specific field like `$PSObject.batch_id`.
+Results of a successful request are typically contained within `$PSObject.resources`, but some request
+types, fall under fields like `$PSObject.combined`, `$PSObject.batch_id`, or even `$PSObject.meta.quota`.
 
-You can return the results themselves by calling `$PSObject.resources` or similar member:
+You can return the results themselves by calling `$PSObject.resources` or related member:
 
 ```powershell
 PS> $HostIds.resources
