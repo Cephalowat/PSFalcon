@@ -77,10 +77,11 @@ meta                                                                            
 ```
 
 Next, the Host Id can be used with the `Start-CsContain` command to isolate the device from its network. Because
-the Host Id results are contained in the member `$HostId.resources`, you'll need to reference it directly.
+the Host Id results are contained in the member `$HostId.resources`, you'll need to reference it directly. The
+[Responses](#Responses) section further explains what you can expect inside the results of a command.
 
-You can also reference the `resources` member for the `Start-CsContain` command if you expect a successful
-result and don't need to save the rest of the output:
+You can reference the `resources` member for the `Start-CsContain` command, too. However, it only makes sense to
+do so if you expect a successful result and have no need to analyze the rest of the output:
 
 ```powershell
 PS> (Start-CsContain -Id $HostId.resources).resources
@@ -100,7 +101,7 @@ id                               path
 --                               ----
 <string>                         <string>
 ```
-# Available Commands
+# Commands
 
 To display a list of the commands available with PSFalcon:
 
@@ -108,7 +109,7 @@ To display a list of the commands available with PSFalcon:
 PS> Get-Command -Module PSFalcon
 ```
 
-You can use `Get-Help` for information about each individual command:
+You can also use `Get-Help` for information about each individual command:
 
 ```powershell
 PS> Get-Help -Name <string> -Detailed
