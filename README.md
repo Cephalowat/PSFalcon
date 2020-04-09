@@ -215,7 +215,7 @@ code    message
 
 By default, PSFalcon checks the response header for the `X-RateLimit-RetryAfter` field and sleeps for the
 given amount of time. If desired, you can add the `-Verbose` flag to any command and the response header will
-be included with your output object.
+be included with your output object as `$PSobject.header`.
 
 ### Debugging
 
