@@ -1,4 +1,4 @@
-function Set-FDCPrecedence {
+function Set-CsControlPrecedence {
 <#
     .SYNOPSIS
         Sets the precedence of Device Control policies based on the order of IDs specified in the request. The

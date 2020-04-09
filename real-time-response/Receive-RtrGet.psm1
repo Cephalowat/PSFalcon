@@ -1,4 +1,4 @@
-function Receive-RtrGetFile {
+function Receive-RtrGet {
 <#
     .SYNOPSIS
         Get RTR extracted file contents for specified session and sha256

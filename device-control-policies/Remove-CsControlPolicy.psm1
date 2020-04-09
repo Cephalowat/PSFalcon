@@ -1,20 +1,21 @@
-function Remove-RtrCloudScript {
+function Remove-CsControlPolicy {
 <#
     .SYNOPSIS
-        Delete a custom-script based on the ID given. Can only delete one file at a time
+        Delete a set of Device Control policies by specifying their IDs
 
     .PARAMETER ID
-        Script ID
+        The IDs of the Device Control policies to delete
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [string]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [array]
         $Id
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/entities/scripts/v1?ids=' + $Id
+            Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=')
             Method = 'delete'
             Header = @{
                 accept = 'application/json'

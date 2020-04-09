@@ -1,4 +1,4 @@
-function Get-RtrCloudFileInfo {
+function Get-RtrFileInfo {
 <#
     .SYNOPSIS
         Get 'put' files based on the ID's given

@@ -1,7 +1,10 @@
-function Get-RtrCloudScriptId {
+function Get-CsControlMemberInfo {
 <#
     .SYNOPSIS
-        Get a list of custom-script ID's that are available to the user for the 'runscript' command
+        Search for details about members of a Device Control policy in your environment
+
+    .PARAMETER ID
+        The ID of the Device Control policy to search for members of
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
@@ -15,6 +18,11 @@ function Get-RtrCloudScriptId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [Parameter(Mandatory = $true)]
+        [ValidateLength(32,32)]
+        [string]
+        $Id,
+
         [string]
         $Filter,
 
@@ -27,7 +35,7 @@ function Get-RtrCloudScriptId {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/queries/scripts/v1?limit=' + [string] $Limit +
+            Uri = '/policy/combined/device-control-members/v1?id=' + $Id + '&limit=' + [string] $Limit +
             '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{

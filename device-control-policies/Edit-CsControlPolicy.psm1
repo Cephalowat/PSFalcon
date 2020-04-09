@@ -1,26 +1,27 @@
-function Get-RtrCloudScriptInfo {
+function Edit-CsControlPolicy {
 <#
     .SYNOPSIS
-        Get custom-scripts based on the ID's given
+       Update Device Control Policies by specifying the ID of the policy and details to update
 
-    .PARAMETER ID
-        Script IDs
+    .PARAMETER RESOURCES
+        An array of Device Control policy properties
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
-        $Id
+        $Resources
     )
     process{
         $Param = @{
-            Uri =  '/real-time-response/entities/scripts/v1?ids=' + ($Id -join '&ids=')
-            Method = 'get'
+            Uri = '/policy/entities/device-control/v1'
+            Method = 'patch'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
+            Body = @{ resources = $Resources } | ConvertTo-Json -Depth 16
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

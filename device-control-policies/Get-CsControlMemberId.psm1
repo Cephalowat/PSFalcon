@@ -1,7 +1,10 @@
-function Get-RtrCloudFileId {
+function Get-CsControlMemberId {
 <#
     .SYNOPSIS
-        Get a list of 'put' file IDs that are available to the user for the 'put' command
+        Search for members of a Device Control Policy in your environment
+
+    .PARAMETER ID
+        The ID of the Device Control policy to search for members of
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
@@ -15,6 +18,11 @@ function Get-RtrCloudFileId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [Parameter(Mandatory = $true)]
+        [ValidateLength(32,32)]
+        [string]
+        $Id,
+
         [string]
         $Filter,
 
@@ -27,7 +35,7 @@ function Get-RtrCloudFileId {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/queries/put-files/v1?limit=' + [string] $Limit +
+            Uri = '/policy/queries/device-control-members/v1?id=' + $Id + '&limit=' + [string] $Limit +
             '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{

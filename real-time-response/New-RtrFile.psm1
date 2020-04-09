@@ -1,13 +1,10 @@
-function New-RtrCloudScript {
+function New-RtrFile {
 <#
     .SYNOPSIS
-        Upload a new custom-script to use for the RTR 'runscript' command
+        Upload a new put-file to use for the RTR 'put' command
 
     .PARAMETER PATH
-        Full path to the script you wish to upload
-
-    .PARAMETER PERMISSION
-        Permission for the custom-script [Default: private]
+        Full path to the file to upload
 
     .PARAMETER DESCRIPTION
         File description
@@ -25,10 +22,6 @@ function New-RtrCloudScript {
         [string]
         $Path,
 
-        [ValidateSet('private', 'group', 'public')]
-        [string]
-        $Permission = 'private',
-
         [Parameter(Mandatory = $true)]
         [string]
         $Description,
@@ -41,7 +34,7 @@ function New-RtrCloudScript {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/entities/scripts/v1'
+            Uri = '/real-time-response/entities/put-files/v1'
             Method = 'post'
             Header = @{
                 accept = 'application/json'
@@ -50,7 +43,6 @@ function New-RtrCloudScript {
             Form = @{
                 file = (Get-Item -Path $Path)
                 description = $Description
-                permission_type = $Permission
             }
         }
         switch ($PSBoundParameters.Keys) {

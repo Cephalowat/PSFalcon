@@ -1,27 +1,27 @@
-function New-FDCPolicy {
+function Enable-CsControlPolicy {
 <#
     .SYNOPSIS
-       Create Device Control policies by specifying details about the policy to create
+        Enable Device Control policies
 
-    .PARAMETER RESOURCES
-        An array of Device Control policy properties
+    .PARAMETER ID
+        An array of one or more Device Control policy IDs
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
-        $Resources
+        $Id
     )
     process{
         $Param = @{
-            Uri = '/policy/entities/device-control/v1'
+            Uri = '/policy/entities/device-control-actions/v1?action_name=enable'
             Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ resources = $Resources } | ConvertTo-Json -Depth 16
+            Body = @{ 'ids' = $Id } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

@@ -18,7 +18,7 @@ hosts and the sessions will expire
 PS> Confirm-RtrBatch -Id <string>
 ```
 
-# Confirm-RtrGetFile
+# Confirm-RtrGet
 Retrieves the status of the specified batch get command
 
 ### References
@@ -32,10 +32,10 @@ Retrieves the status of the specified batch get command
 
 ### Example
 ```powershell
-PS> Confirm-RtrGetFile -Id <string>
+PS> Confirm-RtrGet -Id <string>
 ```
 
-# Get-RtrCloudFileId
+# Get-RtrFileId
 Get a list of 'put' file IDs that are available to the user for the 'put' command
 
 ### References
@@ -51,10 +51,10 @@ Get a list of 'put' file IDs that are available to the user for the 'put' comman
 
 ### Example
 ```powershell
-PS> Get-RtrCloudFileId
+PS> Get-RtrFileId
 ```
 
-# Get-RtrCloudFileInfo
+# Get-RtrFileInfo
 Get 'put' files based on the ID's given
 
 ### References
@@ -66,10 +66,10 @@ Get 'put' files based on the ID's given
 
 ### Example
 ```powershell
-PS> Get-RtrCloudFileInfo -Id @(<string>, <string>)
+PS> Get-RtrFileInfo -Id @(<string>, <string>)
 ```
 
-# Get-RtrCloudScriptId
+# Get-RtrScriptId
 Get a list of custom-script ID's that are available to the user for the 'runscript' command
 
 ### References
@@ -85,10 +85,10 @@ Get a list of custom-script ID's that are available to the user for the 'runscri
 
 ### Example
 ```powershell
-PS> Get-RtrCloudScriptId
+PS> Get-RtrScriptId
 ```
 
-# Get-RtrCloudScriptInfo
+# Get-RtrScriptInfo
 Get custom-scripts based on the ID's given
 
 ### References
@@ -100,10 +100,10 @@ Get custom-scripts based on the ID's given
 
 ### Example
 ```powershell
-PS> Get-RtrCloudScriptInfo -Id @(<string>, <string>)
+PS> Get-RtrScriptInfo -Id @(<string>, <string>)
 ```
 
-# New-RtrCloudFile
+# New-RtrFile
 Upload a new put-file to use for the RTR 'put' command
 
 ### References
@@ -121,10 +121,10 @@ Upload a new put-file to use for the RTR 'put' command
 
 ### Example
 ```powershell
-PS> New-RtrCloudFile -Path <string> -Description <string>
+PS> New-RtrFile -Path <string> -Description <string>
 ```
 
-# New-RtrCloudScript
+# New-RtrScript
 Upload a new custom-script to use for the RTR 'runscript' command
 
 ### References
@@ -144,10 +144,10 @@ Upload a new custom-script to use for the RTR 'runscript' command
 
 ### Example
 ```powershell
-PS> New-RtrCloudScript -Path <string> -Permission <string> -Description <string>
+PS> New-RtrScript -Path <string> -Permission <string> -Description <string>
 ```
 
-# Receive-RtrGetFile
+# Receive-RtrGet
 Get RTR extracted file contents for specified session and sha256
 
 ### References
@@ -163,10 +163,10 @@ Get RTR extracted file contents for specified session and sha256
 
 ### Example
 ```powershell
-PS> Receive-RtrGetFile -Id <string> -Hash <string> -Path <string>
+PS> Receive-RtrGet -Id <string> -Hash <string> -Path <string>
 ```
 
-# Remove-RtrCloudFile
+# Remove-RtrFile
 Delete a 'put' file based on the ID given
 
 ### References
@@ -178,10 +178,10 @@ Delete a 'put' file based on the ID given
 
 ### Example
 ```powershell
-PS> Remove-RtrCloudFile -Id <string>
+PS> Remove-RtrFile -Id <string>
 ```
 
-# Remove-RtrCloudScript
+# Remove-RtrScript
 Delete a custom-script based on the ID given
 
 ### References
@@ -193,7 +193,7 @@ Delete a custom-script based on the ID given
 
 ### Example
 ```powershell
-PS> Remove-RtrCloudScript -Id <string>
+PS> Remove-RtrScript -Id <string>
 ```
 
 # Send-RtrCommand
@@ -220,7 +220,7 @@ these hosts will receive the command
 PS> Send-RtrCommand -Id <string> -Command <string> -String <string>
 ```
 
-# Send-RtrGetCommand
+# Send-RtrGet
 Batch executes 'get' command across hosts to retrieve files
 
 ### References
@@ -239,7 +239,7 @@ these hosts will receive the command
 
 ### Example
 ```powershell
-PS> Send-RtrGetCommand -Id <string> -Path <string>
+PS> Send-RtrGet -Id <string> -Path <string>
 ```
 
 # Start-RtrBatch

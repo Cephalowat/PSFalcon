@@ -1,10 +1,7 @@
-function Get-FDCMemberInfo {
+function Get-RtrScriptId {
 <#
     .SYNOPSIS
-        Search for details about members of a Device Control policy in your environment
-
-    .PARAMETER ID
-        The ID of the Device Control policy to search for members of
+        Get a list of custom-script ID's that are available to the user for the 'runscript' command
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
@@ -18,11 +15,6 @@ function Get-FDCMemberInfo {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
-        [ValidateLength(32,32)]
-        [string]
-        $Id,
-
         [string]
         $Filter,
 
@@ -35,7 +27,7 @@ function Get-FDCMemberInfo {
     )
     process{
         $Param = @{
-            Uri = '/policy/combined/device-control-members/v1?id=' + $Id + '&limit=' + [string] $Limit +
+            Uri = '/real-time-response/queries/scripts/v1?limit=' + [string] $Limit +
             '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{

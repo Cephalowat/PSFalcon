@@ -1,7 +1,7 @@
-function Enable-FDCPolicy {
+function Disable-CsControlPolicy {
 <#
     .SYNOPSIS
-        Enable Device Control policies
+        Disable Device Control policies
 
     .PARAMETER ID
         An array of one or more Device Control policy IDs
@@ -15,7 +15,7 @@ function Enable-FDCPolicy {
     )
     process{
         $Param = @{
-            Uri = '/policy/entities/device-control-actions/v1?action_name=enable'
+            Uri = '/policy/entities/device-control-actions/v1?action_name=disable'
             Method = 'post'
             Header = @{
                 accept = 'application/json'

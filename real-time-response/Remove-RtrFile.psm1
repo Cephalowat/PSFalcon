@@ -1,4 +1,4 @@
-function Remove-RtrCloudFile {
+function Remove-RtrFile {
 <#
     .SYNOPSIS
         Delete a 'put' file based on the ID given. Can only delete one file at a time

@@ -1,10 +1,7 @@
-function Get-FDCMemberId {
+function Get-RtrFileId {
 <#
     .SYNOPSIS
-        Search for members of a Device Control Policy in your environment
-
-    .PARAMETER ID
-        The ID of the Device Control policy to search for members of
+        Get a list of 'put' file IDs that are available to the user for the 'put' command
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
@@ -18,11 +15,6 @@ function Get-FDCMemberId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
-        [ValidateLength(32,32)]
-        [string]
-        $Id,
-
         [string]
         $Filter,
 
@@ -35,7 +27,7 @@ function Get-FDCMemberId {
     )
     process{
         $Param = @{
-            Uri = '/policy/queries/device-control-members/v1?id=' + $Id + '&limit=' + [string] $Limit +
+            Uri = '/real-time-response/queries/put-files/v1?limit=' + [string] $Limit +
             '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{

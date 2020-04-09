@@ -1,4 +1,4 @@
-function Add-FDCGroup {
+function Add-CsControlGroup {
 <#
     .SYNOPSIS
         Add a host group to a Device Control policy

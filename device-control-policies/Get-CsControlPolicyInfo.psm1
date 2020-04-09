@@ -1,7 +1,7 @@
-function Get-FDCPolicyId {
+function Get-CsControlPolicyInfo {
 <#
     .SYNOPSIS
-        Search for Device Control policies in your environment
+        Search for info about Device Control policies
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
@@ -11,23 +11,33 @@ function Get-FDCPolicyId {
 
     .PARAMETER OFFSET
         The offset to start retrieving records from [Default: 0]
+
+    .PARAMETER ID
+        IDs of specific Device Control policies to return
 #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
     param(
+        [Parameter(ParameterSetName = 'combined')]
         [string]
         $Filter,
 
+        [Parameter(ParameterSetName = 'combined')]
         [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 
+        [Parameter(ParameterSetName = 'combined')]
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
+        [array]
+        $Id
     )
     process{
         $Param = @{
-            Uri = '/policy/queries/device-control/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/policy/combined/device-control/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -36,6 +46,7 @@ function Get-FDCPolicyId {
         }
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Id' { $Param.Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

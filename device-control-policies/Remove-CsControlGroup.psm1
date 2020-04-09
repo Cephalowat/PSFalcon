@@ -1,4 +1,4 @@
-function Remove-FDCGroup {
+function Remove-CsControlGroup {
 <#
     .SYNOPSIS
         Remove a Host Group from a Device Control policy

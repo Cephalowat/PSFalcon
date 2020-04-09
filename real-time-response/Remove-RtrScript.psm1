@@ -1,21 +1,20 @@
-function Remove-FDCPolicy {
+function Remove-RtrScript {
 <#
     .SYNOPSIS
-        Delete a set of Device Control policies by specifying their IDs
+        Delete a custom-script based on the ID given. Can only delete one file at a time
 
     .PARAMETER ID
-        The IDs of the Device Control policies to delete
+        Script ID
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
-        [array]
+        [string]
         $Id
     )
     process{
         $Param = @{
-            Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/real-time-response/entities/scripts/v1?ids=' + $Id
             Method = 'delete'
             Header = @{
                 accept = 'application/json'

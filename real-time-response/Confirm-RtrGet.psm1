@@ -1,4 +1,4 @@
-function Confirm-RtrGetFile {
+function Confirm-RtrGet {
 <#
     .SYNOPSIS
         Retrieves the status of the specified batch get command. Will return successful

@@ -1,4 +1,4 @@
-function Send-RtrGetCommand {
+function Send-RtrGet {
 <#
     .SYNOPSIS
         Batch executes 'get' command across hosts to retrieve files. After this call is made
