@@ -1,27 +1,26 @@
-function Add-FDAwsSettings {
+function Remove-CsAwsAccount {
 <#
     .SYNOPSIS
-        Create or update Global Settings which are applied to all provisioned AWS accounts
+        Delete a set of Aws Accounts by specifying their IDs
 
-    .PARAMETER RESOURCES
-        An array of AWS settings
+    .PARAMETER ID
+        IDs of accounts to remove
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
-        $Resources
+        $Id
     )
     process{
         $Param = @{
-            Uri = '/cloud-connect-aws/entities/settings/v1'
-            Method = 'post'
+            Uri = '/cloud-connect-aws/entities/accounts/v1?ids=' + ($Id -join '&ids=')
+            Method = 'delete'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ resources = $Resources } | ConvertTo-Json -Depth 16
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

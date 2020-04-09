@@ -1,4 +1,4 @@
-function Get-FXReportInfo {
+function Get-CsAnalysisInfo {
 <#
     .SYNOPSIS
         Get a short summary version of a sandbox report

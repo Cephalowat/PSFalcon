@@ -1,27 +1,26 @@
-function Edit-FDAwsAccount {
+function Get-CsAwsAccess {
 <#
     .SYNOPSIS
-        Update AWS accounts by specifying the ID of the group and details to update
+        Performs an access verification check on the specified AWS account IDs
 
-    .PARAMETER RESOURCES
-        An array of AWS account properties
+    .PARAMETER ID
+        IDs of accounts to verify access on
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
-        $Resources
+        $Id
     )
     process{
         $Param = @{
-            Uri = '/cloud-connect-aws/entities/accounts/v1'
-            Method = 'patch'
+            Uri =  '/cloud-connect-aws/entities/verify-account-access/v1?ids=' + ($Id -join '&ids=')
+            Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ resources = $Resources } | ConvertTo-Json -Depth 16
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

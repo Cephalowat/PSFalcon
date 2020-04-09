@@ -1,10 +1,11 @@
-function Get-FDAwsAccess {
+function Get-CsSubmissionInfo {
 <#
     .SYNOPSIS
-        Performs an access verification check on the specified AWS account IDs
+        Check the status of a sandbox analysis. Time required for analysis varies but
+        is usually less than 15 minutes
 
     .PARAMETER ID
-        IDs of accounts to verify access on
+        Id of a submitted malware sample
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -15,8 +16,8 @@ function Get-FDAwsAccess {
     )
     process{
         $Param = @{
-            Uri =  '/cloud-connect-aws/entities/verify-account-access/v1?ids=' + ($Id -join '&ids=')
-            Method = 'post'
+            Uri =  '/falconx/entities/submissions/v1?ids=' + ($Id -join '&ids=')
+            Method = 'get'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'

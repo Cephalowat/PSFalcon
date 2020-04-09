@@ -1,10 +1,7 @@
-function New-FDAwsAccount {
+function Edit-CsAwsAccount {
 <#
     .SYNOPSIS
-        Provision AWS accounts by specifying details about the accounts to provision
-
-    .PARAMETER MODE
-        Mode for provisioning. Allowed values are 'manual' or 'cloudformation' [Default: manual]
+        Update AWS accounts by specifying the ID of the group and details to update
 
     .PARAMETER RESOURCES
         An array of AWS account properties
@@ -12,18 +9,14 @@ function New-FDAwsAccount {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [ValidateSet('cloudformation','manual')]
-        [string]
-        $Mode = 'manual',
-
         [Parameter(Mandatory = $true)]
         [array]
         $Resources
     )
     process{
         $Param = @{
-            Uri = '/cloud-connect-aws/entities/accounts/v1?mode=' + $Mode
-            Method = 'post'
+            Uri = '/cloud-connect-aws/entities/accounts/v1'
+            Method = 'patch'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'

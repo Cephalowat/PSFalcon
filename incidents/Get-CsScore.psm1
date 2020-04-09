@@ -1,4 +1,4 @@
-function Get-CrowdScore {
+function Get-CsScore {
 <#
     .SYNOPSIS
         Query CrowdScores

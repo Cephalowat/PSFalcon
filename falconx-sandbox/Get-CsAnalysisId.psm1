@@ -1,7 +1,7 @@
-function Get-FXSubmissionId {
+function Get-CsAnalysisId {
 <#
     .SYNOPSIS
-        Find submission IDs for uploaded files
+        Find sandbox reports
 
     .PARAMETER FILTER
         Optional filter and sort criteria in the form of an FQL query
@@ -27,7 +27,7 @@ function Get-FXSubmissionId {
     )
     process{
         $Param = @{
-            Uri = '/falconx/queries/submissions/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/falconx/queries/reports/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'

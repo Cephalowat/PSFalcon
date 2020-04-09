@@ -1,34 +1,34 @@
-function Get-FSVulnId {
+function Get-CsAwsAccountId {
 <#
     .SYNOPSIS
-        Search for Vulnerabilities in your environment
+        Search for provisioned AWS Accounts
 
     .PARAMETER FILTER
-        Filter items using a query in Falcon Query Language (FQL) [Default: Created in last 24 hours]
+        The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
         The maximum records to return [Default: 500]
 
-    .PARAMETER AFTER
-        The pagination token to continue results after an initial request
+    .PARAMETER OFFSET
+        The offset to start retrieving records from [Default: 0]
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
         [string]
-        $Filter = ("created_timestamp:>'" + (((Get-Date).AddHours(-24)).ToUniversalTime()).ToString(
-        'yyyy-MM-ddTHH:mm:ssZ') + "'"),
+        $Filter,
 
         [ValidateRange(1,500)]
         [int]
         $Limit = 500,
 
-        [string]
-        $After
+        [int]
+        $Offset = 0
     )
     process{
         $Param = @{
-            Uri = '/spotlight/queries/vulnerabilities/v1?limit=' + [string] $Limit + '&filter=' + $Filter
+            Uri = '/cloud-connect-aws/queries/accounts/v1?limit=' + [string] $Limit +
+            '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -36,7 +36,7 @@ function Get-FSVulnId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'After' { $Param.Uri += '&after=' + $After }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

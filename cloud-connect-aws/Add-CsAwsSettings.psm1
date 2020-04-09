@@ -1,26 +1,27 @@
-function Get-FSVulnInfo {
+function Add-CsAwsSettings {
 <#
     .SYNOPSIS
-        Get details on vulnerabilities by providing one or more IDs
+        Create or update Global Settings which are applied to all provisioned AWS accounts
 
-    .PARAMETER ID
-        One or more vulnerability IDs
+    .PARAMETER RESOURCES
+        An array of AWS settings
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
-        $Id
+        $Resources
     )
     process{
         $Param = @{
-            Uri =  '/spotlight/entities/vulnerabilities/v2?ids=' + ($Id -join '&ids=')
-            Method = 'get'
+            Uri = '/cloud-connect-aws/entities/settings/v1'
+            Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
+            Body = @{ resources = $Resources } | ConvertTo-Json -Depth 16
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

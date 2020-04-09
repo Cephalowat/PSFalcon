@@ -1,22 +1,14 @@
-function Get-FXSubmissionInfo {
+function Get-CsAwsSettings {
 <#
     .SYNOPSIS
-        Check the status of a sandbox analysis. Time required for analysis varies but
-        is usually less than 15 minutes
-
-    .PARAMETER ID
-        Id of a submitted malware sample
+        Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
-        [array]
-        $Id
-    )
+    param()
     process{
         $Param = @{
-            Uri =  '/falconx/entities/submissions/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/cloud-connect-aws/combined/settings/v1'
             Method = 'get'
             Header = @{
                 accept = 'application/json'

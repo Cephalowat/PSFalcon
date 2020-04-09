@@ -1,4 +1,4 @@
-function Receive-FXArtifact {
+function Receive-CsArtifact {
 <#
     .SYNOPSIS
         Download IOC packs, PCAP files, and other analysis artifacts

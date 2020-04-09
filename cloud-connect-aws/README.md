@@ -1,4 +1,4 @@
-# Add-FDAwsSettings
+# Add-CsAwsSettings
 Create or update Global Settings which are applied to all provisioned AWS accounts
 
 ### References
@@ -10,10 +10,10 @@ Create or update Global Settings which are applied to all provisioned AWS accoun
 
 ### Example
 ```powershell
-PS> Add-FDAwsSettings -Resources @(@{ cloudtrail_bucket_owner_id = <string>; static_external_id = <string> })
+PS> Add-CsAwsSettings -Resources @(@{ cloudtrail_bucket_owner_id = <string>; static_external_id = <string> })
 ```
 
-# Edit-FDAwsAccount
+# Edit-CsAwsAccount
 Update AWS accounts by specifying the ID of the group and details to update
 
 ### References
@@ -25,10 +25,10 @@ Update AWS accounts by specifying the ID of the group and details to update
 
 ### Example
 ```powershell
-PS> Edit-FDAwsAccount -Resources @(@{ id = <string>; external_id = <string> })
+PS> Edit-CsAwsAccount -Resources @(@{ id = <string>; external_id = <string> })
 ```
 
-# Get-FDAwsAccess
+# Get-CsAwsAccess
 Performs an access verification check on the specified AWS account IDs
 
 ### References
@@ -40,10 +40,10 @@ Performs an access verification check on the specified AWS account IDs
 
 ### Example
 ```powershell
-PS> Get-FDAwsAccess -Id @(<string>, <string>)
+PS> Get-CsAwsAccess -Id @(<string>, <string>)
 ```
 
-# Get-FDAwsAccountId
+# Get-CsAwsAccountId
 Search for provisioned AWS Accounts
 
 ### References
@@ -59,10 +59,10 @@ Search for provisioned AWS Accounts
 
 ### Example
 ```powershell
-PS> Get-FDAwsAccountId
+PS> Get-CsAwsAccountId
 ```
 
-# Get-FDAwsAccountInfo
+# Get-CsAwsAccountInfo
 Retrieve a set of AWS Accounts by specifying their IDs
 
 ### References
@@ -80,10 +80,10 @@ Retrieve a set of AWS Accounts by specifying their IDs
 
 ### Example
 ```powershell
-PS> Get-FDAwsAccountInfo
+PS> Get-CsAwsAccountInfo
 ```
 
-# Get-FDAwsSettings
+# Get-CsAwsSettings
 Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
 
 ### References
@@ -91,10 +91,10 @@ Retrieve a set of Global Settings which are applicable to all provisioned AWS ac
 
 ### Example
 ```powershell
-PS> Get-FDAwsSettings
+PS> Get-CsAwsSettings
 ```
 
-# New-FDAwsAccount
+# New-CsAwsAccount
 Provision AWS accounts by specifying details about the accounts to provision
 
 ### References
@@ -108,10 +108,10 @@ Provision AWS accounts by specifying details about the accounts to provision
 
 ### Example
 ```powershell
-PS> New-FDAwsAccount -Resources @(@{ iam_role_arn = <string>; external_id = <string> })
+PS> New-CsAwsAccount -Resources @(@{ iam_role_arn = <string>; external_id = <string> })
 ```
 
-# Remove-FDAwsAccount
+# Remove-CsAwsAccount
 Delete a set of AWS Accounts by specifying their IDs
 
 ### References
@@ -123,5 +123,5 @@ Delete a set of AWS Accounts by specifying their IDs
 
 ### Example
 ```powershell
-PS> Remove-FDAwsAccount -Id @(<string>, <string>)
+PS> Remove-CsAwsAccount -Id @(<string>, <string>)
 ```

@@ -1,14 +1,21 @@
-function Get-FXQuota {
+function Get-CsVulnInfo {
 <#
     .SYNOPSIS
-        Get your current Falcon X quota status
+        Get details on vulnerabilities by providing one or more IDs
+
+    .PARAMETER ID
+        One or more vulnerability IDs
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param()
+    param(
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [array]
+        $Id
+    )
     process{
         $Param = @{
-            Uri =  '/falconx/entities/submissions/v1?ids='
+            Uri =  '/spotlight/entities/vulnerabilities/v2?ids=' + ($Id -join '&ids=')
             Method = 'get'
             Header = @{
                 accept = 'application/json'

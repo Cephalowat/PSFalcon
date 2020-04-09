@@ -1,4 +1,4 @@
-function New-FXSample {
+function New-CsSample {
 <#
     .SYNOPSIS
         Upload a file for sandbox analysis

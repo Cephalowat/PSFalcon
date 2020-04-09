@@ -68,14 +68,14 @@ PowerShellVersion = '6.1'
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 NestedModules = @(
     # cloud-connect-aws
-    '.\cloud-connect-aws\Add-FDAwsSettings.psm1',
-    '.\cloud-connect-aws\Edit-FDAwsAccount.psm1',
-    '.\cloud-connect-aws\Get-FDAwsAccess.psm1',
-    '.\cloud-connect-aws\Get-FDAwsAccountId.psm1',
-    '.\cloud-connect-aws\Get-FDAwsAccountInfo.psm1',
-    '.\cloud-connect-aws\Get-FDAwsSettings.psm1',
-    '.\cloud-connect-aws\New-FDAwsAccount.psm1',
-    '.\cloud-connect-aws\Remove-FDAwsAccount.psm1',
+    '.\cloud-connect-aws\Add-CsAwsSettings.psm1',
+    '.\cloud-connect-aws\Edit-CsAwsAccount.psm1',
+    '.\cloud-connect-aws\Get-CsAwsAccess.psm1',
+    '.\cloud-connect-aws\Get-CsAwsAccountId.psm1',
+    '.\cloud-connect-aws\Get-CsAwsAccountInfo.psm1',
+    '.\cloud-connect-aws\Get-CsAwsSettings.psm1',
+    '.\cloud-connect-aws\New-CsAwsAccount.psm1',
+    '.\cloud-connect-aws\Remove-CsAwsAccount.psm1',
 
     # detects
     '.\detects\Edit-CsDetect.psm1',
@@ -97,14 +97,14 @@ NestedModules = @(
     '.\device-control-policies\Set-CsControlPrecedence.psm1',
 
     # falconx-sandbox
-    '.\falconx-sandbox\Get-FXReportId.psm1',
-    '.\falconx-sandbox\Get-FXReportInfo.psm1',
-    '.\falconx-sandbox\Get-FXSubmissionId.psm1',
-    '.\falconx-sandbox\Get-FXSubmissionInfo.psm1',
-    '.\falconx-sandbox\Get-FXQuota.psm1',
-    '.\falconx-sandbox\New-FXSample.psm1',
-    '.\falconx-sandbox\Receive-FXArtifact.psm1',
-    '.\falconx-sandbox\Submit-FXSample.psm1',
+    '.\falconx-sandbox\Get-CsAnalysisId.psm1',
+    '.\falconx-sandbox\Get-CsAnalysisInfo.psm1',
+    '.\falconx-sandbox\Get-CsSubmissionId.psm1',
+    '.\falconx-sandbox\Get-CsSubmissionInfo.psm1',
+    '.\falconx-sandbox\Get-CsSubmissionQuota.psm1',
+    '.\falconx-sandbox\New-CsSample.psm1',
+    '.\falconx-sandbox\Receive-CsArtifact.psm1',
+    '.\falconx-sandbox\Submit-CsSample.psm1',
 
     # firewall-policies
     '.\firewall-policies\Add-CsFirewallGroup.psm1',
@@ -141,11 +141,11 @@ NestedModules = @(
 
     # incidents
     '.\incidents\Edit-CsIncident.psm1',
-    '.\incidents\Get-CrowdScore.psm1',
     '.\incidents\Get-CsBehaviorId.psm1',
     '.\incidents\Get-CsBehaviorInfo.psm1',
     '.\incidents\Get-CsIncidentId.psm1',
     '.\incidents\Get-CsIncidentInfo.psm1',
+    '.\incidents\Get-CsScore.psm1',
 
     # intel
     '.\intel\Get-CsActorId.psm1',
@@ -215,8 +215,8 @@ NestedModules = @(
     '.\sensor-update-policies\Set-CsSensorPrecedence.psm1',
 
     # spotlight-vulnerabilities
-    '.\spotlight-vulnerabilities\Get-FSVulnId.psm1',
-    '.\spotlight-vulnerabilities\Get-FSVulnInfo.psm1',
+    '.\spotlight-vulnerabilities\Get-CsVulnId.psm1',
+    '.\spotlight-vulnerabilities\Get-CsVulnInfo.psm1',
 
     # tools
     '.\tools\Convert-RtrResult.psm1',
@@ -238,14 +238,14 @@ NestedModules = @(
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
     # cloud-connect-aws
-    'Add-FDAwsSettings',
-    'Edit-FDAwsAccount',
-    'Get-FDAwsAccess',
-    'Get-FDAwsAccountId',
-    'Get-FDAwsAccountInfo',
-    'Get-FDAwsSettings',
-    'New-FDAwsAccount',
-    'Remove-FDAwsAccount',
+    'Add-CsAwsSettings',
+    'Edit-CsAwsAccount',
+    'Get-CsAwsAccess',
+    'Get-CsAwsAccountId',
+    'Get-CsAwsAccountInfo',
+    'Get-CsAwsSettings',
+    'New-CsAwsAccount',
+    'Remove-CsAwsAccount',
 
     # detects
     'Edit-CsDetect',
@@ -267,14 +267,14 @@ FunctionsToExport = @(
     'Set-CsControlPrecedence',
 
     # falconx-sandbox
-    'Get-FXReportId',
-    'Get-FXReportInfo',
-    'Get-FXSubmissionId',
-    'Get-FXSubmissionInfo',
-    'Get-FXQuota',
-    'New-FXSample',
-    'Receive-FXArtifact',
-    'Submit-FXSample',
+    'Get-CsAnalysisId',
+    'Get-CsAnalysisInfo',
+    'Get-CsSubmissionId',
+    'Get-CsSubmissionInfo',
+    'Get-CsSubmissionQuota',
+    'New-CsSample',
+    'Receive-CsArtifact',
+    'Submit-CsSample',
 
     # firewall-policies
     'Add-CsFirewallGroup',
@@ -311,11 +311,11 @@ FunctionsToExport = @(
 
     # incidents
     'Edit-CsIncident',
-    'Get-CrowdScore',
     'Get-CsBehaviorId',
     'Get-CsBehaviorInfo',
     'Get-CsIncidentId',
     'Get-CsIncidentInfo',
+    'Get-CsScore',
 
     # intel
     'Get-CsActorId',
@@ -385,8 +385,8 @@ FunctionsToExport = @(
     'Set-CsSensorPrecedence',
 
     # spotlight-vulnerabilities
-    'Get-FSVulnId',
-    'Get-FSVulnInfo',
+    'Get-CsVulnId',
+    'Get-CsVulnInfo',
 
     # tools
     'Convert-RtrResult',

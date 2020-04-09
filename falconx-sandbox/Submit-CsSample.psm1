@@ -1,12 +1,12 @@
-function Submit-FXSample {
-    <#
+function Submit-CsSample {
+<#
     .SYNOPSIS
         Submit an uploaded file or a URL for sandbox analysis. Time required for analysis
         varies but is usually less than 15 minutes
 
     .PARAMETER SANDBOX
         An array of Sandbox submission properties
-    #>
+#>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(

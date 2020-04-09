@@ -1,22 +1,15 @@
-function Remove-FDAwsAccount {
+function Get-CsSubmissionQuota {
 <#
     .SYNOPSIS
-        Delete a set of Aws Accounts by specifying their IDs
-
-    .PARAMETER ID
-        IDs of accounts to remove
+        Get your current Falcon X quota status
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
-        [array]
-        $Id
-    )
+    param()
     process{
         $Param = @{
-            Uri = '/cloud-connect-aws/entities/accounts/v1?ids=' + ($Id -join '&ids=')
-            Method = 'delete'
+            Uri =  '/falconx/entities/submissions/v1?ids='
+            Method = 'get'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
