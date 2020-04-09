@@ -31,7 +31,7 @@ function Get-CsSensorPolicyInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -48,6 +48,7 @@ function Get-CsSensorPolicyInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/policy/entities/sensor-update/v2?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

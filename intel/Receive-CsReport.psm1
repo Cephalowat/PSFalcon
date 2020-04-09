@@ -4,21 +4,21 @@ function Receive-CsReport {
         Download a CrowdStrike Intel Report PDF
 
     .PARAMETER ID
-        The ID of the report
+        ID of the report
 
-    .PARAMETER OUTPUT
+    .PARAMETER PATH
         Destination path
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Id,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
-        $Output
+        $Path
     )
     process{
         $Param = @{
@@ -27,10 +27,11 @@ function Receive-CsReport {
             Header = @{
                 accept = 'application/pdf'
             }
-            OutFile = $Output
+            OutFile = $Path
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

@@ -14,12 +14,12 @@ function Set-FDCPrecedence {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('Android', 'iOS', 'Linux', 'Mac', 'Windows')]
         [string]
         $Platform,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -38,6 +38,7 @@ function Set-FDCPrecedence {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

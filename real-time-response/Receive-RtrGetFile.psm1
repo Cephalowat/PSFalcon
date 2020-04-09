@@ -9,20 +9,23 @@ function Receive-RtrGetFile {
     .PARAMETER HASH
         Extracted SHA256 hash
 
-    .PARAMETER OUTPUT
+    .PARAMETER PATH
         Destination path
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [Parameter(Mandatory = $True)]
         [string]
         $Id,
 
+        [Parameter(Mandatory = $True)]
         [string]
         $Hash,
 
+        [Parameter(Mandatory = $True)]
         [string]
-        $Output
+        $Path
     )
     process{
         $Param = @{
@@ -32,10 +35,11 @@ function Receive-RtrGetFile {
             Header = @{
                 accept = 'application/x-7z-compressed'
             }
-            OutFile = $Output
+            OutFile = $Path
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

@@ -31,7 +31,7 @@ function Get-FDCPolicyInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -48,6 +48,7 @@ function Get-FDCPolicyInfo {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Id' { $Param.Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

@@ -16,7 +16,7 @@ function New-FDAwsAccount {
         [string]
         $Mode = 'manual',
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Resources
     )
@@ -32,6 +32,7 @@ function New-FDAwsAccount {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

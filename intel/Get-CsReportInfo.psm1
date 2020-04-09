@@ -20,7 +20,7 @@ function Get-CsReportInfo {
 
     .PARAMETER FIELD
         The fields to return, or a predefined set of fields in the form of the collection
-        name surrounded by two underscores [Default: __basic__]
+        name surrounded by two underscores [Default: '__basic__']
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
@@ -42,7 +42,7 @@ function Get-CsReportInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id,
 
@@ -69,6 +69,7 @@ function Get-CsReportInfo {
                 '&fields=' + ($Field -join '&fields=')
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

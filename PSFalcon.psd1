@@ -106,6 +106,20 @@ NestedModules = @(
     '.\falconx-sandbox\Receive-FXArtifact.psm1',
     '.\falconx-sandbox\Submit-FXSample.psm1',
 
+    # firewall-policies
+    '.\firewall-policies\Add-CsFirewallGroup.psm1',
+    '.\firewall-policies\Disable-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Edit-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Enable-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Get-CsFirewallMemberId.psm1',
+    '.\firewall-policies\Get-CsFirewallMemberInfo.psm1',
+    '.\firewall-policies\Get-CsFirewallPolicyId.psm1',
+    '.\firewall-policies\Get-CsFirewallPolicyInfo.psm1',
+    '.\firewall-policies\New-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Remove-CsFirewallGroup.psm1',
+    '.\firewall-policies\Remove-CsFirewallPolicy.psm1',
+    '.\firewall-policies\Set-CsFirewallPrecedence.psm1',
+
     # host-group
     '.\host-group\Add-CsGroupMember.psm1',
     '.\host-group\Edit-CsGroup.psm1',
@@ -143,7 +157,6 @@ NestedModules = @(
     '.\intel\Get-CsRuleId.psm1',
     '.\intel\Get-CsRuleInfo.psm1',
     '.\intel\Receive-CsReport.psm1',
-    '.\intel\Receive-CsLatestRuleSet.psm1',
     '.\intel\Receive-CsRuleSet.psm1',
 
     # oauth2
@@ -212,13 +225,14 @@ NestedModules = @(
     # user-management
     '.\user-management\Add-CsUser.psm1',
     '.\user-management\Add-CsUserRole.psm1',
+    '.\user-management\Edit-CsUser.psm1',
     '.\user-management\Get-CsRole.psm1',
-    '.\user-management\Get-CsUser.psm1',
     '.\user-management\Get-CsUserId.psm1',
     '.\user-management\Get-CsUserInfo.psm1',
+    '.\user-management\Get-CsUsername.psm1',
     '.\user-management\Get-CsUserRole.psm1',
     '.\user-management\Remove-CsUser.psm1',
-    '.\user-management\Remove-CsUserRole.psm1'#>
+    '.\user-management\Remove-CsUserRole.psm1'
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
@@ -262,6 +276,20 @@ FunctionsToExport = @(
     'Receive-FXArtifact',
     'Submit-FXSample',
 
+    # firewall-policies
+    'Add-CsFirewallGroup',
+    'Disable-CsFirewallPolicy',
+    'Edit-CsFirewallPolicy',
+    'Enable-CsFirewallPolicy',
+    'Get-CsFirewallMemberId',
+    'Get-CsFirewallMemberInfo',
+    'Get-CsFirewallPolicyId',
+    'Get-CsFirewallPolicyInfo',
+    'New-CsFirewallPolicy',
+    'Remove-CsFirewallGroup',
+    'Remove-CsFirewallPolicy',
+    'Set-CsFirewallPrecedence',
+
     # host-group
     'Add-CsGroupMember',
     'Edit-CsGroup',
@@ -299,7 +327,6 @@ FunctionsToExport = @(
     'Get-CsRuleId',
     'Get-CsRuleInfo',
     'Receive-CsReport',
-    'Receive-CsLatestRuleSet',
     'Receive-CsRuleSet',
 
     # oauth2
@@ -368,10 +395,11 @@ FunctionsToExport = @(
     # user-management
     'Add-CsUser',
     'Add-CsUserRole',
+    'Edit-CsUser',
     'Get-CsRole',
-    'Get-CsUser',
     'Get-CsUserId',
     'Get-CsUserInfo',
+    'Get-CsUsername',
     'Get-CsUserRole',
     'Remove-CsUser',
     'Remove-CsUserRole'

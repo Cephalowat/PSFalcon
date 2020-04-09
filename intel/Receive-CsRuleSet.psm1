@@ -1,36 +1,59 @@
 function Receive-CsRuleSet {
 <#
     .SYNOPSIS
-        Download a specific rule set
+        Download the latest rule set by type, or specific rule set by id
+
+    .PARAMETER TYPE
+        Type of rule set
 
     .PARAMETER ID
-        The ID of the specific rule set
+        ID of a specific rule set
 
-    .PARAMETER OUTPUT
+    .PARAMETER FORMAT
+        The output archive type [Default: 'zip']
+
+    .PARAMETER PATH
         Destination path
 #>
-[CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'latest')]
 [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(ParameterSetName = 'latest', Mandatory = $True)]
+        [ValidateSet('snort-suricata-master', 'snort-suricata-update', 'snort-suricata-changelog',
+        'yara-master', 'yara-update', 'yara-changelog', 'common-event-format', 'netwitness')]
+        [string]
+        $Type,
+
+        [Parameter(ParameterSetName = 'specific', Mandatory = $True)]
         [string]
         $Id,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(ParameterSetName = 'latest')]
+        [Parameter(ParameterSetName = 'specific')]
+        [ValidateSet('zip', 'gzip')]
         [string]
-        $Output
+        $Format = 'zip',
+
+        [Parameter(ParameterSetName = 'latest', Mandatory = $True)]
+        [Parameter(ParameterSetName = 'specific', Mandatory = $True)]
+        [string]
+        $Path
     )
     process{
         $Param = @{
-            Uri = '/intel/entities/rules-files/v1?format=zip&id=' + $Id
+            Uri = '/intel/entities/rules-latest-files/v1?type=' + $Type + '&format=' + $Format
             Method = 'get'
             Header = @{
-                accept = 'application/zip'
+                accept = 'application/' + $Format
             }
-            OutFile = $Output
+            OutFile = $Path
         }
         switch ($PSBoundParameters.Keys) {
+            'Id' { 
+                $Param.Uri = '/intel/entities/rules-files/v1?id=' + $Id + '&format=' + $Format
+            }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

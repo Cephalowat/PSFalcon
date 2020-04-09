@@ -42,7 +42,7 @@ function Get-CsActorInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id,
 
@@ -69,6 +69,7 @@ function Get-CsActorInfo {
                 '&fields=' + ($Field -join '&fields=')
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

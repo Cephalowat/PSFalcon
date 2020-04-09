@@ -36,6 +36,7 @@ function Get-CsHostId {
         }
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Debug' { $Param['Debug'] = $true }
             'Verbose' { $Param['Verbose'] = $true }
         }
         Invoke-FalconAPI @Param

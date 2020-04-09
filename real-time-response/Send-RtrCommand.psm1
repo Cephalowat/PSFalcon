@@ -8,10 +8,10 @@ function Send-RtrCommand {
         Batch ID to execute the command on
 
     .PARAMETER COMMAND
-        Command type to execute
+        Command to execute
 
     .PARAMETER STRING
-        Command string (that follows the 'base command')
+        Command string (text that follows the 'base command')
 
     .PARAMETER TIMEOUT
         Time to wait for the command request in seconds [default: 30, maximum 600]
@@ -23,11 +23,11 @@ function Send-RtrCommand {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Id,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('cat', 'cd', 'clear', 'cp', 'encrypt', 'env', 'eventlog', 'filehash', 'getsid', 'help',
         'history', 'ipconfig', 'kill', 'ls', 'map', 'memdump', 'mkdir', 'mount', 'mv', 'netstat', 'ps', 'put',
         'reg delete', 'reg load', 'reg unload', 'reg set', 'reg query', 'restart', 'rm', 'run', 'runscript',
@@ -77,6 +77,7 @@ function Send-RtrCommand {
             'Timeout' { $Param.Uri += '?timeout=' + [string] $Timeout + 's' }
             'Optional' { $Param.Body['optional_hosts'] = $Optional }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

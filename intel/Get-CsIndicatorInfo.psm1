@@ -19,7 +19,7 @@ function Get-CsIndicatorInfo {
         The offset to start retrieving records from [Default: 0]
 
     .PARAMETER ID
-        The IDs of the indicators you want to retrieve
+        IDs of specific indicators to return
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
@@ -45,7 +45,7 @@ function Get-CsIndicatorInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory=$true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -67,6 +67,7 @@ function Get-CsIndicatorInfo {
                 $Param['Body'] = @{ 'ids' = $Id } | ConvertTo-Json
             }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

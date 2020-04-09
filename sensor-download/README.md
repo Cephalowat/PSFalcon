@@ -1,51 +1,67 @@
 # Get-CsCCID
 Request your Customer ID and Checksum
 
-## API References
-**[Documentation]()**, **[Swagger]()**
+### References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/109/sensor-download-apis#get-your-customer-id-with-checksum)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-download/GetSensorInstallersCCIDByQuery)**
 
-## Parameters
-
-## Example
+### Example
 ```powershell
-PS>
+PS> Get-CsCCID
 ```
 
 # Get-CsInstallerId
 Search for Falcon Sensor Installer hashes
 
-## API References
-**[Documentation]()**, **[Swagger]()**
+### References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/109/sensor-download-apis#alternative-method)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-download/GetSensorInstallersByQuery)**
 
-## Parameters
+### Parameters
 
-## Example
+`-Filter`: The filter expression that should be used to limit the results
+
+`-Limit`: The maximum records to return [Default: 500]
+
+`-Offset` : The offset to start retrieving records from [Default: 0]
+
+### Example
 ```powershell
-PS>
+PS> Get-CsInstallerId
 ```
 
 # Get-CsInstallerInfo
 Search for info about Falcon Sensor Installers
 
-## API References
-**[Documentation]()**, **[Swagger]()**
+### References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/109/sensor-download-apis#find-a-sensor-installer)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-download/GetCombinedSensorInstallersByQuery)**
 
-## Parameters
+### Parameters
 
-## Example
+`-Filter`: The filter expression that should be used to limit the results
+
+`-Limit`: The maximum records to return [Default: 500]
+
+`-Offset`: The offset to start retrieving records from [Default: 0]
+
+`-Id`: Hashes of specific Falcon Sensor installers to return
+
+### Example
 ```powershell
-PS>
+PS> Get-CsInstallerInfo
 ```
 
 # Receive-CsInstaller
-Get binary contents of specified Falcon Sensor Installer hash
+Download a specific Falcon Sensor Installer
 
-## API References
-**[Documentation]()**, **[Swagger]()**
+### References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/109/sensor-download-apis#download-the-sensor-installer)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-download/DownloadSensorInstallerById)**
 
-## Parameters
+### Parameters
 
-## Example
+`-Id`: Falcon Sensor Installer hash
+
+`-Path`: Destination path
+
+### Example
 ```powershell
-PS>
+PS> Receive-CsInstaller -Id <string> -Path <string>
 ```

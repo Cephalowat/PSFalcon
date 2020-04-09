@@ -20,7 +20,7 @@ function Send-RtrGetCommand {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Id,
 
@@ -49,6 +49,7 @@ function Send-RtrGetCommand {
         switch ($PSBoundParameters.Keys) {
             'Optional' { $Param.Body['optional_hosts'] = $Optional }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

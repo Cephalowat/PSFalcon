@@ -4,12 +4,12 @@ function Get-CsRuleInfo {
         Retrieve details for rule sets
 
     .PARAMETER ID
-        The IDs of rules to return
+        IDs of rules to return
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -24,6 +24,7 @@ function Get-CsRuleInfo {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

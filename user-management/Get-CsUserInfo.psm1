@@ -1,15 +1,15 @@
 function Get-CsUserInfo {
 <#
     .SYNOPSIS
-        Get info about a user ID
+        Get info about user IDs
 
     .PARAMETER ID
-        ID of a user
+        ID of one or more users
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id
     )
@@ -24,6 +24,7 @@ function Get-CsUserInfo {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

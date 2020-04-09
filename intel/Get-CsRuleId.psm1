@@ -4,7 +4,7 @@ function Get-CsRuleId {
         Search for rule IDs
 
     .PARAMETER TYPE
-        The rule news report type [Default: 'yara-master']
+        The rule news report type
 
     .PARAMETER NAME
         Search by rule title
@@ -33,7 +33,7 @@ function Get-CsRuleId {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('snort-suricata-master','snort-suricata-update', 'snort-suricata-changelog',
         'yara-master', 'yara-update', 'yara-changelog', 'common-event-format', 'netwitness')]
         [string]
@@ -80,6 +80,7 @@ function Get-CsRuleId {
             'Tag' { $Param.Uri += ('&tags=' + ($Tag -join '&tags=')) }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

@@ -5,11 +5,7 @@ function Get-FXQuota {
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param(
-        [Parameter(Mandatory=$true)]
-        [array]
-        $Id
-    )
+    param()
     process{
         $Param = @{
             Uri =  '/falconx/entities/submissions/v1?ids='
@@ -21,6 +17,7 @@ function Get-FXQuota {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

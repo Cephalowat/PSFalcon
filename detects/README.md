@@ -1,14 +1,14 @@
 # Edit-CsDetect
 Modify the state, assignee, and visibility of detections
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/86/detections-monitoring-apis#modify-detections)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/detects/UpdateDetectsByIdsV2)**
 
-## Parameters
+### Parameters
 
 `-Properties`: A hashtable of detection properties
 
-## Example
+### Example
 ```powershell
 PS> Edit-CsDetect -Properties @(@{ assigned_to_uuid = <string>; ids = @(<string>); status = <string> })
 ```
@@ -16,10 +16,10 @@ PS> Edit-CsDetect -Properties @(@{ assigned_to_uuid = <string>; ids = @(<string>
 # Get-CsDetectId
 Search for detection IDs
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/86/detections-monitoring-apis#find-detections)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/detects/QueryDetects)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -29,7 +29,7 @@ Search for detection IDs
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsDetectId -Filter "status:'new'"
 ```
@@ -37,14 +37,14 @@ PS> Get-CsDetectId -Filter "status:'new'"
 # Get-CsDetectInfo
 View information about detections
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/86/detections-monitoring-apis#find-detections)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/detects/GetDetectSummaries)**
 
-## Parameters
+### Parameters
 
 `-Id`: One or more detection IDs
 
-## Example
+### Example
 ```powershell
 PS> Get-CsDetectInfo -Id @(<string>, <string>)
 ```

@@ -4,7 +4,7 @@ function New-RtrCloudScript {
         Upload a new custom-script to use for the RTR 'runscript' command
 
     .PARAMETER PATH
-        The full path to the script you wish to upload
+        Full path to the script you wish to upload
 
     .PARAMETER PERMISSION
         Permission for the custom-script [Default: private]
@@ -21,7 +21,7 @@ function New-RtrCloudScript {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Path,
 
@@ -29,7 +29,7 @@ function New-RtrCloudScript {
         [string]
         $Permission = 'private',
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]
         $Description,
 
@@ -57,6 +57,7 @@ function New-RtrCloudScript {
             'Name' { $Param.Form['name'] = $Name }
             'Comment' { $Param.Form['comments_for_audit_log'] = $Comment }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

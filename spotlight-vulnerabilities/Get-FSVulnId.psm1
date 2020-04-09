@@ -38,6 +38,7 @@ function Get-FSVulnId {
         switch ($PSBoundParameters.Keys) {
             'After' { $Param.Uri += '&after=' + $After }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

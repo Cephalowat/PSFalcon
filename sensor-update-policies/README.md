@@ -1,16 +1,16 @@
 # Add-CsSensorGroup
 Add a Host Group to a Sensor Update policy
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#assign-policies-to-groups)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/performSensorUpdatePoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Sensor Update Policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Add-CsSensorGroup -Id <string> -Group <string>
 ```
@@ -18,14 +18,14 @@ PS> Add-CsSensorGroup -Id <string> -Group <string>
 # Disable-CsSensorPolicy
 Disable Sensor Update policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/performSensorUpdatePoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Sensor Update policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Disable-CsSensorPolicy -Id @(<string>, <string>)
 ```
@@ -33,14 +33,14 @@ PS> Disable-CsSensorPolicy -Id @(<string>, <string>)
 # Edit-CsSensorPolicy
 Update Sensor Update Policies by specifying the ID of the policy and details to update
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#configure-policy-settings)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/updateSensorUpdatePolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Sensor Update policy properties
 
-## Example
+### Example
 ```powershell
 PS> Edit-CsSensorPolicy -Resources @(@{ id = <string>; name = <string>; description = <string> })
 ```
@@ -48,14 +48,14 @@ PS> Edit-CsSensorPolicy -Resources @(@{ id = <string>; name = <string>; descript
 # Enable-CsSensorPolicy
 Enable Sensor Update policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/performSensorUpdatePoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: An array of one or more Sensor Update policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Enable-CsSensorPolicy -Id @(<string>, <string>)
 ```
@@ -63,14 +63,14 @@ PS> Enable-CsSensorPolicy -Id @(<string>, <string>)
 # Get-CsSensorBuild
 Retrieve available builds for use with Sensor Update policies
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/queryCombinedSensorUpdateBuilds)**
 
-## Parameters
+### Parameters
 
 `-Platform`: The operating system to return builds for
 
-## Example
+### Example
 ```powershell
 PS> Get-CsSensorBuild -Platform <string>
 ```
@@ -78,10 +78,10 @@ PS> Get-CsSensorBuild -Platform <string>
 # Get-CsSensorMemberId
 Search for members of a Sensor Update policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/querySensorUpdatePolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Sensor Update policy to search for members of
 
@@ -91,7 +91,7 @@ Search for members of a Sensor Update policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsSensorMemberId -Id <string>
 ```
@@ -99,10 +99,10 @@ PS> Get-CsSensorMemberId -Id <string>
 # Get-CsSensorMemberInfo
 Search for details about members of a Sensor Update policy in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/queryCombinedSensorUpdatePolicyMembers)**
 
-## Parameters
+### Parameters
 
 `-Id`: The ID of the Sensor Update policy to search for members of
 
@@ -112,7 +112,7 @@ Search for details about members of a Sensor Update policy in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsSensorMemberInfo -Id <string>
 ```
@@ -120,10 +120,10 @@ PS> Get-CsSensorMemberInfo -Id <string>
 # Get-CsSensorPolicyId
 Search for Sensor Update policies in your environment
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/querySensorUpdatePolicies)**
 
-## Parameters
+### Parameters
 
 `-Filter`: The filter expression that should be used to limit the results
 
@@ -131,7 +131,7 @@ Search for Sensor Update policies in your environment
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsSensorPolicyId
 ```
@@ -139,10 +139,10 @@ PS> Get-CsSensorPolicyId
 # Get-CsSensorPolicyInfo
 Search for info about Sensor Update policies
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#find-existing-policies)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/queryCombinedSensorUpdatePoliciesV2)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of specific Sensor Update policies to return
 
@@ -152,7 +152,7 @@ Search for info about Sensor Update policies
 
 `-Offset`: The offset to start retrieving records from [Default: 0]
 
-## Example
+### Example
 ```powershell
 PS> Get-CsSensorPolicyInfo
 ```
@@ -160,16 +160,16 @@ PS> Get-CsSensorPolicyInfo
 # Get-CsUninstallToken
 Reveals an uninstall token for a specific host
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/revealUninstallToken)**
 
-## Parameters
+### Parameters
 
 `-Id`: The target Agent ID. To retrieve the bulk maintenance token use 'MAINTENANCE'
 
 `-Audit`: An audit message explaining the reason for the token reveal
 
-## Example
+### Example
 ```powershell
 PS> Get-CsUninstallToken -Id <string> -Audit <string>
 ```
@@ -177,14 +177,14 @@ PS> Get-CsUninstallToken -Id <string> -Audit <string>
 # New-CsSensorPolicy
 Create Sensor Update policies by specifying details about the policy to create
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#create-policies)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/createSensorUpdatePolicies)**
 
-## Parameters
+### Parameters
 
 `-Resources`: An array of Sensor Update policy properties
 
-## Example
+### Example
 ```powershell
 PS> New-CsSensorPolicy -Resources @(@{ name = <string>; platform_name = <string> })
 ```
@@ -192,16 +192,16 @@ PS> New-CsSensorPolicy -Resources @(@{ name = <string>; platform_name = <string>
 # Remove-CsSensorGroup
 Remove a Host Group from a Sensor Update policy
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/performSensorUpdatePoliciesAction)**
 
-## Parameters
+### Parameters
 
 `-Id`: The Sensor Update policy ID
 
 `-Group`: The Host Group ID
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsSensorGroup -Id <string> -Group <string>
 ```
@@ -209,14 +209,14 @@ PS> Remove-CsSensorGroup -Id <string> -Group <string>
 # Remove-CsSensorPolicy
 Delete a set of Sensor Update policies by specifying their IDs
 
-## API References
+### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/deleteSensorUpdatePolicies)**
 
-## Parameters
+### Parameters
 
 `-Id`: The IDs of the Sensor Update policies to delete
 
-## Example
+### Example
 ```powershell
 PS> Remove-CsSensorPolicy -Id @(<string>, <string>)
 ```
@@ -224,16 +224,16 @@ PS> Remove-CsSensorPolicy -Id @(<string>, <string>)
 # Set-CsSensorPrecedence
 Sets the precedence of Sensor Update policies based on the order of IDs specified in the request
 
-## API References
+### References
 **[Documentation](https://falcon.crowdstrike.com/support/documentation/85/detection-and-prevention-policies-apis#manage-policy-precedence)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/sensor-update-policies/setSensorUpdatePoliciesPrecedence)**
 
-## Parameters
+### Parameters
 
 `-Platform`: The operating system platform the Sensor Update policies are assigned to
 
 `-Id`: An array of one or more Sensor Update policy IDs
 
-## Example
+### Example
 ```powershell
 PS> Set-CsSensorPrecedence -Platform <string> -Id @(<string>, <string>)
 ```

@@ -17,13 +17,14 @@ function Start-RtrBatch {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [array]
         $Id,
 
         [string]
         $Existing,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30
     )
@@ -40,6 +41,7 @@ function Start-RtrBatch {
         switch ($PSBoundParameters.Keys) {
             'Existing' { $Param.Body['existing_batch_id'] = $Existing }
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 

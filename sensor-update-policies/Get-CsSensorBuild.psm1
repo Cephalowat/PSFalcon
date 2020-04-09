@@ -9,7 +9,7 @@ function Get-CsSensorBuild {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [ValidateSet('Linux', 'Mac', 'Windows')]
         [string]
         $Platform
@@ -25,6 +25,7 @@ function Get-CsSensorBuild {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

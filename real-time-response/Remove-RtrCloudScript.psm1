@@ -4,7 +4,7 @@ function Remove-RtrCloudScript {
         Delete a custom-script based on the ID given. Can only delete one file at a time
 
     .PARAMETER ID
-        File ID
+        Script ID
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -23,6 +23,7 @@ function Remove-RtrCloudScript {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }

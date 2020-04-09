@@ -1,7 +1,7 @@
-function Get-CsUser {
+function Get-CsUsername {
 <#
     .SYNOPSIS
-        List all users (typically email addresses) in your account
+        List all usernames (typically email addresses) in your account
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -17,6 +17,7 @@ function Get-CsUser {
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
         }
         Invoke-FalconAPI @Param
     }
