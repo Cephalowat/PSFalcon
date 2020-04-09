@@ -23,7 +23,7 @@ function Invoke-FalconAPI {
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param (
+    param(
         [Parameter(Mandatory = $true)]
         [string]
         $Uri,
