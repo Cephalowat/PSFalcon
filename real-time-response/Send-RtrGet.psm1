@@ -21,12 +21,14 @@ function Send-RtrGet {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
         [string]
         $Path,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30,
 
@@ -35,7 +37,7 @@ function Send-RtrGet {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/combined/batch-get-command/v1?timeout=' + [string] $Timeout + 's'
+            Uri = '/real-time-response/combined/batch-get-command/v1?timeout=' + [string] $Timeout
             Method = 'post'
             Header = @{
                 accept = 'application/json'

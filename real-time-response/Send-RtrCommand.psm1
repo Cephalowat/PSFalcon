@@ -24,6 +24,7 @@ function Send-RtrCommand {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
@@ -38,6 +39,7 @@ function Send-RtrCommand {
         [string]
         $String,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30,
 
@@ -59,9 +61,9 @@ function Send-RtrCommand {
                 'content-type' = 'application/json'
             }
             Body = @{
-                'base_command' = $Command
-                'batch_id' = $Id
-                'command_string' = ($Command + ' ' + $String)
+                base_command = $Command
+                batch_id = $Id
+                command_string = ($Command + ' ' + $String)
             }
         }
         if ($Command -cin $Admin) {
@@ -74,7 +76,7 @@ function Send-RtrCommand {
             $Param['Uri'] = '/real-time-response/combined/batch-command/v1'
         }
         switch ($PSBoundParameters.Keys) {
-            'Timeout' { $Param.Uri += '?timeout=' + [string] $Timeout + 's' }
+            'Timeout' { $Param.Uri += '?timeout=' + [string] $Timeout }
             'Optional' { $Param.Body['optional_hosts'] = $Optional }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }

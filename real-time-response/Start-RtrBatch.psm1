@@ -7,12 +7,15 @@ function Start-RtrBatch {
     .PARAMETER ID
         List of host agent IDs to initialize a RTR session on
 
+    .PARAMETER QUEUE
+        Utilize queueing for devices that are currently offline [default: true]
+
     .PARAMETER EXISTING
         Optional batch ID. Use an existing batch ID if you want to initialize new hosts and
         add them to an existing batch
 
     .PARAMETER TIMEOUT
-        Time to wait for the command request to complete, in seconds [default: 30, maximum 600]
+        Time to wait for the command request to complete, in seconds [default: 30]
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -21,6 +24,10 @@ function Start-RtrBatch {
         [array]
         $Id,
 
+        [boolean]
+        $Queue = $true,
+
+        [ValidateLength(36,36)]
         [string]
         $Existing,
 
@@ -30,13 +37,16 @@ function Start-RtrBatch {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/combined/batch-init-session/v1?timeout=' + [string] $Timeout + 's'
+            Uri = '/real-time-response/combined/batch-init-session/v1?timeout=' + [string] $Timeout
             Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ 'host_ids' = $Id }
+            Body = @{ 
+                host_ids = $Id
+                queue_offline_all = $Queue
+            }
         }
         switch ($PSBoundParameters.Keys) {
             'Existing' { $Param.Body['existing_batch_id'] = $Existing }

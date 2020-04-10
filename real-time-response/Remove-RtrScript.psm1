@@ -9,6 +9,7 @@ function Remove-RtrScript {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [ValidateLength(65,65)]
         [string]
         $Id
     )

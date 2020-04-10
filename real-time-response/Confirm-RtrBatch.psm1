@@ -18,6 +18,7 @@ function Confirm-RtrBatch {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
@@ -30,13 +31,13 @@ function Confirm-RtrBatch {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/combined/batch-refresh-session/v1?timeout=' + [string] $Timeout + 's'
+            Uri = '/real-time-response/combined/batch-refresh-session/v1?timeout=' + [string] $Timeout
             Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ 'batch_id' = $Id }
+            Body = @{ batch_id = $Id }
         }
         switch ($PSBoundParameters.Keys) {
             'Remove' { $Param.Body['hosts_to_remove'] }
