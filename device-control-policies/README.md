@@ -1,4 +1,4 @@
-# Add-FDCGroup
+# Add-CsControlGroup
 Add a host group to a Device Control policy
 
 ### References
@@ -12,10 +12,10 @@ Add a host group to a Device Control policy
 
 ### Example
 ```powershell
-PS> Add-FDCGroup -Id <string> -Group <string>
+PS> Add-CsControlGroup -Id <string> -Group <string>
 ```
 
-# Disable-FDCPolicy
+# Disable-CsControlPolicy
 Disable Device Control policies
 
 ### References
@@ -27,10 +27,10 @@ Disable Device Control policies
 
 ### Example
 ```powershell
-PS> Disable-FDCPolicy -Id @(<string>, <string>)
+PS> Disable-CsControlPolicy -Id @(<string>, <string>)
 ```
 
-# Edit-FDCPolicy
+# Edit-CsControlPolicy
 Update Device Control Policies by specifying the ID of the policy and details to update
 
 ### References
@@ -42,10 +42,10 @@ Update Device Control Policies by specifying the ID of the policy and details to
 
 ### Example
 ```powershell
-PS> Edit-FDCPolicy -Resources @(@{ id = <string>; name = <string>; description = <string> })
+PS> Edit-CsControlPolicy -Resources @(@{ id = <string>; name = <string>; description = <string> })
 ```
 
-# Enable-FDCPolicy
+# Enable-CsControlPolicy
 Enable Device Control policies
 
 ### References
@@ -57,10 +57,10 @@ Enable Device Control policies
 
 ### Example
 ```powershell
-PS> Enable-FDCPolicy -Id @(<string>, <string>)
+PS> Enable-CsControlPolicy -Id @(<string>, <string>)
 ```
 
-# Get-FDCMemberId
+# Get-CsControlMemberId
 Search for members of a Device Control Policy in your environment
 
 ### References
@@ -78,10 +78,10 @@ Search for members of a Device Control Policy in your environment
 
 ### Example
 ```powershell
-PS> Get-FDCMemberId -Id <string>
+PS> Get-CsControlMemberId -Id <string>
 ```
 
-# Get-FDCMemberInfo
+# Get-CsControlMemberInfo
 Search for details about members of a Device Control policy in your environment
 
 ### References
@@ -99,10 +99,10 @@ Search for details about members of a Device Control policy in your environment
 
 ### Example
 ```powershell
-PS> Get-FDCMemberInfo -Id <string>
+PS> Get-CsControlMemberInfo -Id <string>
 ```
 
-# Get-FDCPolicyId
+# Get-CsControlPolicyId
 Search for Device Control policies in your environment
 
 ### References
@@ -118,10 +118,10 @@ Search for Device Control policies in your environment
 
 ### Example
 ```powershell
-PS> Get-FDCPolicyId
+PS> Get-CsControlPolicyId
 ```
 
-# Get-FDCPolicyInfo
+# Get-CsControlPolicyInfo
 Search for info about Device Control policies
 
 ### References
@@ -140,10 +140,10 @@ Search for info about Device Control policies
 
 ### Example
 ```powershell
-PS> Get-FDCPolicyInfo
+PS> Get-CsControlPolicyInfo
 ```
 
-# New-FDCPolicy
+# New-CsControlPolicy
 Create Device Control policies by specifying details about the policy to create
 
 ### References
@@ -155,10 +155,10 @@ Create Device Control policies by specifying details about the policy to create
 
 ### Example
 ```powershell
-PS> New-FDCPolicy -Resources @(@{ name = <string>; platform_name = <string> })
+PS> New-CsControlPolicy -Resources @(@{ name = <string>; platform_name = <string> })
 ```
 
-# Remove-FDCGroup
+# Remove-CsControlGroup
 Remove a Host Group from a Device Control policy
 
 ### References
@@ -172,10 +172,10 @@ Remove a Host Group from a Device Control policy
 
 ### Example
 ```powershell
-PS> Remove-FDCGroup -Id <string> -Group <string>
+PS> Remove-CsControlGroup -Id <string> -Group <string>
 ```
 
-# Remove-FDCPolicy
+# Remove-CsControlPolicy
 Delete a set of Device Control policies by specifying their IDs
 
 ### References
@@ -187,10 +187,10 @@ Delete a set of Device Control policies by specifying their IDs
 
 ### Example
 ```powershell
-PS> Remove-FDCPolicy -Id @(<string>, <string>)
+PS> Remove-CsControlPolicy -Id @(<string>, <string>)
 ```
 
-# Set-FDCPrecedence
+# Set-CsControlPrecedence
 Sets the precedence of Device Control policies based on the order of IDs specified in the request
 
 ### References
@@ -204,5 +204,5 @@ Sets the precedence of Device Control policies based on the order of IDs specifi
 
 ### Example
 ```powershell
-PS> Set-FDCPrecedence -Platform <string> -Id @(<string>, <string>)
+PS> Set-CsControlPrecedence -Platform <string> -Id @(<string>, <string>)
 ```

@@ -17,7 +17,7 @@ function Get-CsToken {
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param (
+    param(
         [string]
         $Id,
 

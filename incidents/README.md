@@ -15,25 +15,6 @@ Perform a set of actions on one or more incidents
 PS> Edit-CsIncident -Id @(<string>, <string>) -Actions @(@{ name = <string>; value = <string> })
 ```
 
-# Get-CrowdScore
-Query CrowdScores
-
-### References
-**[Documentation](https://falcon.crowdstrike.com/support/documentation/86/detections-monitoring-apis#show-crowd-scores)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/incidents/CrowdScore)**
-
-### Parameters
-
-`-Filter`: The filter expression that should be used to limit the results
-
-`-Limit`: The maximum records to return [Default: 2500]
-
-`-Offset`: The offset to start retrieving records from [Default: 0]
-
-### Example
-```powershell
-PS> Get-CrowdScore
-```
-
 # Get-CsBehaviorId
 Search for behavior IDs
 
@@ -100,4 +81,23 @@ Get details on incidents by providing incident IDs
 ### Example
 ```powershell
 PS> Get-CsIncidentInfo -Id @(<string>, <string>)
+```
+
+# Get-CsScore
+Query CrowdScores
+
+### References
+**[Documentation](https://falcon.crowdstrike.com/support/documentation/86/detections-monitoring-apis#show-crowd-scores)**, **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/incidents/CrowdScore)**
+
+### Parameters
+
+`-Filter`: The filter expression that should be used to limit the results
+
+`-Limit`: The maximum records to return [Default: 2500]
+
+`-Offset`: The offset to start retrieving records from [Default: 0]
+
+### Example
+```powershell
+PS> Get-CsScore
 ```

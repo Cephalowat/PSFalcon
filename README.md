@@ -214,10 +214,9 @@ code    message
 ### Rate Limiting
 
 By default, PSFalcon checks the response header for the `X-RateLimit-RetryAfter` field and sleeps for the
-given amount of time. If desired, you can add the `-Verbose` flag to any command and the response header will
-be included with your output object as `$PSobject.header`.
+appropriate amount of time.
 
 ### Debugging
 
-Adding the `-Debug` flag to any command will output the entire response (including the response header) and the
-original inputs as `.\<trace_id>.json` for troubleshooting purposes.
+Adding the `-Debug` flag to any command will output the entire response, response header and command inputs
+to `.\<trace_id>.json` for troubleshooting purposes.

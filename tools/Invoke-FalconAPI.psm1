@@ -23,7 +23,7 @@ function Invoke-FalconAPI {
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
-    param (
+    param(
         [Parameter(Mandatory = $true)]
         [string]
         $Uri,
@@ -110,12 +110,11 @@ function Invoke-FalconAPI {
 
             Start-Sleep -Seconds $Wait
         }
-        # Add response headers for verbose and debug
-        if (($PSBoundParameters.Verbose -eq $true) -or ($PSBoundParameters.Debug -eq $true)) {
-            $Output | Add-Member -MemberType NoteProperty -Name header -Value $Response
-        }
-        # Output json of result and include inputs for debug
+        # Output json of result and include response headers and command inputs for debug
         if (($PSBoundParameters.Debug -eq $true) -and ($Output)) {
+            if ($Response) {
+                $Output | Add-Member -MemberType NoteProperty -Name header -Value $Response
+            }
             $Output | Add-Member -MemberType NoteProperty -Name PSFalcon -Value ([PSCustomObject] @{
                 uri = $Param.Uri
                 method = $Param.Method

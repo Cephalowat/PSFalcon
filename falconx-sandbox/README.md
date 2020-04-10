@@ -1,4 +1,4 @@
-# Get-FXReportId
+# Get-CsAnalysisId
 Find sandbox reports
 
 ### References
@@ -14,10 +14,10 @@ Find sandbox reports
 
 ### Example
 ```powershell
-PS> Get-FXReportId
+PS> Get-CsAnalysisId
 ```
 
-# Get-FXReportInfo
+# Get-CsAnalysisInfo
 Get a short summary version of a sandbox report
 
 ### References
@@ -29,10 +29,10 @@ Get a short summary version of a sandbox report
 
 ### Example
 ```powershell
-PS> Get-FXReportInfo -Id @(<string>, <string>)
+PS> Get-CsAnalysisInfo -Id @(<string>, <string>)
 ```
 
-# Get-FXSubmissionId
+# Get-CsSubmissionId
 Find submission IDs for uploaded files
 
 ### References
@@ -48,10 +48,10 @@ Find submission IDs for uploaded files
 
 ### Example
 ```powershell
-PS> Get-FXSubmissionId
+PS> Get-CsSubmissionId
 ```
 
-# Get-FXSubmissionInfo
+# Get-CsSubmissionInfo
 Check the status of a sandbox analysis
 
 ### References
@@ -63,10 +63,10 @@ Check the status of a sandbox analysis
 
 ### Example
 ```powershell
-PS> Get-FXSubmissionInfo -Id @(<string>, <string>)
+PS> Get-CsSubmissionInfo -Id @(<string>, <string>)
 ```
 
-# Get-FXQuota
+# Get-CsSubmissionQuota
 Get your current Falcon X quota status
 
 ### References
@@ -74,10 +74,10 @@ Get your current Falcon X quota status
 
 ### Example
 ```powershell
-PS> Get-FXQuota
+PS> Get-CsSubmissionQuota
 ```
 
-# New-FXSample
+# New-CsSample
 Upload a file for sandbox analysis
 
 ### References
@@ -93,10 +93,10 @@ Upload a file for sandbox analysis
 
 ### Example
 ```powershell
-PS> New-FXSample -Path <string>
+PS> New-CsSample -Path <string>
 ```
 
-# Receive-FXArtifact
+# Receive-CsArtifact
 Download IOC packs, PCAP files, and other analysis artifacts
 
 ### References
@@ -112,10 +112,10 @@ Download IOC packs, PCAP files, and other analysis artifacts
 
 ### Example
 ```powershell
-PS> Receive-FXArtifact -Id <string> -Path <string>
+PS> Receive-CsArtifact -Id <string> -Path <string>
 ```
 
-# Submit-FXSample
+# Submit-CsSample
 Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is
 usually less than 15 minutes
 
@@ -128,5 +128,5 @@ usually less than 15 minutes
 
 ### Example
 ```powershell
-PS> Submit-FXSample -Sandbox @(@{})
+PS> Submit-CsSample -Sandbox @(@{})
 ```
