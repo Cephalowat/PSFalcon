@@ -57,10 +57,10 @@ and all requests will be directed to your proxy until a new `Get-CsToken` reques
 
 # Examples
 
-### Containing and Releasing a Host
+### Containing Hosts
 
-To contain a host, you need the Host Id for the particular device. If you don't have it, `Get-CsHostId`
-can be used to find it with a filtered search using the device's hostname. 
+To contain a host, you need the Host Id for the target device(s). If you don't have them, `Get-CsHostId`
+can be used to find them with a filtered search:
 
 ```powershell
 PS> $HostId = Get-CsHostId -Filter "hostname:'Example-PC'"
@@ -91,16 +91,6 @@ id                               path
 <string>                         <string>
 ```
 
-To reduce everything down even further, you can pass the Host Id via the pipeline. Here's what it looks like to
-to request the Host Id and release the device from containment in the same line:
-
-```powershell
-PS> ((Get-CsHostId -Filter "hostname:'Example-PC'").resources | Stop-CsContain).resources
-
-id                               path
---                               ----
-<string>                         <string>
-```
 # Commands
 
 To display a list of the commands available with PSFalcon:
