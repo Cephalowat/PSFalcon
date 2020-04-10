@@ -6,9 +6,9 @@ Search for Vulnerabilities in your environment
 
 ### Parameters
 
-`-Filter`: Filter items using a query in Falcon Query Language (FQL) [Default: Created in last 24 hours]
+`-Filter`: Filter items using a query in Falcon Query Language (FQL) [default: Created in last 24 hours]
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
 `-After`: The pagination token to continue results after an initial request
 

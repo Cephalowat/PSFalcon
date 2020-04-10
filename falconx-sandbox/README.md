@@ -8,9 +8,9 @@ Find sandbox reports
 
 `-Filter`: Optional filter and sort criteria in the form of an FQL query
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -42,9 +42,9 @@ Find submission IDs for uploaded files
 
 `-Filter`: Optional filter and sort criteria in the form of an FQL query
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -89,7 +89,7 @@ Upload a file for sandbox analysis
 
 `-Comment`: A descriptive comment to identify the file for other users
 
-`-Confidential`: Defines visibility of this file in Falcon MalQuery [Default: True]
+`-Confidential`: Defines visibility of this file in Falcon MalQuery [default: True]
 
 ### Example
 ```powershell

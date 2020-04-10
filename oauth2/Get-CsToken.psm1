@@ -10,7 +10,7 @@ function Get-CsToken {
         Client Secret
 
     .PARAMETER CLOUD
-        CrowdStrike destination cloud [Default: 'US']
+        CrowdStrike destination cloud [default: 'US']
 
     .PARAMETER PROXY
         Web proxy address

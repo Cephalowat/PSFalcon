@@ -53,9 +53,9 @@ Search for provisioned AWS Accounts
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -74,9 +74,9 @@ Retrieve a set of AWS Accounts by specifying their IDs
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -102,7 +102,7 @@ Provision AWS accounts by specifying details about the accounts to provision
 
 ### Parameters
 
-`-Mode`: Mode for provisioning. Allowed values are 'manual' or 'cloudformation' [Default: manual]
+`-Mode`: Mode for provisioning. Allowed values are 'manual' or 'cloudformation' [default: manual]
 
 `-Resources`: An array of AWS account properties
 

@@ -7,7 +7,7 @@ function New-RtrScript {
         Full path to the script you wish to upload
 
     .PARAMETER PERMISSION
-        Permission for the custom-script [Default: private]
+        Permission for the custom-script [default: private]
 
     .PARAMETER DESCRIPTION
         File description

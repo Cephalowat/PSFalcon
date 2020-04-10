@@ -10,7 +10,7 @@ function Receive-CsRuleSet {
         ID of a specific rule set
 
     .PARAMETER FORMAT
-        The output archive type [Default: 'zip']
+        The output archive type [default: 'zip']
 
     .PARAMETER PATH
         Destination path

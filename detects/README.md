@@ -25,9 +25,9 @@ Search for detection IDs
 
 `-Query`: Search all detection metadata for the provided string
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell

@@ -10,7 +10,7 @@ function New-CsSample {
         A descriptive comment to identify the file for other users
 
     .PARAMETER CONFIDENTIAL
-        Defines visibility of this file in Falcon MalQuery [Default: True]
+        Defines visibility of this file in Falcon MalQuery [default: True]
 #>
     [CmdletBinding()]
     [OutputType([psobject])]

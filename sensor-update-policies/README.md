@@ -87,9 +87,9 @@ Search for members of a Sensor Update policy in your environment
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -108,9 +108,9 @@ Search for details about members of a Sensor Update policy in your environment
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -127,9 +127,9 @@ Search for Sensor Update policies in your environment
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -148,9 +148,9 @@ Search for info about Sensor Update policies
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell

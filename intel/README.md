@@ -10,9 +10,9 @@ Get actor IDs
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -31,14 +31,14 @@ Retrieve specific actors
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 `-Id`: IDs of specific actors to return
 
 `-Field`: The fields to return, or a predefined set of fields in the form of the collection name surrounded
-by two underscores [Default: '\__basic__']
+by two underscores [default: '\__basic__']
 
 ### Example
 ```powershell
@@ -53,15 +53,15 @@ Get indicators IDs
 
 ### Parameters
 
-`-Deleted`: If $true, include both published and deleted indicators in the response [Default: $false]
+`-Deleted`: If $true, include both published and deleted indicators in the response [default: $false]
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 150000]
+`-Limit`: The maximum records to return [default: 150000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -76,15 +76,15 @@ Retrieve info about specific indicators
 
 ### Parameters
 
-`-Deleted`: If $true, include both published and deleted indicators in the response [Default: $false]
+`-Deleted`: If $true, include both published and deleted indicators in the response [default: $false]
 
 `-Filter`: Filter your query by specifying FQL filter parameters
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 150000]
+`-Limit`: The maximum records to return [default: 150000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 `-Id`: IDs of specific indicators to return
 
@@ -105,9 +105,9 @@ Get report IDs
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -126,14 +126,14 @@ Retrieve info about specific reports
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 `-Id`: IDs of the reports you want to retrieve
 
 `-Field`: The fields to return, or a predefined set of fields in the form of the collection name surrounded
-by two underscores [Default: '\__basic__']
+by two underscores [default: '\__basic__']
 
 ### Example
 ```powershell
@@ -162,9 +162,9 @@ Search for rule IDs
 
 `-Query`: Perform a generic substring search across all fields
 
-`-Limit`: The maximum records to return [Default: 100]
+`-Limit`: The maximum records to return [default: 100]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 ### Example
 ```powershell
@@ -215,7 +215,7 @@ Download the latest rule set by type, or specific rule set by id
 
 `-Id`: ID of a specific rule set
 
-`-Format`: Output archive type [Default: 'zip']
+`-Format`: Output archive type [default: 'zip']
 
 `-Path`: Destination path
 
