@@ -4,7 +4,7 @@ function Get-CsIndicatorInfo {
         Retrieve info about specific indicators
 
     .PARAMETER DELETED
-        If $true, include both published and deleted indicators in the response [Default: $false]
+        If $true, include both published and deleted indicators in the response [default: $false]
 
     .PARAMETER FILTER
         Filter your query by specifying FQL filter parameters
@@ -13,10 +13,10 @@ function Get-CsIndicatorInfo {
         Perform a generic substring search across all fields
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 150000]
+        The maximum records to return [default: 50000]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0]
+        The offset to start retrieving records from [default: 0]
 
     .PARAMETER ID
         IDs of specific indicators to return
@@ -37,15 +37,15 @@ function Get-CsIndicatorInfo {
         $Query,
 
         [Parameter(ParameterSetName = 'combined')]
-        [ValidateRange(1,150000)]
+        [ValidateRange(1,50000)]
         [int]
-        $Limit = 150000,
+        $Limit = 50000,
 
         [Parameter(ParameterSetName = 'combined')]
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true)]
         [array]
         $Id
     )
@@ -60,7 +60,7 @@ function Get-CsIndicatorInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Id' { 
                 $Param.Uri = '/intel/entities/indicators/GET/v1'
