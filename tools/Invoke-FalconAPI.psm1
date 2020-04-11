@@ -98,10 +98,6 @@ function Invoke-FalconAPI {
                 $_.Exception
             }
         }
-        # Output trace_id
-        if ($Output.meta.trace_id) {
-            Write-Verbose ("trace_id: " + [string] $Output.meta.trace_id)
-        }
         # Check for rate limiting
         if ($Response.'X-Ratelimit-RetryAfter') {
             $Wait = (([int] $Response.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
