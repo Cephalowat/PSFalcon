@@ -31,7 +31,7 @@ function Get-CsGroupInfo {
         [int]
         $Offset = 0,
 
-        [Parameter(ParameterSetName = 'entities', Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(ParameterSetName = 'entities', Mandatory = $true)]
         [array]
         $Id
     )
