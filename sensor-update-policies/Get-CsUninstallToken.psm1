@@ -13,6 +13,7 @@ function Get-CsUninstallToken {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(32,32)]
         [string]
         $Id,
 

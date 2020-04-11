@@ -16,7 +16,7 @@ function Add-CsUserRole {
         [string]
         $Id,
 
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Role
     )

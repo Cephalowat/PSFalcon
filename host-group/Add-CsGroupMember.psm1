@@ -17,7 +17,7 @@ function Add-CsGroupMember {
         [string]
         $Id,
 
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Hosts
     )

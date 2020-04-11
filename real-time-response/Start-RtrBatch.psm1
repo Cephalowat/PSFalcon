@@ -8,7 +8,7 @@ function Start-RtrBatch {
         List of host agent IDs to initialize a RTR session on
 
     .PARAMETER QUEUE
-        Utilize queueing for devices that are currently offline [default: true]
+        Utilize queueing for devices that are currently offline [default: True]
 
     .PARAMETER EXISTING
         Optional batch ID. Use an existing batch ID if you want to initialize new hosts and
@@ -20,7 +20,7 @@ function Start-RtrBatch {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id,
 

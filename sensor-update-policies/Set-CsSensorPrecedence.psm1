@@ -19,7 +19,7 @@ function Set-CsSensorPrecedence {
         [string]
         $Platform,
 
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
