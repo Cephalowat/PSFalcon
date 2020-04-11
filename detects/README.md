@@ -29,9 +29,11 @@ Search for detection IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat requests until all results are returned
+
 ### Example
 ```powershell
-PS> Get-CsDetectId -Filter "status:'new'"
+PS> Get-CsDetectId -Filter <string>
 ```
 
 # Get-CsDetectInfo
