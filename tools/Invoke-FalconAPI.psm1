@@ -123,7 +123,8 @@ function Invoke-FalconAPI {
                 body = $Param.Body
                 form = $Param.Form
             })
-            $Output | ConvertTo-Json -Depth 32 | Out-File -FilePath ('.\' + $Output.meta.trace_id + '.json')
+            $Output | ConvertTo-Json -Depth 32 |
+            Out-File -FilePath ('.\' + (Get-Date -Format FileDateTime) + '-' + $Output.meta.trace_id + '.json')
         }
     }
     end {
