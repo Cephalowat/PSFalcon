@@ -28,7 +28,7 @@ function Get-CsVulnId {
     )
     process{
         $Param = @{
-            Uri = '/spotlight/queries/vulnerabilities/v1?limit=' + [string] $Limit + '&filter=' + $Filter
+            Uri = '/spotlight/queries/vulnerabilities/v1?limit=' + [string] $Limit + '&filter=' + $Filter.ToLower()
             Method = 'get'
             Header = @{
                 accept = 'application/json'

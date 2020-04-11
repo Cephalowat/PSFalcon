@@ -45,7 +45,7 @@ function Get-CsSensorPolicyInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
             'Id' { $Param.Uri = '/policy/entities/sensor-update/v2?ids=' + ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
