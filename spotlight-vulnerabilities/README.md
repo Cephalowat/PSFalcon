@@ -12,6 +12,8 @@ Search for Vulnerabilities in your environment
 
 `-After`: The pagination token to continue results after an initial request
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-FSVulnId

@@ -23,6 +23,8 @@ Search for Falcon Sensor Installer hashes
 
 `-Offset` : The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsInstallerId
@@ -41,6 +43,8 @@ Search for info about Falcon Sensor Installers
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 `-Id`: Hashes of specific Falcon Sensor installers to return
 

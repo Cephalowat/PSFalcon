@@ -91,6 +91,8 @@ Search for members of a Sensor Update policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsSensorMemberId -Id <string>
@@ -112,6 +114,8 @@ Search for details about members of a Sensor Update policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsSensorMemberInfo -Id <string>
@@ -130,6 +134,8 @@ Search for Sensor Update policies in your environment
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -151,6 +157,8 @@ Search for info about Sensor Update policies
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

@@ -49,6 +49,8 @@ Get a list of 'put' file IDs that are available to the user for the 'put' comman
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-RtrFileId
@@ -82,6 +84,8 @@ Get a list of custom-script ID's that are available to the user for the 'runscri
 `-Limit`: The maximum records to return [default: 5000]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

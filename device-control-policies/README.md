@@ -76,6 +76,8 @@ Search for members of a Device Control Policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsControlMemberId -Id <string>
@@ -97,6 +99,8 @@ Search for details about members of a Device Control policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsControlMemberInfo -Id <string>
@@ -115,6 +119,8 @@ Search for Device Control policies in your environment
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -137,6 +143,7 @@ Search for info about Device Control policies
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

@@ -76,6 +76,8 @@ Search for members of a Firewall policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsFirewallMemberId -Id <string>
@@ -97,6 +99,8 @@ Search for details about members of a Firewall policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsFirewallMemberInfo -Id <string>
@@ -115,6 +119,8 @@ Search for Firewall policies in your environment
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -136,6 +142,8 @@ Search for info about Firewall policies
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

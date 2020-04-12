@@ -29,6 +29,8 @@ Search for behavior IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsBehaviorId
@@ -63,6 +65,8 @@ Search for incident IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsIncidentId
@@ -96,6 +100,8 @@ Query CrowdScores
 `-Limit`: The maximum records to return [default: 2500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

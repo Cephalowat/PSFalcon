@@ -12,6 +12,8 @@ Find sandbox reports
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsAnalysisId
@@ -45,6 +47,8 @@ Find submission IDs for uploaded files
 `-Limit`: The maximum records to return [default: 5000]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

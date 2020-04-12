@@ -44,6 +44,8 @@ Search for Host Groups IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsGroupId
@@ -64,6 +66,8 @@ Search for info about Host Groups
 `-Offset`: The offset to start retrieving records from [default: 0]
 
 `-Id`: IDs of specific host groups to return
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -86,6 +90,8 @@ Search for members of a Host Group in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsGroupMemberId -Id <string>
@@ -106,6 +112,8 @@ Search for detail about members of a Host Group in your environment
 `-Limit`: The maximum records to return [default: 5000]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

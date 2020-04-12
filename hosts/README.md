@@ -11,6 +11,8 @@ Search for hosts in your environment
 
 `-Offset`: The offset to start retrieving records from
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsHostId

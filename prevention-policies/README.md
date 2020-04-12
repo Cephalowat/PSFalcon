@@ -76,6 +76,8 @@ Search for members of a Prevention policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsPreventMemberId -Id <string>
@@ -97,6 +99,8 @@ Search for details about members of a Prevention policy in your environment
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsPreventMemberInfo -Id <string>
@@ -115,6 +119,8 @@ Search for Prevention policies in your environment
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -136,6 +142,8 @@ Search for info about Prevention policies
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell

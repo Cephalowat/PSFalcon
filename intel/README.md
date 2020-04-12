@@ -14,6 +14,8 @@ Get actor IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsActorId
@@ -34,6 +36,8 @@ Retrieve specific actors
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 `-Id`: IDs of specific actors to return
 
@@ -62,6 +66,8 @@ Get indicators IDs
 `-Limit`: The maximum records to return [default: 150000]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -109,6 +115,8 @@ Get report IDs
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
+`-All`: Repeat request until all results are returned
+
 ### Example
 ```powershell
 PS> Get-CsReportId
@@ -129,6 +137,8 @@ Retrieve info about specific reports
 `-Limit`: The maximum records to return [default: 500]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 `-Id`: IDs of the reports you want to retrieve
 
@@ -165,6 +175,8 @@ Search for rule IDs
 `-Limit`: The maximum records to return [default: 100]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
