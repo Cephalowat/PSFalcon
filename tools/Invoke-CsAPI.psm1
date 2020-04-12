@@ -1,4 +1,4 @@
-function Invoke-FalconAPI {
+function Invoke-CsAPI {
 <#
     .SYNOPSIS
         Invoke-RestMethod wrapper used by PSFalcon
@@ -61,7 +61,7 @@ function Invoke-FalconAPI {
             Header = @{}
             ResponseHeadersVariable = 'Response'
         }
-        # Add Invoke-FalconAPI arguments
+        # Add Invoke-CsAPI arguments
         switch ($PSBoundParameters.Keys) {
             'Body' { $Param['Body'] = $Body }
             'Form' { $Param['Form'] = $Form }

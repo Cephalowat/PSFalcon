@@ -8,7 +8,7 @@ function Start-RtrBatch {
         List of host agent IDs to initialize a RTR session on
 
     .PARAMETER QUEUE
-        Utilize queueing for devices that are currently offline [default: True]
+        Utilize queueing for devices that are currently offline [default: true]
 
     .PARAMETER EXISTING
         Optional batch ID. Use an existing batch ID if you want to initialize new hosts and
@@ -55,6 +55,6 @@ function Start-RtrBatch {
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

@@ -15,7 +15,7 @@ function Get-CsRuleInfo {
     )
     process{
         $Param = @{
-            Uri = '/intel/entities/rules/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/intel/entities/rules/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-CsRuleInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

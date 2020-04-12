@@ -16,7 +16,7 @@ function Get-CsSubmissionInfo {
     )
     process{
         $Param = @{
-            Uri =  '/falconx/entities/submissions/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/falconx/entities/submissions/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -27,6 +27,6 @@ function Get-CsSubmissionInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

@@ -7,10 +7,13 @@ function Get-CsInstallerId {
         The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500]
+        The maximum records to return [default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0]
+        The offset to start retrieving records from [default: 0]
+
+    .PARAMETER ALL
+        Repeat request until all results are returned
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -23,7 +26,10 @@ function Get-CsInstallerId {
         $Limit = 500,
 
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [switch]
+        $All
     )
     process{
         $Param = @{
@@ -35,10 +41,15 @@ function Get-CsInstallerId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        if ($All) {
+            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
+        }
+        else {
+            Invoke-CsAPI @Param
+        }
     }
 }

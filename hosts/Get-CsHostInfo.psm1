@@ -15,7 +15,7 @@ function Get-CsHostInfo {
     )
     process{
         $Param = @{
-            Uri =  '/devices/entities/devices/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/devices/entities/devices/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-CsHostInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

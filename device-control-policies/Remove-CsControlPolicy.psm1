@@ -15,7 +15,7 @@ function Remove-CsControlPolicy {
     )
     process{
         $Param = @{
-            Uri = '/policy/entities/device-control/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/policy/entities/device-control/v1?ids='
             Method = 'delete'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Remove-CsControlPolicy {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

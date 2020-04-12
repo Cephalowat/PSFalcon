@@ -83,6 +83,6 @@ function Send-RtrCommand {
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

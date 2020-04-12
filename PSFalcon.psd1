@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.0'
+ModuleVersion = '1.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -220,7 +220,9 @@ NestedModules = @(
 
     # tools
     '.\tools\Convert-RtrResult.psm1',
-    '.\tools\Invoke-FalconAPI.psm1',
+    '.\tools\Invoke-CsAPI.psm1',
+    '.\tools\Join-CsResult.psm1',
+    '.\tools\Split-CsArray.psm1',
 
     # user-management
     '.\user-management\Add-CsUser.psm1',
@@ -390,7 +392,9 @@ FunctionsToExport = @(
 
     # tools
     'Convert-RtrResult',
-    'Invoke-FalconAPI',
+    'Invoke-CsAPI',
+    'Join-CsResult',
+    'Split-CsArray',
 
     # user-management
     'Add-CsUser',

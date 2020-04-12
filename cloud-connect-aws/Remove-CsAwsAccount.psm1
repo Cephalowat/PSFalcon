@@ -15,7 +15,7 @@ function Remove-CsAwsAccount {
     )
     process{
         $Param = @{
-            Uri = '/cloud-connect-aws/entities/accounts/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/cloud-connect-aws/entities/accounts/v1?ids='
             Method = 'delete'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Remove-CsAwsAccount {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

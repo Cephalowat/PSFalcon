@@ -25,10 +25,13 @@ function Get-CsRuleId {
         Perform a generic substring search across all fields
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 100]
+        The maximum records to return [default: 100]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0]
+        The offset to start retrieving records from [default: 0]
+
+    .PARAMETER ALL
+        Repeat request until all results are returned
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -62,7 +65,10 @@ function Get-CsRuleId {
         $Limit = 100,
 
         [int]
-        $Offset = 0
+        $Offset = 0,
+
+        [switch]
+        $All
     )
     process{
         $Param = @{
@@ -82,6 +88,11 @@ function Get-CsRuleId {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        if ($All) {
+            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
+        }
+        else {
+            Invoke-CsAPI @Param
+        }
     }
 }

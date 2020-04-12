@@ -15,7 +15,7 @@ function Get-CsAwsAccess {
     )
     process{
         $Param = @{
-            Uri =  '/cloud-connect-aws/entities/verify-account-access/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/cloud-connect-aws/entities/verify-account-access/v1?ids='
             Method = 'post'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-CsAwsAccess {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

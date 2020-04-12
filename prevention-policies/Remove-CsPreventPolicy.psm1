@@ -15,7 +15,7 @@ function Remove-CsPreventPolicy {
     )
     process{
         $Param = @{
-            Uri = '/policy/entities/prevention/v1?ids=' + ($Id -join '&ids=')
+            Uri = '/policy/entities/prevention/v1?ids='
             Method = 'delete'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Remove-CsPreventPolicy {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

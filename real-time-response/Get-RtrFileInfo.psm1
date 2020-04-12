@@ -15,7 +15,7 @@ function Get-RtrFileInfo {
     )
     process{
         $Param = @{
-            Uri =  '/real-time-response/entities/put-files/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/real-time-response/entities/put-files/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-RtrFileInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

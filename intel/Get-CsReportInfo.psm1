@@ -10,17 +10,20 @@ function Get-CsReportInfo {
         Perform a generic substring search across all fields
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500]
+        The maximum records to return [default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0]
+        The offset to start retrieving records from [default: 0]
+
+    .PARAMETER ALL
+        Repeat request until all results are returned
 
     .PARAMETER ID
         IDs of the reports you want to retrieve
 
     .PARAMETER FIELD
         The fields to return, or a predefined set of fields in the form of the collection
-        name surrounded by two underscores [Default: '__basic__']
+        name surrounded by two underscores [default: '__basic__']
 #>
     [CmdletBinding(DefaultParameterSetName = 'combined')]
     [OutputType([psobject])]
@@ -42,6 +45,10 @@ function Get-CsReportInfo {
         [int]
         $Offset = 0,
 
+        [Parameter(ParameterSetName = 'combined')]
+        [switch]
+        $All,
+
         [Parameter(ParameterSetName = 'entities', Mandatory = $true)]
         [array]
         $Id,
@@ -62,15 +69,22 @@ function Get-CsReportInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Id' { 
-                $Param.Uri = '/intel/entities/reports/v1?ids=' + ($Id -join '&ids=') +
-                '&fields=' + ($Field -join '&fields=')
+                $Param.Uri = '/intel/entities/reports/v1?fields=' + ($Field -join '&fields=') + '&ids='
             }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        if ($Id) {
+            Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
+        }
+        elseif ($All) {
+            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
+        }
+        else {
+            Invoke-CsAPI @Param
+        }
     }
 }

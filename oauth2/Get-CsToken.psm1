@@ -70,7 +70,7 @@ function Get-CsToken {
             Body = ('client_id=' + $Falcon.id + '&client_secret=' +
             ($Falcon.secret | ConvertFrom-SecureString -AsPlainText))
         }
-        $Request = Invoke-FalconAPI @Param
+        $Request = Invoke-CsAPI @Param
 
         # Save token and expiration time to $Falcon
         if ($Request.access_token) {

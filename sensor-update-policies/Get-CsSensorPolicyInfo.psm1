@@ -7,10 +7,13 @@ function Get-CsSensorPolicyInfo {
         The filter expression that should be used to limit the results
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500]
+        The maximum records to return [default: 500]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [Default: 0]
+        The offset to start retrieving records from [default: 0]
+
+    .PARAMETER ALL
+        Repeat request until all results are returned
 
     .PARAMETER ID
         IDs of specific Sensor Update policies to return
@@ -31,6 +34,10 @@ function Get-CsSensorPolicyInfo {
         [int]
         $Offset = 0,
 
+        [Parameter(ParameterSetName = 'combined')]
+        [switch]
+        $All,
+
         [Parameter(ParameterSetName = 'entities', Mandatory = $true)]
         [array]
         $Id
@@ -45,11 +52,19 @@ function Get-CsSensorPolicyInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
-            'Id' { $Param.Uri = '/policy/entities/sensor-update/v2?ids=' + ($Id -join '&ids=') }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Id' { $Param.Uri = '/policy/entities/sensor-update/v2?ids=' }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        if ($Id) {
+            Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
+        }
+        elseif ($All) {
+            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
+        }
+        else {
+            Invoke-CsAPI @Param
+        }
     }
 }

@@ -60,7 +60,7 @@ function Get-CsIndicatorInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower().ToLower() }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Id' { 
                 $Param.Uri = '/intel/entities/indicators/GET/v1'
@@ -69,6 +69,6 @@ function Get-CsIndicatorInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

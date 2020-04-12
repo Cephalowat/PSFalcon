@@ -15,7 +15,7 @@ function Get-CsUserInfo {
     )
     process{
         $Param = @{
-            Uri =  '/users/entities/users/v1?ids=' + ($Id -join '&ids=')
+            Uri =  '/users/entities/users/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-CsUserInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }
