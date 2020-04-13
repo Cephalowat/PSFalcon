@@ -22,7 +22,7 @@ function Add-CsGroupMember {
         $Hosts
     )
     process{
-        [string] $HostString = $Hosts.foreach{ "`'" + $_ + "`'," }
+        [string] $HostString = foreach ($Item in $Hosts) { "`'" + $Item + "`'," }
 
         $Param = @{
             Uri = '/devices/entities/host-group-actions/v1?action_name=add-hosts'

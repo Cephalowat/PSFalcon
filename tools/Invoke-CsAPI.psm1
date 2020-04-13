@@ -59,7 +59,6 @@ function Invoke-CsAPI {
             Uri = $Falcon.host + $Uri
             Method = $Method
             Header = @{}
-            ResponseHeadersVariable = 'Response'
         }
         # Add Invoke-CsAPI arguments
         switch ($PSBoundParameters.Keys) {
@@ -68,8 +67,8 @@ function Invoke-CsAPI {
             'Outfile' { $Param['Outfile'] = $Outfile }
         }
         # Add header values from PSFalcon command
-        ($Header.keys).foreach{
-            $Param.Header[$_] = $Header.$_
+        foreach ($Key in $Header.keys) {
+            $Param.Header[$Key] = $Header.$Key
         }
         # Add OAuth2 bearer token
         if ($Falcon.token) {
@@ -81,37 +80,31 @@ function Invoke-CsAPI {
             $Param['ProxyUseDefaultCredentials'] = $true
         }
         # Make request
-        $Output = try {
-            Invoke-RestMethod @Param
+        $Request = try {
+            Invoke-WebRequest @Param
         }
-        # Output error
+        # Capture error
         catch {
             if ($_.ErrorDetails.Message) {
-                if ($_.ErrorDetails.Message -match 'meta') {
-                    $_.ErrorDetails.Message | ConvertFrom-Json
-                }
-                else {
-                    $_.ErrorDetails.Message
-                }
+                $_.ErrorDetails.Message
             }
-            elseif ($_.Exception) {
+            else {
                 $_.Exception
             }
         }
-        # Check for rate limiting
-        if ($Response.'X-Ratelimit-RetryAfter') {
-            $Wait = (([int] $Response.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
-
-            Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
-
-            Start-Sleep -Seconds $Wait
-        }
-        # Output json of result and include response headers and command inputs for debug
-        if (($PSBoundParameters.Debug -eq $true) -and ($Output)) {
-            if ($Response) {
-                $Output | Add-Member -MemberType NoteProperty -Name header -Value $Response
+        # Debug output
+        if (($PSBoundParameters.Debug -eq $true) -and ($Request)) {
+            $Output = [PSCustomObject] @{
+                code = $Request.StatusCode
+                description = $Request.StatusDescription
+                headers = $Request.headers
             }
-            $Output | Add-Member -MemberType NoteProperty -Name PSFalcon -Value ([PSCustomObject] @{
+            # Add Content
+            foreach ($Item in ($Request.Content | ConvertFrom-Json).psobject.properties) {
+                $Output | Add-Member -MemberType NoteProperty -Name $Item.name -Value $Item.value
+            }
+            # Add Inputs
+            $Output | Add-Member -MemberType NoteProperty -Name input -Value ([PSCustomObject] @{
                 uri = $Param.Uri
                 method = $Param.Method
                 accept = $Param.Header.accept
@@ -119,13 +112,25 @@ function Invoke-CsAPI {
                 body = $Param.Body
                 form = $Param.Form
             })
-            $Output | ConvertTo-Json -Depth 32 |
+            # Save to Json
+            $Output | ConvertTo-Json -Depth 64 |
             Out-File -FilePath ('.\' + (Get-Date -Format FileDateTime) + '-' + $Output.meta.trace_id + '.json')
+        }
+        # Check for rate limiting
+        if ($Request.Headers.'X-Ratelimit-RetryAfter') {
+            $Wait = (([int] $Request.Headers.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
+
+            Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
+
+            Start-Sleep -Seconds $Wait
         }
     }
     end {
-        if ($Output) {
-            $Output
+        if ($Request.Content) {
+            $Request | ConvertFrom-Json
+        }
+        else {
+            $Request
         }
     }
 }

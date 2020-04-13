@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.1'
+ModuleVersion = '1.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = '(c) Brendan Kremian. All rights reserved.'
 Description = "PowerShell for CrowdStrike Falcon's OAuth2 APIs"
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '6.1'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -458,4 +458,3 @@ HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
 # DefaultCommandPrefix = ''
 
 }
-
