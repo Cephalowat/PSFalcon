@@ -69,7 +69,7 @@ Next, the Host Id can be used with the `Start-CsContain` command to isolate the 
 the Host Id results are contained in the member `$HostId.resources`, you'll need to reference it directly. The
 [Responses](#Responses) section further explains what you can expect inside the results of a command.
 
-You can reference the `resources` member for the `Start-CsContain` command, too. However, it only makes sense to
+You can reference the resources member for the `Start-CsContain` command, too. However, it only makes sense to
 do so if you expect a successful result and have no need to analyze the rest of the output:
 
 ```powershell
