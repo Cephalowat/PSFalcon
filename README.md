@@ -108,7 +108,7 @@ PS> $HostInfo = (Get-CsHostInfo $AllHostIds).resources
 ```
 
 However, if you're dealing with large amounts of devices, this could take a bit of time. Sometimes it makes
-sense to take a shorcut and import a CSV of your **[Host Management](https://falcon.crowdstrike.com/hosts/hosts)** page:
+sense to take a shortcut and import a CSV of your **[Host Management](https://falcon.crowdstrike.com/hosts/hosts)** page:
 
 ```powershell
 PS> $AllHosts = Import-Csv .\164322_hosts_2020-01-01T08_00_00Z.csv
