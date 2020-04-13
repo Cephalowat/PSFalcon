@@ -60,13 +60,7 @@ To contain a host, you need the Host Id for the target device(s). If you don't h
 can be used to find them with a filtered search:
 
 ```powershell
-PS> $HostId = Get-CsHostId -Filter "hostname:'Example-PC'"
-```
-
-You can verify that a successful result was returned by showing the contents of `$HostId`:
-
-```powershell
-PS> $HostId
+PS> Get-CsHostId -Filter "hostname:'Example-PC'" -OutVariable HostId
 
 meta                                                                                    resources
 ----                                                                                    ---------
@@ -89,12 +83,22 @@ id                               path
 ```
 
 Congratulations! Your network containment request has been submitted for this device. You can release the device
-from containment by using `Stop-CsContain`.
+from containment by using `Stop-CsContain`:
 
-### Importing Large Sets
+```powershell
+PS> (Stop-CsContain -Id $HostId.resources).resources
 
-To obtain all of the Host Ids in your environment, you can use the command `Get-CsHostId -All`. PSFalcon uses
-the `-All` flag to repeat requests in cases where a single command won't retrieve all the data:
+id                               path
+--                               ----
+<string>                         <string>
+```
+
+### Retrieving Large Sets of Devices
+
+To obtain all of the Host Ids in your environment, you can use the command `Get-CsHostId`. Each individual
+PSFalcon command is subject to the limits of the API it uses, so if there are more results than what are
+returned with the first request, you'll have to make additional requests. PSFalcon uses the `-All` flag
+to repeat requests and retrieve results when one command won't get everything:
 
 ```powershell
 PS> $HostIds = (Get-CsHostId -All).resources
@@ -107,8 +111,8 @@ these requests up into appropriately sized groups until all results are retrieve
 PS> $HostInfo = (Get-CsHostInfo $AllHostIds).resources
 ```
 
-However, if you're dealing with large amounts of devices, this could take a bit of time. Sometimes it makes
-sense to take a shortcut and import a CSV of your **[Host Management](https://falcon.crowdstrike.com/hosts/hosts)** page:
+However, if you're dealing with large amounts of devices, this could take a bit of time. It might make sense
+to take a shortcut and import a CSV from your **[Host Management](https://falcon.crowdstrike.com/hosts/hosts)** page:
 
 ```powershell
 PS> $AllHosts = Import-Csv .\164322_hosts_2020-01-01T08_00_00Z.csv
@@ -120,6 +124,120 @@ CSV directly:
 ```powershell
 PS> $AllHosts.'Host ID'
 <array>
+PS> $AllHosts | Select-Object 'Host ID', Hostname, 'Last Seen', 'Status'
+
+Host ID                          Hostname        Last Seen            Status
+-------                          --------        ---------            ------
+<array>                          <array>         <array>              <array>
+```
+
+### Using Real-time Response
+
+Similar to using Network Containment, with Real-time Response, you'll start with one or more Host Ids:
+
+```powershell
+PS> $HostId = (Get-CsHostId -Filter "hostname:'Example-PC'").resources
+```
+
+Whether you're dealing with one device, or a group of devices, you need to initiate a Real-time Response
+batch session to begin sending commands:
+
+```powershell
+PS> Start-RtrBatch -Id $HostId -OutVariable Batch
+
+meta                                                        batch_id
+----                                                        --------
+@{query_time=<int>; powered_by=; trace_id=<string>}         14bf2ab4-a1e1-471f-b9…
+```
+
+When at least one of your devices has been successfully initiated in the Real-time Response batch, you'll
+receive a Batch Id in return:
+
+```powershell
+PS> $Batch.batch_id
+<string>
+```
+
+To see the status of the individual devices in the batch, you can drill down into `$Batch.resources` and
+view the devices themselves:
+
+```powershell
+PS> $Batch.resources.psobject.properties.value
+
+session_id   : <string>
+task_id      : <string>
+complete     : <boolean>
+stdout       : <string>
+stderr       :
+base_command : <string>
+aid          : <string>
+errors       : <array>
+query_time   : <int>
+```
+
+Or, you can view the entire response as a string using `ConvertTo-Json`:
+
+```powershell
+PS> $Batch | ConvertTo-Json
+{
+  "meta": {
+    "query_time": <int>,
+    "powered_by": <string>,
+    "trace_id": <string>
+  },
+  "batch_id": <string>,
+  "resources": {
+    <string>: {
+      "session_id": <string>,
+      "task_id": <string>,
+      "complete": <boolean>,
+      "stdout": <string>,
+      "stderr": "",
+      "base_command": <string>,
+      "aid": <string>,
+      "errors": "",
+      "query_time": <int>
+    }
+  },
+  "errors": []
+}
+```
+
+With the Batch Id being generated, that provides the ability to start sending commands to the devices
+contained in the batch. Using **[Real-time Response](https://falcon.crowdstrike.com/support/documentation/71/real-time-response-and-network-containment#real-time-response)** gives you the ability to do things like...
+
+Put a file **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/files)** onto your devices:
+
+```powershell
+PS> $Put = Send-RtrCommand -Id $Batch.batch_id -Command put -String Example.exe
+PS> $Put.combined.resources.psobject.properties.value
+
+session_id   : <string>
+task_id      : <string>
+complete     : <boolean>
+stdout       : <string>
+stderr       :
+base_command : <string>
+aid          : <string>
+errors       : {}
+query_time   : <int>
+```
+
+Or run a script **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/scripts)** on your devices:
+
+```powershell
+PS> $Runscript = Send-RtrCommand -Id $Batch.batch_id -Command runscript -String "-CloudFile=`"Example`""
+PS> $Runscript.combined.resources.psobject.properties.value
+
+session_id   : <string>
+task_id      : <string>
+complete     : <boolean>
+stdout       : <string>
+stderr       :
+base_command : <string>
+aid          : <string>
+errors       : {}
+query_time   : <int>
 ```
 
 # Commands
