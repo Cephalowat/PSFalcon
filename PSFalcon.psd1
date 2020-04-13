@@ -436,13 +436,13 @@ PrivateData = @{
         Tags = @('CrowdStrike', 'Falcon', 'OAuth2', 'API')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://raw.githubusercontent.com/bk-cs/PSFalcon/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/bk-cs/PSFalcon'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://avatars3.githubusercontent.com/u/54042976?s=460&u=de53aed783c47ef9bd9ffe9489fb77a67648eb89&v=4'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
