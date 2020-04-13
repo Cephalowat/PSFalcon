@@ -1,11 +1,12 @@
 **WARNING**: The PSFalcon modules are an independent project and not supported by CrowdStrike.
 
 # Installation
+
+Requires **[PowerShell 5.1+](https://github.com/PowerShell/PowerShell#get-powershell)**.
+
 ```powershell
 PS> Install-Module -Name PSFalcon
 ```
-
-Requires **[PowerShell 5.1+](https://github.com/PowerShell/PowerShell#get-powershell)**.
 
 # Getting Started
 
