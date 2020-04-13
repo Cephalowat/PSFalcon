@@ -2,12 +2,11 @@
 
 # Installation
 
-1. Install **[PowerShell](https://github.com/PowerShell/PowerShell#Get-PowerShell)** 6.1 or newer
-2. Use the **[PSGallery](https://www.powershellgallery.com/packages/PSFalcon)** to install the modules:
-
 ```powershell
 PS> Install-Module -Name PSFalcon
 ```
+
+*Requires PowerShell 5.1 or newer*
 
 # Getting Started
 
