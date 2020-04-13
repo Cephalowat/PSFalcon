@@ -88,6 +88,40 @@ id                               path
 <string>                         <string>
 ```
 
+Congratulations! Your network containment request has been submitted for this device. You can release the device
+from containment by using `Stop-CsContain`.
+
+### Importing Large Sets
+
+To obtain all of the Host Ids in your environment, you can use the command `Get-CsHostId -All`. PSFalcon uses
+the `-All` flag to repeat requests in cases where a single command won't retrieve all the data:
+
+```powershell
+PS> $HostIds = (Get-CsHostId -All).resources
+```
+
+Once you have your Host Ids, you can gather the detail about each Host Id. PSFalcon will automatically break
+these requests up into appropriately sized groups until all results are retrieved:
+
+```powershell
+PS> $HostInfo = (Get-CsHostInfo $AllHostIds).resources
+```
+
+However, if you're dealing with large amounts of devices, this could take a bit of time. Sometimes it makes
+sense to take a shorcut and import a CSV of your **[Host Management](https://falcon.crowdstrike.com/hosts/hosts)** page:
+
+```powershell
+PS> $AllHosts = Import-Csv .\164322_hosts_2020-01-01T08_00_00Z.csv
+```
+
+Now you've got similar data as `$HostInfo` stored in `$AllHosts`, and you can reference each column from the
+CSV directly:
+
+```powershell
+PS> $AllHosts.'Host ID'
+<array>
+```
+
 # Commands
 
 To display a list of the commands available with PSFalcon:
