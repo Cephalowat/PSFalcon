@@ -178,8 +178,8 @@ query_time  pagination                                  powered_by trace_id
 <int>       @{offset=<int>; limit=<int>; total=<int>}   <string>   <string>
 ```
 
-Results of a successful request are typically contained within `$PSObject.resources`, but some request
-types, fall under fields like `$PSObject.combined`, `$PSObject.batch_id`, or even `$PSObject.meta.quota`.
+Results of a successful request are typically contained within `$PSObject.resources` but some request
+types fall under fields like `$PSObject.combined`, `$PSObject.batch_id`, or even `$PSObject.meta.quota`.
 
 You can return the results themselves by calling `$PSObject.resources` or related member:
 
