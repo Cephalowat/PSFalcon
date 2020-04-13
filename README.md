@@ -3,13 +3,10 @@
 # Installation
 
 1. Install **[PowerShell](https://github.com/PowerShell/PowerShell#Get-PowerShell)** 6.1 or newer
-2. Place the PSFalcon modules in `$PSHOME\Modules\PSFalcon`
-
-**NOTE**: You can find your `$PSHOME` path in a PowerShell session.
+2. Install the module via the **[PSGallery](https://www.powershellgallery.com/packages/PSFalcon)**
 
 ```powershell
-PS> $PSHOME
-C:\Program Files\PowerShell\<version>
+PS> Install-Module -Name PSFalcon
 ```
 
 # Getting Started
