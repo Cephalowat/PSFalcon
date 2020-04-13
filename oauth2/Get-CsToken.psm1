@@ -69,7 +69,7 @@ function Get-CsToken {
             }
             Body = ('client_id=' + $Falcon.id + '&client_secret=' +
             ([System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
-			[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Falcon.secret))))
+            [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Falcon.secret))))
         }
         $Request = Invoke-CsAPI @Param
 
