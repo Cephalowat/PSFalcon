@@ -8,6 +8,12 @@ Requires **[PowerShell 5.1+](https://github.com/PowerShell/PowerShell#get-powers
 PS> Install-Module -Name PSFalcon
 ```
 
+To update to the latest version:
+
+```powershell
+PS> Update-Module -Name PSFalcon
+```
+
 # Getting Started
 
 Interacting with the CrowdStrike Falcon OAuth2 APIs requires an **[API Client ID and Secret](https://falcon.crowdstrike.com/support/api-clients-and-keys)** and a valid
