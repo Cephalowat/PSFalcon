@@ -85,36 +85,12 @@ function Invoke-CsAPI {
         }
         # Capture error
         catch {
-            if ($_.ErrorDetails.Message) {
-                $_.ErrorDetails.Message
+            if ($_.ErrorDetails) {
+                $_.ErrorDetails | ConvertFrom-Json
             }
             else {
                 $_.Exception
             }
-        }
-        # Debug output
-        if (($PSBoundParameters.Debug -eq $true) -and ($Request)) {
-            $Output = [PSCustomObject] @{
-                code = $Request.StatusCode
-                description = $Request.StatusDescription
-                headers = $Request.headers
-            }
-            # Add Content
-            foreach ($Item in ($Request.Content | ConvertFrom-Json).psobject.properties) {
-                $Output | Add-Member -MemberType NoteProperty -Name $Item.name -Value $Item.value
-            }
-            # Add Inputs
-            $Output | Add-Member -MemberType NoteProperty -Name input -Value ([PSCustomObject] @{
-                uri = $Param.Uri
-                method = $Param.Method
-                accept = $Param.Header.accept
-                'content-type' = $Param.Header.'content-type'
-                body = $Param.Body
-                form = $Param.Form
-            })
-            # Save to Json
-            $Output | ConvertTo-Json -Depth 64 |
-            Out-File -FilePath ('.\' + (Get-Date -Format FileDateTime) + '-' + $Output.meta.trace_id + '.json')
         }
         # Check for rate limiting
         if ($Request.Headers.'X-Ratelimit-RetryAfter') {
@@ -126,9 +102,23 @@ function Invoke-CsAPI {
         }
     }
     end {
-        if ($Request.Content) {
+        # Output debug as Json
+        if ($PSBoundParameters.Debug -eq $true) {
+            if ($Request.Content) {
+                [PSCustomObject] @{
+                    headers = $Request.Headers
+                    content = $Request.Content | ConvertFrom-Json
+                } | ConvertTo-Json -Depth 32
+            }
+            else {
+                $Request | ConvertTo-Json -Depth 32
+            }
+        }
+        # Output successful request object
+        elseif ($Request.Content) {
             $Request | ConvertFrom-Json
         }
+        # Catch-all output
         else {
             $Request
         }
