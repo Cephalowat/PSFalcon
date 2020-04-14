@@ -69,7 +69,7 @@ function Get-CsToken {
             }
             Body = 'client_id=' + [string] $Falcon.id + '&client_secret='
         }
-        if ($Host.Version -gt 5.1) {
+        if ($Host.Version.Major -gt 5) {
             $Param.Body += ($Falcon.secret | ConvertFrom-SecureString -AsPlainText)
         }
         else {
