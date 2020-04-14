@@ -2,7 +2,7 @@
 
 # Installation
 
-Requires **[PowerShell 5.1+](https://github.com/PowerShell/PowerShell#get-powershell)**.
+Requires **[PowerShell 5.1+](https://github.com/PowerShell/PowerShell#get-powershell)**
 
 ```powershell
 PS> Install-Module -Name PSFalcon
