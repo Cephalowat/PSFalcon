@@ -45,7 +45,7 @@ function Get-CsToken {
         }
         switch ($PSBoundParameters.Keys) {
             'Id' { $Falcon['id'] = $Id }
-            'Secret' { $Falcon['secret'] = $Secret | ConvertTo-SecureString -AsPlainText }
+            'Secret' { $Falcon['secret'] = $Secret | ConvertTo-SecureString -AsPlainText -Force }
             'Proxy' { $Falcon['proxy'] = $Proxy }
         }
         # If missing, prompt for Id/Secret
@@ -68,7 +68,8 @@ function Get-CsToken {
                 accept = 'application/json'
             }
             Body = ('client_id=' + $Falcon.id + '&client_secret=' +
-            ($Falcon.secret | ConvertFrom-SecureString -AsPlainText))
+            ([System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
+            [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Falcon.secret))))
         }
         $Request = Invoke-CsAPI @Param
 
