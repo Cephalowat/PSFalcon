@@ -311,5 +311,4 @@ appropriate amount of time.
 
 ### Debugging
 
-Adding the `-Debug` flag to any command will output the entire response, response header and command
-inputs to `.\<trace_id>.json` for troubleshooting purposes.
+Adding the `-Debug` flag to any command will output to json for troubleshooting purposes.
