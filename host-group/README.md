@@ -147,7 +147,7 @@ Delete a set of Host Groups by specifying their IDs
 
 ### Example
 ```powershell
-PS> Remove-Group -Id @(<string>, <string>)
+PS> Remove-CsGroup -Id @(<string>, <string>)
 ```
 
 # Remove-CsGroupMember
