@@ -106,6 +106,10 @@ NestedModules = @(
     '.\falconx-sandbox\Receive-CsArtifact.psm1',
     '.\falconx-sandbox\Submit-CsSample.psm1',
 
+    # firewall-management
+    '.\firewall-management\Get-CsFirewallEventInfo.psm1'
+    '.\firewall-management\Get-CsFirewallEventId.psm1'
+
     # firewall-policies
     '.\firewall-policies\Add-CsFirewallGroup.psm1',
     '.\firewall-policies\Disable-CsFirewallPolicy.psm1',
@@ -277,6 +281,10 @@ FunctionsToExport = @(
     'New-CsSample',
     'Receive-CsArtifact',
     'Submit-CsSample',
+
+    # firewall-management
+    'Get-CsFirewallEventId',
+    'Get-CsFirewallEventInfo',
 
     # firewall-policies
     'Add-CsFirewallGroup',
