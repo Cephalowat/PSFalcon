@@ -163,6 +163,11 @@ NestedModules = @(
     '.\intel\Receive-CsReport.psm1',
     '.\intel\Receive-CsRuleSet.psm1',
 
+    # iocs
+    '.\iocs\Get-CsIoc.psm1',
+    '.\iocs\New-CsIoc.psm1',
+    '.\iocs\Remove-CsIoc.psm1',
+
     # oauth2
     '.\oauth2\Get-CsToken.psm1',
 
@@ -338,6 +343,11 @@ FunctionsToExport = @(
     'Get-CsRuleInfo',
     'Receive-CsReport',
     'Receive-CsRuleSet',
+
+    # iocs
+    'Get-CsIoc',
+    'New-CsIoc',
+    'Remove-CsIoc',
 
     # oauth2
     'Get-CsToken',
