@@ -1,25 +1,19 @@
 function Get-CsFirewallEventId {
 <#
     .SYNOPSIS
-        Search for Firewall Events in your environment
-
-    .PARAMETER SORT
-        Possible order by fields
+        Search for Firewall Event IDs in your environment
 
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
-    
-    .PARAMETER Q
-        The query criteria, which includes all the filter string fields, plus TODO
+
+    .PARAMETER QUERY
+        Search all firewall event metadata for the provided string
+
+    .PARAMETER LIMIT
+        The maximum records to return [default: 5000]
 
     .PARAMETER OFFSET
         The offset to start retrieving records from [default: 0]
-    
-    .PARAMETER AFTER
-        The pagination token to continue results after an initial request
-    
-    .PARAMETER LIMIT
-        The maximum records to return [default: 100]
 
     .PARAMETER ALL
         Repeat request until all results are returned
@@ -28,34 +22,24 @@ function Get-CsFirewallEventId {
     [OutputType([psobject])]
     param(
         [string]
-        $Sort,
-
-        [string]
         $Filter,
 
         [string]
-        $Q,
-
-        [int]
-        $Offset = 0,
-
-        [string]
-        $After,
+        $Query,
 
         [ValidateRange(1,5000)]
         [int]
-        $Limit = 100,
+        $Limit = 5000,
+
+        [string]
+        $Offset = 0,
 
         [switch]
         $All
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/events/v1?sort=' + $Sort +
-                                            '&filter=' + $Filter +
-                                            '&q=' + $Q +
-                                            '&offset=' + [string] $Offset +
-                                            '&limit=' + [string] $Limit
+            Uri = '/fwmgr/queries/events/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -63,7 +47,8 @@ function Get-CsFirewallEventId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'After' { $Param.Uri += '&after=' + $After }
+            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Query' { $Param.Uri += '&q=' + $Query }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

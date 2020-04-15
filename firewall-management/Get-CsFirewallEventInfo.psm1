@@ -1,31 +1,31 @@
 function Get-CsFirewallEventInfo {
 <#
     .SYNOPSIS
-        Search for members of a Firewall policy in your environment
+        Get detail about Firewall Events by ID
 
     .PARAMETER ID
-        The FW Event IDs to search for 
-
+        Target Firewall Event IDs
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
-        [ValidateLength(1,500)]
         [array]
         $Id
-
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/entities/events/v1?ids=' + $($Id -join "&ids=")
+            Uri =  '/fwmgr/entities/events/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
         }
-        
-        Invoke-CsAPI @Param
+        switch ($PSBoundParameters.Keys) {
+            'Verbose' { $Param['Verbose'] = $true }
+            'Debug' { $Param['Debug'] = $true }
+        }
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }
