@@ -32,11 +32,10 @@ function Remove-CsGroupMember {
                 'content-type' = 'application/json'
             }
             Body = @{
-                action_parameters = @(
-                    @{  name = 'filter'
-                        value = '(device_id:[' + ($HostString).TrimEnd(',') + '])'
-                    }
-                )
+                action_parameters = @(@{
+                    name = 'filter'
+                    value = '(device_id:[' + ($HostString).TrimEnd(',') + '])'
+                })
                 ids = @( $Id )
             } | Convertto-Json
         }

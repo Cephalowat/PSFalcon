@@ -32,8 +32,8 @@ function Set-CsSensorPrecedence {
                 'content-type' = 'application/json'
             }
             Body = @{
-                'ids' = $Id
-                'platform_name' = $Platform
+                ids = $Id
+                platform_name = $Platform
             } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {

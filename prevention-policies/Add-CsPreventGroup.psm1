@@ -31,13 +31,11 @@ function Add-CsPreventGroup {
                 'content-type' = 'application/json'
             }
             Body = @{
-                'action_parameters' = @(
-                    @{
-                        'name' = 'group_id'
-                        'value' = $Group
-                    }
-                )
-            'ids' = @($Id)
+                action_parameters = @(@{
+                    name = 'group_id'
+                    value = $Group
+                })
+                ids = @( $Id )
             } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {

@@ -64,7 +64,7 @@ function Get-CsIndicatorInfo {
             'Query' { $Param.Uri += '&q=' + $Query }
             'Id' { 
                 $Param.Uri = '/intel/entities/indicators/GET/v1'
-                $Param['Body'] = @{ 'ids' = $Id } | ConvertTo-Json
+                $Param['Body'] = @{ ids = $Id } | ConvertTo-Json
             }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }

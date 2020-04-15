@@ -21,7 +21,7 @@ function Enable-CsSensorPolicy {
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ 'ids' = $Id } | ConvertTo-Json
+            Body = @{ ids = $Id } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }

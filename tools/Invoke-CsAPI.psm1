@@ -96,7 +96,7 @@ function Invoke-CsAPI {
         if ($Request.Headers.'X-Ratelimit-RetryAfter') {
             $Wait = (([int] $Request.Headers.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
 
-            Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
+            Write-Verbose ('Rate limited: ' + [string] $Wait + ' seconds')
 
             Start-Sleep -Seconds $Wait
         }

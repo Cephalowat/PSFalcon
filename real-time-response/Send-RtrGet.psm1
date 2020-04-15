@@ -44,8 +44,8 @@ function Send-RtrGet {
                 'content-type' = 'application/json'
             }
             Body = @{
-                'batch_id' = $Id
-                'file_path' = $Path
+                batch_id = $Id
+                file_path = $Path
             }
         }
         switch ($PSBoundParameters.Keys) {

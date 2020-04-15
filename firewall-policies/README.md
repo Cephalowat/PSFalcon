@@ -207,6 +207,8 @@ Sets the precedence of Firewall policies based on the order of IDs specified in 
 
 `-Id`: An array of one or more Firewall policy IDs
 
+`-Platform`: Target operating system [default: 'Windows']
+
 ### Example
 ```powershell
 PS> Set-CsFirewallPrecedence -Id @(<string>, <string>)
