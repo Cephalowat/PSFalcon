@@ -220,6 +220,10 @@ Additionally, each API includes a README file with references and generic exampl
 
 **[CrowdStrike OAuth2 Token API](/oauth2)**
 
+### Custom IoCs
+
+**[CrowdStrike Custom IOC API](/iocs)**
+
 ### Detections and Incidents
 
 **[CrowdStrike Falcon Detections API](/detects)**

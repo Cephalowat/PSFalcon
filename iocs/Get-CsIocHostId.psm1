@@ -1,29 +1,39 @@
-function Get-CsHostId {
+function Get-CsIocHostId {
 <#
     .SYNOPSIS
-        Search for hosts in your environment
+        Find Hosts IDs that have observed a custom IOC
 
-    .PARAMETER FILTER
-        The filter expression that should be used to limit the results
+    .PARAMETER TYPE
+        Type of the indicator
+
+    .PARAMETER VALUE
+        String representation of the indicator
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 5000]
+        The maximum records to return [default: 100]
 
     .PARAMETER OFFSET
         The offset to start retrieving records from [default: 0]
 
     .PARAMETER ALL
-        Repeat request until all results are returned
+        Repeat requests until all results are retrieved
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('domain', 'ipv4', 'ipv6', 'md5', 'sha256')]
         [string]
-        $Filter,
+        $Type,
 
-        [ValidateRange(1,5000)]
+        [Parameter(Mandatory = $true)]
+        [ValidateLength(1,200)]
+        [string]
+        $Value,
+
+        [ValidateRange(1,100)]
         [int]
-        $Limit = 5000,
+        $Limit = 100,
 
         [int]
         $Offset = 0,
@@ -33,7 +43,8 @@ function Get-CsHostId {
     )
     process{
         $Param = @{
-            Uri = '/devices/queries/devices/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/indicators/queries/devices/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset +
+            '&type=' + $Type + '&value=' + $Value
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -41,7 +52,6 @@ function Get-CsHostId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
             'Debug' { $Param['Debug'] = $true }
             'Verbose' { $Param['Verbose'] = $true }
         }

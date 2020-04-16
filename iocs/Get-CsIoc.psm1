@@ -48,34 +48,35 @@ function Get-CsIoc {
         [ValidateSet('domain', 'ipv4', 'ipv6', 'md5', 'sha256')]
         [string]
         $Type,
-        
+
+        [ValidateLength(1,200)]
         [string]
         $Value,
-        
+
         [string]
         $After,
-        
+
         [string]
         $Before,
-        
+
         [ValidateSet('detect', 'none')]
         [string]
         $Policy = 'detect',
-        
+
         [ValidateLength(1,200)]
         [string]
         $Source,
-        
+
         [ValidateSet('red')]
         [string]
         $Share = 'red',
-        
+
         [string]
         $CreatedBy,
-        
+
         [string]
         $DeletedBy,
-        
+
         [boolean]
         $Deleted = $false,
 
@@ -83,7 +84,7 @@ function Get-CsIoc {
         [int]
         $Limit = 500,
 
-        [string]
+        [int]
         $Offset = 0,
 
         [switch]

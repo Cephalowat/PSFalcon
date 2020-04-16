@@ -164,7 +164,12 @@ NestedModules = @(
     '.\intel\Receive-CsRuleSet.psm1',
 
     # iocs
+    '.\iocs\Edit-CsIoc.psm1',
     '.\iocs\Get-CsIoc.psm1',
+    '.\iocs\Get-CsIocHostId.psm1',
+    '.\iocs\Get-CsIocInfo.psm1',
+    '.\iocs\Get-CsIocProcessId.psm1',
+    '.\iocs\Get-CsIocProcessInfo.psm1',
     '.\iocs\New-CsIoc.psm1',
     '.\iocs\Remove-CsIoc.psm1',
 
@@ -345,7 +350,12 @@ FunctionsToExport = @(
     'Receive-CsRuleSet',
 
     # iocs
+    'Edit-CsIoc',
     'Get-CsIoc',
+    'Get-CsIocHostId',
+    'Get-CsIocInfo',
+    'Get-CsIocProcessId',
+    'Get-CsIocProcessInfo',
     'New-CsIoc',
     'Remove-CsIoc',
 
