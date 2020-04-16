@@ -296,7 +296,7 @@ FunctionsToExport = @(
     # firewall-management
     'Get-CsFirewallEventId',
     'Get-CsFirewallEventInfo',
-    'Get-CsFirewallRuleInfo',
+    'Get-CsFirewallRuleId',
 
     # firewall-policies
     'Add-CsFirewallGroup',
