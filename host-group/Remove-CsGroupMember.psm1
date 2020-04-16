@@ -22,7 +22,7 @@ function Remove-CsGroupMember {
         $Hosts
     )
     process{
-        [string] $HostString = $Hosts.foreach{ "`'" + $_ + "`'," }
+        [string] $HostString = foreach ($Item in $Hosts) { "`'" + $Item + "`'," }
 
         $Param = @{
             Uri = '/devices/entities/host-group-actions/v1?action_name=remove-hosts'
@@ -32,11 +32,10 @@ function Remove-CsGroupMember {
                 'content-type' = 'application/json'
             }
             Body = @{
-                action_parameters = @(
-                    @{  name = 'filter'
-                        value = '(device_id:[' + ($HostString).TrimEnd(',') + '])'
-                    }
-                )
+                action_parameters = @(@{
+                    name = 'filter'
+                    value = '(device_id:[' + ($HostString).TrimEnd(',') + '])'
+                })
                 ids = @( $Id )
             } | Convertto-Json
         }
@@ -44,6 +43,6 @@ function Remove-CsGroupMember {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

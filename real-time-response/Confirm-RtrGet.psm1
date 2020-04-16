@@ -14,6 +14,7 @@ function Confirm-RtrGet {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
@@ -24,7 +25,7 @@ function Confirm-RtrGet {
     process{
         $Param = @{
             Uri = '/real-time-response/combined/batch-get-command/v1?timeout=' + [string] $Timeout +
-            's&batch_get_cmd_req_id=' + $Id
+            '&batch_get_cmd_req_id=' + $Id
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -35,6 +36,6 @@ function Confirm-RtrGet {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

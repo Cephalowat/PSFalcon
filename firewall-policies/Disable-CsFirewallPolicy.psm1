@@ -9,7 +9,7 @@ function Disable-CsFirewallPolicy {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
@@ -21,12 +21,12 @@ function Disable-CsFirewallPolicy {
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ 'ids' = $Id } | ConvertTo-Json
+            Body = @{ ids = $Id } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

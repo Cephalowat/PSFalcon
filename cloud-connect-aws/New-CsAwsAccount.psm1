@@ -4,7 +4,7 @@ function New-CsAwsAccount {
         Provision AWS accounts by specifying details about the accounts to provision
 
     .PARAMETER MODE
-        Mode for provisioning. Allowed values are 'manual' or 'cloudformation' [Default: manual]
+        Mode for provisioning. Allowed values are 'manual' or 'cloudformation' [default: manual]
 
     .PARAMETER RESOURCES
         An array of AWS account properties
@@ -34,6 +34,6 @@ function New-CsAwsAccount {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

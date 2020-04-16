@@ -45,9 +45,11 @@ Get a list of 'put' file IDs that are available to the user for the 'put' comman
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -79,9 +81,11 @@ Get a list of custom-script ID's that are available to the user for the 'runscri
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -134,7 +138,7 @@ Upload a new custom-script to use for the RTR 'runscript' command
 
 `-Path`: Full path to the script you wish to upload
 
-`-Permission`: Permission for the custom-script [Default: private]
+`-Permission`: Permission for the custom-script [default: private]
 
 `-Description`: File description
 

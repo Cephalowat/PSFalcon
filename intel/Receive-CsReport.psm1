@@ -33,6 +33,6 @@ function Receive-CsReport {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

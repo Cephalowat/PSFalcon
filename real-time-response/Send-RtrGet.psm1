@@ -21,12 +21,14 @@ function Send-RtrGet {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
         [string]
         $Path,
 
+        [ValidateRange(30,600)]
         [int]
         $Timeout = 30,
 
@@ -35,15 +37,15 @@ function Send-RtrGet {
     )
     process{
         $Param = @{
-            Uri = '/real-time-response/combined/batch-get-command/v1?timeout=' + [string] $Timeout + 's'
+            Uri = '/real-time-response/combined/batch-get-command/v1?timeout=' + [string] $Timeout
             Method = 'post'
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
             Body = @{
-                'batch_id' = $Id
-                'file_path' = $Path
+                batch_id = $Id
+                file_path = $Path
             }
         }
         switch ($PSBoundParameters.Keys) {
@@ -53,6 +55,6 @@ function Send-RtrGet {
         }
         $Param.Body = $Param.Body | ConvertTo-Json
 
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

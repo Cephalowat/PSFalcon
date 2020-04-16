@@ -9,13 +9,13 @@ function Get-CsVulnInfo {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
     process{
         $Param = @{
-            Uri =  '/spotlight/entities/vulnerabilities/v2?ids=' + ($Id -join '&ids=')
+            Uri =  '/spotlight/entities/vulnerabilities/v2?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +26,6 @@ function Get-CsVulnInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
     }
 }

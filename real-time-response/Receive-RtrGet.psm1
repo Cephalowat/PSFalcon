@@ -16,10 +16,12 @@ function Receive-RtrGet {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $True)]
+        [ValidateLength(36,36)]
         [string]
         $Id,
 
         [Parameter(Mandatory = $True)]
+        [ValidateLength(64,64)]
         [string]
         $Hash,
 
@@ -41,6 +43,6 @@ function Receive-RtrGet {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

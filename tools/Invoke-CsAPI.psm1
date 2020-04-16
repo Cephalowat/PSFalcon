@@ -1,4 +1,4 @@
-function Invoke-FalconAPI {
+function Invoke-CsAPI {
 <#
     .SYNOPSIS
         Invoke-RestMethod wrapper used by PSFalcon
@@ -59,17 +59,16 @@ function Invoke-FalconAPI {
             Uri = $Falcon.host + $Uri
             Method = $Method
             Header = @{}
-            ResponseHeadersVariable = 'Response'
         }
-        # Add Invoke-FalconAPI arguments
+        # Add Invoke-CsAPI arguments
         switch ($PSBoundParameters.Keys) {
             'Body' { $Param['Body'] = $Body }
             'Form' { $Param['Form'] = $Form }
             'Outfile' { $Param['Outfile'] = $Outfile }
         }
         # Add header values from PSFalcon command
-        ($Header.keys).foreach{
-            $Param.Header[$_] = $Header.$_
+        foreach ($Key in $Header.keys) {
+            $Param.Header[$Key] = $Header.$Key
         }
         # Add OAuth2 bearer token
         if ($Falcon.token) {
@@ -81,54 +80,47 @@ function Invoke-FalconAPI {
             $Param['ProxyUseDefaultCredentials'] = $true
         }
         # Make request
-        $Output = try {
-            Invoke-RestMethod @Param
+        $Request = try {
+            Invoke-WebRequest @Param
         }
-        # Output error
+        # Capture error
         catch {
-            if ($_.ErrorDetails.Message) {
-                if ($_.ErrorDetails.Message -match 'meta') {
-                    $_.ErrorDetails.Message | ConvertFrom-Json
-                }
-                else {
-                    $_.ErrorDetails.Message
-                }
+            if ($_.ErrorDetails) {
+                $_.ErrorDetails | ConvertFrom-Json
             }
-            elseif ($_.Exception) {
+            else {
                 $_.Exception
             }
         }
-        # Output trace_id
-        if ($Output.meta.trace_id) {
-            Write-Verbose ("trace_id: " + [string] $Output.meta.trace_id)
-        }
         # Check for rate limiting
-        if ($Response.'X-Ratelimit-RetryAfter') {
-            $Wait = (([int] $Response.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
+        if ($Request.Headers.'X-Ratelimit-RetryAfter') {
+            $Wait = (([int] $Request.Headers.'X-Ratelimit-RetryAfter') - ([int] (Get-Date -UFormat %s)) + 1)
 
-            Write-Verbose ("Rate limited: " + [string] $Wait + " seconds")
+            Write-Verbose ('Rate limited: ' + [string] $Wait + ' seconds')
 
             Start-Sleep -Seconds $Wait
         }
-        # Output json of result and include response headers and command inputs for debug
-        if (($PSBoundParameters.Debug -eq $true) -and ($Output)) {
-            if ($Response) {
-                $Output | Add-Member -MemberType NoteProperty -Name header -Value $Response
-            }
-            $Output | Add-Member -MemberType NoteProperty -Name PSFalcon -Value ([PSCustomObject] @{
-                uri = $Param.Uri
-                method = $Param.Method
-                accept = $Param.Header.accept
-                'content-type' = $Param.Header.'content-type'
-                body = $Param.Body
-                form = $Param.Form
-            })
-            $Output | ConvertTo-Json -Depth 32 | Out-File -FilePath ('.\' + $Output.meta.trace_id + '.json')
-        }
     }
     end {
-        if ($Output) {
-            $Output
+        # Output debug as Json
+        if ($PSBoundParameters.Debug -eq $true) {
+            if ($Request.Content) {
+                [PSCustomObject] @{
+                    headers = $Request.Headers
+                    content = $Request.Content | ConvertFrom-Json
+                } | ConvertTo-Json -Depth 32
+            }
+            else {
+                $Request | ConvertTo-Json -Depth 32
+            }
+        }
+        # Output successful request object
+        elseif ($Request.Content) {
+            $Request | ConvertFrom-Json
+        }
+        # Catch-all output
+        else {
+            $Request
         }
     }
 }

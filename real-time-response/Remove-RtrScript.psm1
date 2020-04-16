@@ -9,6 +9,7 @@ function Remove-RtrScript {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [ValidateLength(65,65)]
         [string]
         $Id
     )
@@ -25,6 +26,6 @@ function Remove-RtrScript {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

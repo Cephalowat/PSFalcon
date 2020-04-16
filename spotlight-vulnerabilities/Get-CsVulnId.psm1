@@ -4,13 +4,16 @@ function Get-CsVulnId {
         Search for Vulnerabilities in your environment
 
     .PARAMETER FILTER
-        Filter items using a query in Falcon Query Language (FQL) [Default: Created in last 24 hours]
+        Filter items using a query in Falcon Query Language (FQL) [default: Created in last 24 hours]
 
     .PARAMETER LIMIT
-        The maximum records to return [Default: 500]
+        The maximum records to return [default: 500]
 
     .PARAMETER AFTER
         The pagination token to continue results after an initial request
+
+    .PARAMETER ALL
+        Repeat request until all results are returned
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -24,7 +27,10 @@ function Get-CsVulnId {
         $Limit = 500,
 
         [string]
-        $After
+        $After,
+
+        [switch]
+        $All
     )
     process{
         $Param = @{
@@ -40,6 +46,11 @@ function Get-CsVulnId {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        if ($All) {
+            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
+        }
+        else {
+            Invoke-CsAPI @Param
+        }
     }
 }

@@ -19,9 +19,11 @@ Search for Falcon Sensor Installer hashes
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset` : The offset to start retrieving records from [Default: 0]
+`-Offset` : The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -38,9 +40,11 @@ Search for info about Falcon Sensor Installers
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 `-Id`: Hashes of specific Falcon Sensor installers to return
 

@@ -19,7 +19,7 @@ function Set-CsPreventPrecedence {
         [string]
         $Platform,
 
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
@@ -32,14 +32,14 @@ function Set-CsPreventPrecedence {
                 'content-type' = 'application/json'
             }
             Body = @{
-                'ids' = $Id
-                'platform_name' = $Platform
+                ids = $Id
+                platform_name = $Platform
             } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

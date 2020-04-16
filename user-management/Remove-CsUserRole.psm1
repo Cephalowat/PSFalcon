@@ -16,7 +16,7 @@ function Remove-CsUserRole {
         [string]
         $Id,
 
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Role
     )
@@ -33,6 +33,6 @@ function Remove-CsUserRole {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

@@ -10,7 +10,7 @@ function Get-CsToken {
         Client Secret
 
     .PARAMETER CLOUD
-        CrowdStrike destination cloud [Default: 'US']
+        CrowdStrike destination cloud [default: 'US']
 
     .PARAMETER PROXY
         Web proxy address
@@ -45,7 +45,7 @@ function Get-CsToken {
         }
         switch ($PSBoundParameters.Keys) {
             'Id' { $Falcon['id'] = $Id }
-            'Secret' { $Falcon['secret'] = $Secret | ConvertTo-SecureString -AsPlainText }
+            'Secret' { $Falcon['secret'] = $Secret | ConvertTo-SecureString -AsPlainText -Force }
             'Proxy' { $Falcon['proxy'] = $Proxy }
         }
         # If missing, prompt for Id/Secret
@@ -67,10 +67,16 @@ function Get-CsToken {
             Header = @{
                 accept = 'application/json'
             }
-            Body = ('client_id=' + $Falcon.id + '&client_secret=' +
-            ($Falcon.secret | ConvertFrom-SecureString -AsPlainText))
+            Body = 'client_id=' + [string] $Falcon.id + '&client_secret='
         }
-        $Request = Invoke-FalconAPI @Param
+        if ($Host.Version.Major -gt 5) {
+            $Param.Body += ($Falcon.secret | ConvertFrom-SecureString -AsPlainText)
+        }
+        else {
+            $Param.Body += ([System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
+                [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Falcon.secret)))
+        }
+        $Request = Invoke-CsAPI @Param
 
         # Save token and expiration time to $Falcon
         if ($Request.access_token) {

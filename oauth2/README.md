@@ -9,7 +9,7 @@ Request an OAuth2 access token
 
 `-Secret`: Client Secret
 
-`-Cloud`: CrowdStrike destination cloud [Default: 'US']
+`-Cloud`: CrowdStrike destination cloud [default: 'US']
 
 `-Proxy`: Web proxy address
 

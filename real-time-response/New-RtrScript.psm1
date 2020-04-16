@@ -7,7 +7,7 @@ function New-RtrScript {
         Full path to the script you wish to upload
 
     .PARAMETER PERMISSION
-        Permission for the custom-script [Default: private]
+        Permission for the custom-script [default: private]
 
     .PARAMETER DESCRIPTION
         File description
@@ -59,6 +59,6 @@ function New-RtrScript {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

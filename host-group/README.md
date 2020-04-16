@@ -40,9 +40,11 @@ Search for Host Groups IDs
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -59,11 +61,13 @@ Search for info about Host Groups
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 500]
+`-Limit`: The maximum records to return [default: 500]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
 
 `-Id`: IDs of specific host groups to return
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -82,9 +86,11 @@ Search for members of a Host Group in your environment
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -103,9 +109,11 @@ Search for detail about members of a Host Group in your environment
 
 `-Filter`: The filter expression that should be used to limit the results
 
-`-Limit`: The maximum records to return [Default: 5000]
+`-Limit`: The maximum records to return [default: 5000]
 
-`-Offset`: The offset to start retrieving records from [Default: 0]
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
 
 ### Example
 ```powershell
@@ -139,7 +147,7 @@ Delete a set of Host Groups by specifying their IDs
 
 ### Example
 ```powershell
-PS> Remove-Group -Id @(<string>, <string>)
+PS> Remove-CsGroup -Id @(<string>, <string>)
 ```
 
 # Remove-CsGroupMember

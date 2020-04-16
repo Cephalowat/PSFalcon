@@ -13,6 +13,7 @@ function Get-CsUninstallToken {
     [OutputType([psobject])]
     param(
         [Parameter(Mandatory = $true)]
+        [ValidateLength(32,32)]
         [string]
         $Id,
 
@@ -40,6 +41,6 @@ function Get-CsUninstallToken {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

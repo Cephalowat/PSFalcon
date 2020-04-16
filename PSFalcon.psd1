@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.0'
+ModuleVersion = '1.2.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = '(c) Brendan Kremian. All rights reserved.'
 Description = "PowerShell for CrowdStrike Falcon's OAuth2 APIs"
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '6.1'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -106,6 +106,10 @@ NestedModules = @(
     '.\falconx-sandbox\Receive-CsArtifact.psm1',
     '.\falconx-sandbox\Submit-CsSample.psm1',
 
+    # firewall-management
+    '.\firewall-management\Get-CsFirewallEventInfo.psm1'
+    '.\firewall-management\Get-CsFirewallEventId.psm1'
+
     # firewall-policies
     '.\firewall-policies\Add-CsFirewallGroup.psm1',
     '.\firewall-policies\Disable-CsFirewallPolicy.psm1',
@@ -158,6 +162,16 @@ NestedModules = @(
     '.\intel\Get-CsRuleInfo.psm1',
     '.\intel\Receive-CsReport.psm1',
     '.\intel\Receive-CsRuleSet.psm1',
+
+    # iocs
+    '.\iocs\Edit-CsIoc.psm1',
+    '.\iocs\Get-CsIoc.psm1',
+    '.\iocs\Get-CsIocHostId.psm1',
+    '.\iocs\Get-CsIocInfo.psm1',
+    '.\iocs\Get-CsIocProcessId.psm1',
+    '.\iocs\Get-CsIocProcessInfo.psm1',
+    '.\iocs\New-CsIoc.psm1',
+    '.\iocs\Remove-CsIoc.psm1',
 
     # oauth2
     '.\oauth2\Get-CsToken.psm1',
@@ -220,7 +234,9 @@ NestedModules = @(
 
     # tools
     '.\tools\Convert-RtrResult.psm1',
-    '.\tools\Invoke-FalconAPI.psm1',
+    '.\tools\Invoke-CsAPI.psm1',
+    '.\tools\Join-CsResult.psm1',
+    '.\tools\Split-CsArray.psm1',
 
     # user-management
     '.\user-management\Add-CsUser.psm1',
@@ -276,6 +292,10 @@ FunctionsToExport = @(
     'Receive-CsArtifact',
     'Submit-CsSample',
 
+    # firewall-management
+    'Get-CsFirewallEventId',
+    'Get-CsFirewallEventInfo',
+
     # firewall-policies
     'Add-CsFirewallGroup',
     'Disable-CsFirewallPolicy',
@@ -328,6 +348,16 @@ FunctionsToExport = @(
     'Get-CsRuleInfo',
     'Receive-CsReport',
     'Receive-CsRuleSet',
+
+    # iocs
+    'Edit-CsIoc',
+    'Get-CsIoc',
+    'Get-CsIocHostId',
+    'Get-CsIocInfo',
+    'Get-CsIocProcessId',
+    'Get-CsIocProcessInfo',
+    'New-CsIoc',
+    'Remove-CsIoc',
 
     # oauth2
     'Get-CsToken',
@@ -390,7 +420,9 @@ FunctionsToExport = @(
 
     # tools
     'Convert-RtrResult',
-    'Invoke-FalconAPI',
+    'Invoke-CsAPI',
+    'Join-CsResult',
+    'Split-CsArray',
 
     # user-management
     'Add-CsUser',
@@ -432,13 +464,13 @@ PrivateData = @{
         Tags = @('CrowdStrike', 'Falcon', 'OAuth2', 'API')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://raw.githubusercontent.com/bk-cs/PSFalcon/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/bk-cs/PSFalcon'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://avatars3.githubusercontent.com/u/54042976?s=460&u=de53aed783c47ef9bd9ffe9489fb77a67648eb89&v=4'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
@@ -454,4 +486,3 @@ HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
 # DefaultCommandPrefix = ''
 
 }
-

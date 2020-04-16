@@ -21,12 +21,12 @@ function Edit-CsDetect {
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = $Properties | ConvertTo-Json -Depth 8
+            Body = ConvertTo-Json $Properties -Depth 8
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

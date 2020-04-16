@@ -16,7 +16,7 @@ function Get-CsSensorBuild {
     )
     process{
         $Param = @{
-            Uri = '/policy/combined/sensor-update-builds/v1?platform=' + $Platform.ToLower()
+            Uri = '/policy/combined/sensor-update-builds/v1?platform=' + $Platform
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -27,6 +27,6 @@ function Get-CsSensorBuild {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        Invoke-CsAPI @Param
     }
 }

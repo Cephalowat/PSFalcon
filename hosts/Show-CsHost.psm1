@@ -9,11 +9,16 @@ function Show-CsHost {
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
+    begin{
+        # Maximum number of hosts per request
+        $Max = 100
+    }
     process{
+        # Base parameters
         $Param = @{
             Uri = '/devices/entities/devices-actions/v2?action_name=unhide_host'
             Method = 'post'
@@ -21,12 +26,24 @@ function Show-CsHost {
                 accept = 'application/json'
                 'content-type' = 'application/json'
             }
-            Body = @{ 'ids' = $Id } | ConvertTo-Json
         }
         switch ($PSBoundParameters.Keys) {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Invoke-FalconAPI @Param
+        # Make request for each group of $Max
+        for ($i = 0; $i -lt $Id.count; $i += $Max) {
+            if ($i -gt 0) {
+                $Progress = @{
+                    Activity = $Activity
+                    Status = [string] $i + ' of ' + [string] $Id.count
+                    PercentComplete = (($i/$Id.count)*100)
+                }
+                Write-Progress @Progress
+            }
+            $Param['Body'] = @{ 'ids' = @($Id[$i..($i + ($Max - 1))]) } | ConvertTo-Json
+
+            Invoke-CsAPI @Param
+        }
     }
 }
