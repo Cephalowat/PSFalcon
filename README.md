@@ -220,7 +220,7 @@ Additionally, each API includes a README file with references and generic exampl
 
 **[CrowdStrike OAuth2 Token API](/oauth2)**
 
-### Custom IoCs
+### Custom IOCs
 
 **[CrowdStrike Custom IOC API](/iocs)**
 
