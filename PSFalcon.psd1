@@ -109,7 +109,6 @@ NestedModules = @(
     # firewall-management
     '.\firewall-management\Get-CsFirewallEventInfo.psm1'
     '.\firewall-management\Get-CsFirewallEventId.psm1'
-    '.\firewall-management\Get-CsFirewallRuleId.psm1'
 
     # firewall-policies
     '.\firewall-policies\Add-CsFirewallGroup.psm1',
@@ -296,7 +295,6 @@ FunctionsToExport = @(
     # firewall-management
     'Get-CsFirewallEventId',
     'Get-CsFirewallEventInfo',
-    'Get-CsFirewallRuleId',
 
     # firewall-policies
     'Add-CsFirewallGroup',
