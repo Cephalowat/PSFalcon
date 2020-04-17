@@ -1,4 +1,4 @@
-function Get-CsFirewallGroupId {
+function Get-CsFirewallRuleGroupId {
 <#
     .SYNOPSIS
         Search for Firewall Rule Group IDs in your environment

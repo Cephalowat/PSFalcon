@@ -1,15 +1,14 @@
 function Get-CsFirewallFieldInfo {
 <#
     .SYNOPSIS
-        Get detail about Firewall Fields by ID
+        Get firewall field specifications
 
     .PARAMETER ID
-        Target Firewall Field IDs
+        Specific fields specification ids to retrieve
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
@@ -26,6 +25,6 @@ function Get-CsFirewallFieldInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
+        Invoke-CsAPI @Param
     }
 }

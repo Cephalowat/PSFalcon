@@ -1,5 +1,5 @@
 # Get-CsFirewallEventId
-Search for Firewall Event IDs in your environment
+Find Firewall Event IDs in your environment
 
 ### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/query_events)**
@@ -37,16 +37,16 @@ PS> Get-CsFirewallEventInfo -Id @(<string>, <string>)
 ```
 
 # Get-CsFirewallFieldId
-Search for Firewall Field IDs in your environment
+Get firewall field specification ids
 
 ### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/query_firewall_fields)**
 
 ### Parameters
 
-`-platform_id`: Get fields configuration for this platform
+`-Id`: A specific platform id
 
-`-Limit`: The maximum records to return [default: 5000]
+`-Limit`: The maximum records to return [default: 100]
 
 `-Offset`: The offset to start retrieving records from [default: 0]
 
@@ -58,21 +58,21 @@ PS> Get-CsFirewallFieldId
 ```
 
 # Get-CsFirewallFieldInfo
-Get detail about Firewall Fields by ID
+Get firewall field specifications
 
 ### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/get_firewall_fields)**
 
 ### Parameters
 
-`-Id`: Target Firewall Field IDs
+`-Id`: Specific fields specification ids to retrieve
 
 ### Example
 ```powershell
-PS> Get-CsFirewallFieldInfo -Id @(<string>, <string>)
+PS> Get-CsFirewallFieldInfo
 ```
 
-# Get-CsFirewallGroupId
+# Get-CsFirewallRuleGroupId
 Search for Firewall Rule Group IDs in your environment
 
 ### References
@@ -92,10 +92,10 @@ Search for Firewall Rule Group IDs in your environment
 
 ### Example
 ```powershell
-PS> Get-CsFirewallGroupId
+PS> Get-CsFirewallRuleGroupId
 ```
 
-# Get-CsFirewallGroupInfo
+# Get-CsFirewallRuleGroupInfo
 Get detail about Firewall Rule Groups by ID
 
 ### References
@@ -107,11 +107,11 @@ Get detail about Firewall Rule Groups by ID
 
 ### Example
 ```powershell
-PS> Get-CsFirewallGroupInfo -Id @(<string>, <string>)
+PS> Get-CsFirewallRuleGroupInfo -Id @(<string>, <string>)
 ```
 
 # Get-CsFirewallPlatformId
-Get the list of platform names
+Get firewall platform ids
 
 ### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/query_platforms)**
@@ -128,14 +128,14 @@ PS> Get-CsFirewallPlatformId
 ```
 
 # Get-CsFirewallPlatformInfo
-Get Firewall platforms by ID
+Get firewall platform names
 
 ### References
 **[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/get_platforms)**
 
 ### Parameters
 
-`-Id`: IDs of the platforms to retrieve
+`-Id`: Specific platform ids to return
 
 ### Example
 ```powershell

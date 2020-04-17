@@ -1,7 +1,7 @@
 function Get-CsFirewallPlatformId {
 <#
     .SYNOPSIS
-        Get the list of platform names
+        Get firewall platform ids
 
     .PARAMETER LIMIT
         The maximum records to return [default: 100]

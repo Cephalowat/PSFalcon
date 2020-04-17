@@ -1,4 +1,4 @@
-function Get-CsFirewallGroupInfo {
+function Get-CsFirewallRuleGroupInfo {
 <#
     .SYNOPSIS
         Get detail about Firewall Rule Groups by ID

@@ -1,15 +1,14 @@
 function Get-CsFirewallPlatformInfo {
 <#
     .SYNOPSIS
-        Get Firewall platforms by ID
+        Get firewall platform names
 
     .PARAMETER ID
-        IDs of the platforms to retrieve
+        Specific platform ids to return
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
@@ -23,9 +22,10 @@ function Get-CsFirewallPlatformInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
+            'Id' { $Param.Uri += ($Id -join '&ids=') }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
+        Invoke-CsAPI @Param
     }
 }

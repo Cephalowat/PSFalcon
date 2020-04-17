@@ -1,38 +1,30 @@
 function Get-CsFirewallFieldId {
 <#
     .SYNOPSIS
-        Search for Firewall Field IDs in your environment
+        Get firewall field specification ids
 
-    .PARAMETER PLATFORM_ID
-        The filter expression that should be used to limit the results
+    .PARAMETER ID
+        A specific platform id
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 5000]
+        The maximum records to return [default: 100]
 
     .PARAMETER OFFSET
         The offset to start retrieving records from [default: 0]
-
-    .PARAMETER ALL
-        Repeat request until all results are returned
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
+        [ValidateLength(1)]
         [string]
-        $Platform_id,
+        $Id,
 
-        [string]
-        $Query,
-
-        [ValidateRange(1,5000)]
+        [ValidateRange(1,100)]
         [int]
-        $Limit = 5000,
+        $Limit = 100,
 
         [string]
-        $Offset = 0,
-
-        [switch]
-        $All
+        $Offset = 0
     )
     process{
         $Param = @{
@@ -44,15 +36,10 @@ function Get-CsFirewallFieldId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Platform_id' { $Param.Uri += '&platform_id=' + $Platform_id }
+            'Id' { $Param.Uri += '&platform_id=' + $Platform }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        if ($All) {
-            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
-        }
-        else {
-            Invoke-CsAPI @Param
-        }
+        Invoke-CsAPI @Param
     }
 }
