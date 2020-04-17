@@ -1,35 +1,23 @@
 function Get-CsFirewallPlatformId {
 <#
     .SYNOPSIS
-        Search for Firewall Platform IDs in your environment
+        Get the list of platform names
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 5000]
+        The maximum records to return [default: 100]
 
     .PARAMETER OFFSET
         The offset to start retrieving records from [default: 0]
-
-    .PARAMETER ALL
-        Repeat request until all results are returned
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [string]
-        $Platform_id,
-
-        [string]
-        $Query,
-
-        [ValidateRange(1,5000)]
+        [ValidateRange(1,100)]
         [int]
-        $Limit = 5000,
+        $Limit = 100,
 
         [string]
-        $Offset = 0,
-
-        [switch]
-        $All
+        $Offset = 0
     )
     process{
         $Param = @{
@@ -44,11 +32,6 @@ function Get-CsFirewallPlatformId {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        if ($All) {
-            Join-CsResult -Activity $MyInvocation.MyCommand.Name -Param $Param
-        }
-        else {
-            Invoke-CsAPI @Param
-        }
+        Invoke-CsAPI @Param
     }
 }

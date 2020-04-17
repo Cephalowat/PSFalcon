@@ -1,10 +1,10 @@
 function Get-CsFirewallPlatformInfo {
 <#
     .SYNOPSIS
-        Get detail about Firewall Platforms by ID
+        Get Firewall platforms by ID
 
     .PARAMETER ID
-        Target Firewall Platform IDs
+        IDs of the platforms to retrieve
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
