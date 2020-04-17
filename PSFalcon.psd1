@@ -496,7 +496,7 @@ PrivateData = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
+# HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''
