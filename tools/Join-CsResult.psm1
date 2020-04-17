@@ -38,7 +38,7 @@ function Join-CsResult {
 
         # Loop until all results are retrieved
         while (($Total -gt $Count) -and (-not($Loop.errors))) {
-            if ($Total -lt $Count) {
+            if ($Total -gt $Count) {
                 $Progress = @{
                     Activity = $Activity
                     Status = [string] $Count + ' of ' + [string] $Loop.meta.pagination.total
