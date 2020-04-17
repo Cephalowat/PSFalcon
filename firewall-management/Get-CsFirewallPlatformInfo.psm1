@@ -1,10 +1,10 @@
-function Get-CsFirewallFieldInfo {
+function Get-CsFirewallPlatformInfo {
 <#
     .SYNOPSIS
-        Get detail about Firewall Fields by ID
+        Get detail about Firewall Platforms by ID
 
     .PARAMETER ID
-        Target Firewall Field IDs
+        Target Firewall Platform IDs
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
@@ -15,7 +15,7 @@ function Get-CsFirewallFieldInfo {
     )
     process{
         $Param = @{
-            Uri =  '/fwmgr/entities/firewall-fields/v1?ids='
+            Uri =  '/fwmgr/entities/platforms/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
