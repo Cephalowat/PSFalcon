@@ -27,10 +27,13 @@ function Split-CsArray {
         [array]
         $Id
     )
+    begin{
+        # Base URL for adding Ids
+        $BaseUri = $Param.Uri
+    }
     process{
         # Maximum number of ids per group based on Invoke-RestMethod uri character limit
         $Max = [Math]::Floor([decimal](((65535 - ($Param.Uri).length)/($Id[0].length + 6))/1))
-        $Uri = $Param['Uri']
 
         # Make request for each group
         for ($i = 0; $i -lt $Id.count; $i += $Max) {
@@ -42,7 +45,8 @@ function Split-CsArray {
                 }
                 Write-Progress @Progress
             }
-            $Param.Uri = $Uri + (@($Id[$i..($i + ($Max - 1))]) -join '&ids=')
+            $Param.Uri = $BaseUri + (@($Id[$i..($i + ($Max - 1))]) -join '&ids=')
+
             Invoke-CsAPI @Param
         }
     }
