@@ -36,6 +36,42 @@ Get detail about Firewall Events by ID
 PS> Get-CsFirewallEventInfo -Id @(<string>, <string>)
 ```
 
+# Get-CsFirewallFieldId
+Search for Firewall Field IDs in your environment
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/query_firewall_fields)**
+
+### Parameters
+
+`-platform_id`: Get fields configuration for this platform
+
+`-Limit`: The maximum records to return [default: 5000]
+
+`-Offset`: The offset to start retrieving records from [default: 0]
+
+`-All`: Repeat request until all results are returned
+
+### Example
+```powershell
+PS> Get-CsFirewallFieldId
+```
+
+# Get-CsFirewallFieldInfo
+Get detail about Firewall Fields by ID
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/get_firewall_fields)**
+
+### Parameters
+
+`-Id`: Target Firewall Field IDs
+
+### Example
+```powershell
+PS> Get-CsFirewallFieldInfo -Id @(<string>, <string>)
+```
+
 # Get-CsFirewallGroupId
 Search for Firewall Rule Group IDs in your environment
 
