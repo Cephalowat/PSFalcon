@@ -37,14 +37,15 @@ function Join-CsResult {
         $Count = $Loop.resources.count
 
         # Loop until all results are retrieved
-        while ($Total -gt $Count) {
-            $Progress = @{
-                Activity = $Activity
-                Status = [string] $Count + ' of ' + [string] $Loop.meta.pagination.total
-                PercentComplete = ($Count/$Loop.meta.pagination.total)*100
+        while (($Total -gt $Count) -and (-not($Loop.errors))) {
+            if ($Total -lt $Count) {
+                $Progress = @{
+                    Activity = $Activity
+                    Status = [string] $Count + ' of ' + [string] $Loop.meta.pagination.total
+                    PercentComplete = ($Count/$Loop.meta.pagination.total)*100
+                }
+                Write-Progress @Progress
             }
-            Write-Progress @Progress
-
             # Update/add token to request
             if ($Loop.meta.pagination.after) {
                 $Value = 'after=' + $Loop.meta.pagination.after
