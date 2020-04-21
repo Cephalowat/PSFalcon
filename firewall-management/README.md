@@ -12,7 +12,8 @@ Edit existing Firewall Policy settings
 
 ### Example
 ```powershell
-PS> Edit-CsFirewallPolicySettings -Body @{ policy_id = <string>; platform_id = <int> }
+PS> Edit-CsFirewallPolicySettings -Body @{ policy_id = <string>; default_inbound = <string>;
+    default_outbound = <string>; enforce = <boolean>; test_mode = <boolean> }
 ```
 
 # Edit-CsFirewallRuleGroup
@@ -29,7 +30,7 @@ Edit an existing Firewall Rule Group
 
 ### Example
 ```powershell
-PS> Edit-CsFirewallRuleGroup -Body @{ id = <string>; rule_ids = @(<string>, <string>) }
+PS>
 ```
 
 # Get-CsFirewallEventId
@@ -249,7 +250,7 @@ Create a new Firewall Rule Group
 
 ### Example
 ```powershell
-PS> New-CsFirewallRuleGroup -Body @{ name = <string>; rules = @(<hashtable>) }
+PS> New-CsFirewallRuleGroup -Body @{ name = <string>; enabled = <boolean> }
 ```
 
 # Remove-CsFirewallRuleGroup

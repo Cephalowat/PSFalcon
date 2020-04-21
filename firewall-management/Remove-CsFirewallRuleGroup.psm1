@@ -26,6 +26,7 @@ function Remove-CsFirewallRuleGroup {
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
+                'X-CS-USERNAME' = 'api-client-id:' + [string] $Falcon.id
             }
         }
         switch ($PSBoundParameters.Keys) {

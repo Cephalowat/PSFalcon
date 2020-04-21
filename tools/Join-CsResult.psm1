@@ -30,7 +30,14 @@ function Join-CsResult {
         }
         # 'offset' style endpoints
         else {
-            [regex] $Pattern = 'offset=\d{1,}'
+            # integer-based
+            if ($Loop.meta.pagination.offset -is [int]) {
+                [regex] $Pattern = 'offset=\d{1,}'
+            }
+            # token-based
+            else {
+                [regex] $Pattern = 'offset=\w{1,}=='
+            }
         }
         # Capture result and set token parameters
         $Total = $Loop.meta.pagination.total
@@ -46,12 +53,12 @@ function Join-CsResult {
                 }
                 Write-Progress @Progress
             }
-            # Update/add token to request
+            # Update/add token or integer to request
             if ($Loop.meta.pagination.after) {
                 $Value = 'after=' + $Loop.meta.pagination.after
             }
             else {
-                $Value = 'offset=' + [string] $Count
+                $Value = 'offset=' + $Loop.meta.pagination.offset
             }
             if ($Pattern.Matches($Param.Uri).value) {
                 $Param.Uri = $Param.Uri -replace $Pattern.Matches($Param.Uri).value,$Value

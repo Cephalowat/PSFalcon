@@ -26,6 +26,7 @@ function Edit-CsFirewallRuleGroup {
             Header = @{
                 accept = 'application/json'
                 'content-type' = 'application/json'
+                'X-CS-USERNAME' = 'api-client-id:' + [string] $Falcon.id
             }
             Body = ConvertTo-Json $Body -Depth 8
         }
