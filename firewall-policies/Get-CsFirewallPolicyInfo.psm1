@@ -52,7 +52,7 @@ function Get-CsFirewallPolicyInfo {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Filter' { $Param.Uri += '&filter=' + $Filter }
+            'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
             'Id' { $Param.Uri = '/policy/entities/firewall/v1?ids=' }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }

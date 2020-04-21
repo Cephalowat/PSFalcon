@@ -16,12 +16,12 @@ function Get-CsFirewallPlatformId {
         [int]
         $Limit = 100,
 
-        [string]
+        [int]
         $Offset = 0
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/platforms/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/platforms/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'

@@ -1,3 +1,37 @@
+# Edit-CsFirewallPolicySettings
+Edit existing Firewall Policy settings
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/update_policy_container)**
+
+### Parameters
+
+`-Comment`: Optional audit log comment
+
+`-Body`: A hashtable of Firewall Policy properties
+
+### Example
+```powershell
+PS> Edit-CsFirewallPolicySettings -Body @{ policy_id = <string>; platform_id = <int> }
+```
+
+# Edit-CsFirewallRuleGroup
+Edit an existing Firewall Rule Group
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/update_rule_group)**
+
+### Parameters
+
+`-Comment`: Optional audit log comment
+
+`-Body`: A hashtable of Rule Group properties
+
+### Example
+```powershell
+PS> Edit-CsFirewallRuleGroup -Body @{ id = <string>; rule_ids = @(<string>, <string>) }
+```
+
 # Get-CsFirewallEventId
 Find Firewall Event IDs in your environment
 
@@ -104,6 +138,21 @@ Get firewall platform names
 PS> Get-CsFirewallPlatformInfo -Id @(<string>, <string>)
 ```
 
+# Get-CsFirewallPolicySettings
+Returns basic Firewall Policy settings
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/get_policy_containers)**
+
+### Parameters
+
+`-Id`: Target Firewall Policy IDs
+
+### Example
+```powershell
+PS> Get-CsFirewallPolicySettings -Id @(<string>, <string>)
+```
+
 # Get-CsFirewallRuleGroupId
 Search for Firewall Rule Group IDs in your environment
 
@@ -150,6 +199,8 @@ Search for Firewall Rule IDs in your environment
 
 ### Parameters
 
+`-Id`: A specific Firewall policy ID to return rules for
+
 `-Filter`: The filter expression that should be used to limit the results
 
 `-Query`: Search all firewall event metadata for the provided string
@@ -178,4 +229,42 @@ Get detail about Firewall Rules by ID
 ### Example
 ```powershell
 PS> Get-CsFirewallRuleInfo -Id @(<string>, <string>)
+```
+
+# New-CsFirewallRuleGroup
+Create a new Firewall Rule Group
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/create_rule_group)**
+
+### Parameters
+
+`-Clone`: A Rule Group ID to copy rules from
+
+`-Library`: If toggled, rules will be cloned from the CrowdStrike Firewall Rule Groups Library
+
+`-Comment`: Optional audit log comment
+
+`-Body`: A hashtable of Rule Group properties
+
+### Example
+```powershell
+PS> New-CsFirewallRuleGroup -Body @{ name = <string>; rules = @(<hashtable>) }
+```
+
+# Remove-CsFirewallRuleGroup
+Delete a Firewall Rule Groups by ID
+
+### References
+**[Swagger](https://assets.falcon.crowdstrike.com/support/api/swagger.html#/firewall-management/delete_rule_groups)**
+
+### Parameters
+
+`-Id`: The IDs of the Firewall Rule Groups to delete
+
+`-Comment`: Optional audit log comment
+
+### Example
+```powershell
+PS> Remove-CsFirewallRuleGroup -Id @(<string>, <string>)
 ```

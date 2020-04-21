@@ -3,6 +3,9 @@ function Get-CsFirewallRuleId {
     .SYNOPSIS
         Search for Firewall Rule IDs in your environment
 
+    .PARAMETER ID
+        A specific Firewall policy ID to return rules for
+
     .PARAMETER FILTER
         The filter expression that should be used to limit the results
 
@@ -22,6 +25,9 @@ function Get-CsFirewallRuleId {
     [OutputType([psobject])]
     param(
         [string]
+        $Id,
+
+        [string]
         $Filter,
 
         [string]
@@ -31,7 +37,7 @@ function Get-CsFirewallRuleId {
         [int]
         $Limit = 5000,
 
-        [string]
+        [int]
         $Offset = 0,
 
         [switch]
@@ -39,7 +45,7 @@ function Get-CsFirewallRuleId {
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/rules/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/rules/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -47,6 +53,10 @@ function Get-CsFirewallRuleId {
             }
         }
         switch ($PSBoundParameters.Keys) {
+            'Id' {
+                $Param.Uri = '/fwmgr/queries/policy-rules/v1?id=' + [string] $Id +
+                '&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            }
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
             'Verbose' { $Param['Verbose'] = $true }

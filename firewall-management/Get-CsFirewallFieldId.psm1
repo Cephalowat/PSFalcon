@@ -23,7 +23,7 @@ function Get-CsFirewallFieldId {
         [int]
         $Limit = 100,
 
-        [string]
+        [int]
         $Offset = 0
     )
     process{
