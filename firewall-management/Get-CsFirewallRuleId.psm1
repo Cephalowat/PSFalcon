@@ -13,39 +13,56 @@ function Get-CsFirewallRuleId {
         Search all firewall rules for the provided string
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 5000]
+        The maximum records to return
+
+    .PARAMETER AFTER
+        The pagination token to continue results after an initial request
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [default: 0]
+        The offset to start retrieving records from
 
     .PARAMETER ALL
         Repeat request until all results are returned
 #>
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'default')]
     [OutputType([psobject])]
     param(
+        [Parameter(ParameterSetName = 'policy')]
         [string]
         $Id,
 
+        [Parameter(ParameterSetName = 'default')]
+        [Parameter(ParameterSetName = 'policy')]
         [string]
         $Filter,
 
+        [Parameter(ParameterSetName = 'default')]
+        [Parameter(ParameterSetName = 'policy')]
         [string]
         $Query,
 
+        [Parameter(ParameterSetName = 'default')]
+        [Parameter(ParameterSetName = 'policy')]
         [ValidateRange(1,5000)]
         [int]
-        $Limit = 5000,
+        $Limit,
 
+        [Parameter(ParameterSetName = 'default')]
+        [string]
+        $After,
+
+        [Parameter(ParameterSetName = 'policy')]
         [int]
-        $Offset = 0,
+        $Offset,
 
+        [Parameter(ParameterSetName = 'default')]
+        [Parameter(ParameterSetName = 'policy')]
         [switch]
         $All
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/rules/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/rules/v1?'
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -53,12 +70,12 @@ function Get-CsFirewallRuleId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Id' {
-                $Param.Uri = '/fwmgr/queries/policy-rules/v1?id=' + [string] $Id +
-                '&limit=' + [string] $Limit + '&offset=' + [string] $Offset
-            }
+            'Id' { $Param.Uri = '/fwmgr/queries/policy-rules/v1?id=' + [string] $Id }
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
+            'Limit' { $Param.Uri += '&limit=' + [string] $Limit }
+            'After' { $Param.Uri += '&after=' + $After }
+            'Offset' { $Param.Uri += '&offset=' + [string] $Offset }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

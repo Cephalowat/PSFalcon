@@ -7,28 +7,27 @@ function Get-CsFirewallFieldId {
         A specific platform id
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 100]
+        The maximum records to return
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [default: 0]
+        The offset to start retrieving records from
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [ValidateLength(1)]
         [string]
         $Id,
 
         [ValidateRange(1,100)]
         [int]
-        $Limit = 100,
+        $Limit,
 
         [int]
-        $Offset = 0
+        $Offset
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/firewall-fields/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/firewall-fields/v1?'
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -37,6 +36,8 @@ function Get-CsFirewallFieldId {
         }
         switch ($PSBoundParameters.Keys) {
             'Id' { $Param.Uri += '&platform_id=' + $Platform }
+            'Limit' { $Param.Uri += '&limit=' + [string] $Limit }
+            'Offset' { $Param.Uri += '&offset=' + [string] $Offset }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

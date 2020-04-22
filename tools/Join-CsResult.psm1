@@ -26,7 +26,7 @@ function Join-CsResult {
 
         # 'after' style endpoints
         if ($Loop.meta.pagination.after) {
-            [regex] $Pattern = 'after=\w{92}'
+            [regex] $Pattern = 'after=\w{1,}[^&]'
         }
         # 'offset' style endpoints
         else {
