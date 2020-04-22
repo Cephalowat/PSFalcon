@@ -10,7 +10,10 @@ function Get-CsHostId {
         The maximum records to return [default: 5000]
 
     .PARAMETER OFFSET
-        The offset to start retrieving records from [default: 0]
+        The offset to page from, for the next result set
+
+    .PARAMETER HIDDEN
+        Switch to toggle a search of 'Hidden' devices
 
     .PARAMETER ALL
         Repeat request until all results are returned
@@ -25,15 +28,18 @@ function Get-CsHostId {
         [int]
         $Limit = 5000,
 
-        [int]
-        $Offset = 0,
+        [string]
+        $Offset,
+
+        [switch]
+        $Hidden,
 
         [switch]
         $All
     )
     process{
         $Param = @{
-            Uri = '/devices/queries/devices/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/devices/queries/devices-scroll/v1?limit=' + [string] $Limit
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -41,7 +47,9 @@ function Get-CsHostId {
             }
         }
         switch ($PSBoundParameters.Keys) {
+            'Hidden' { $Param.Uri = '/devices/queries/devices-hidden/v1?limit=' + [string] $Limit }
             'Filter' { $Param.Uri += '&filter=' + $Filter.ToLower() }
+            'Offset' { $Param.Uri += '&offset=' + $Offset }
             'Debug' { $Param['Debug'] = $true }
             'Verbose' { $Param['Verbose'] = $true }
         }

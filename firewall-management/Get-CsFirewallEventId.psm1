@@ -31,7 +31,7 @@ function Get-CsFirewallEventId {
         [int]
         $Limit = 5000,
 
-        [string]
+        [int]
         $Offset = 0,
 
         [switch]
@@ -39,7 +39,7 @@ function Get-CsFirewallEventId {
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/events/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/events/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'

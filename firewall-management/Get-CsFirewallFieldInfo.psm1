@@ -1,21 +1,20 @@
-function Get-CsFirewallGroupInfo {
+function Get-CsFirewallFieldInfo {
 <#
     .SYNOPSIS
-        Get detail about Firewall Rule Groups by ID
+        Get firewall field specifications
 
     .PARAMETER ID
-        Target Firewall Rule Group IDs
+        Specific fields specification ids to retrieve
 #>
     [CmdletBinding()]
     [OutputType([psobject])]
     param(
-        [Parameter(Mandatory = $true)]
         [array]
         $Id
     )
     process{
         $Param = @{
-            Uri =  '/fwmgr/entities/rule-groups/v1?ids='
+            Uri =  '/fwmgr/entities/firewall-fields/v1?ids='
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -26,6 +25,6 @@ function Get-CsFirewallGroupInfo {
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
-        Split-CsArray -Activity $MyInvocation.MyCommand.Name -Param $Param -Id $Id
+        Invoke-CsAPI @Param
     }
 }

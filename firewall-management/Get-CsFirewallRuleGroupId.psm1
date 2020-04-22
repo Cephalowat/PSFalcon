@@ -1,4 +1,4 @@
-function Get-CsFirewallGroupId {
+function Get-CsFirewallRuleGroupId {
 <#
     .SYNOPSIS
         Search for Firewall Rule Group IDs in your environment
@@ -31,7 +31,7 @@ function Get-CsFirewallGroupId {
         [int]
         $Limit = 5000,
 
-        [string]
+        [int]
         $Offset = 0,
 
         [switch]
@@ -39,7 +39,7 @@ function Get-CsFirewallGroupId {
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/rule-groups/v1?&limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/rule-groups/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
             Method = 'get'
             Header = @{
                 accept = 'application/json'

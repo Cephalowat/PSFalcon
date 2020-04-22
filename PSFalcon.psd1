@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.2.3'
+ModuleVersion = '1.3.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,12 +107,21 @@ NestedModules = @(
     '.\falconx-sandbox\Submit-CsSample.psm1',
 
     # firewall-management
+    '.\firewall-management\Edit-CsFirewallPolicySettings.psm1',
+    '.\firewall-management\Edit-CsFirewallRuleGroup.psm1',
     '.\firewall-management\Get-CsFirewallEventId.psm1',
     '.\firewall-management\Get-CsFirewallEventInfo.psm1',
-    '.\firewall-management\Get-CsFirewallGroupId.psm1',
-    '.\firewall-management\Get-CsFirewallGroupInfo.psm1',
+    '.\firewall-management\Get-CsFirewallFieldId.psm1',
+    '.\firewall-management\Get-CsFirewallFieldInfo.psm1',
+    '.\firewall-management\Get-CsFirewallPlatformId.psm1',
+    '.\firewall-management\Get-CsFirewallPlatformInfo.psm1',
+    '.\firewall-management\Get-CsFirewallPolicySettings.psm1',
+    '.\firewall-management\Get-CsFirewallRuleGroupId.psm1',
+    '.\firewall-management\Get-CsFirewallRuleGroupInfo.psm1',
     '.\firewall-management\Get-CsFirewallRuleId.psm1',
     '.\firewall-management\Get-CsFirewallRuleInfo.psm1',
+    '.\firewall-management\New-CsFirewallRuleGroup.psm1',
+    '.\firewall-management\Remove-CsFirewallRuleGroup.psm1',
 
     # firewall-policies
     '.\firewall-policies\Add-CsFirewallGroup.psm1',
@@ -297,12 +306,21 @@ FunctionsToExport = @(
     'Submit-CsSample',
 
     # firewall-management
+    'Edit-CsFirewallPolicySettings',
+    'Edit-CsFirewallRuleGroup',
     'Get-CsFirewallEventId',
     'Get-CsFirewallEventInfo',
-    'Get-CsFirewallGroupId',
-    'Get-CsFirewallGroupInfo',
+    'Get-CsFirewallFieldId',
+    'Get-CsFirewallFieldInfo',
+    'Get-CsFirewallPlatformId',
+    'Get-CsFirewallPlatformInfo',
+    'Get-CsFirewallPolicySettings',
+    'Get-CsFirewallRuleGroupId',
+    'Get-CsFirewallRuleGroupInfo',
     'Get-CsFirewallRuleId',
     'Get-CsFirewallRuleInfo',
+    'New-CsFirewallRuleGroup',
+    'Remove-CsFirewallRuleGroup',
 
     # firewall-policies
     'Add-CsFirewallGroup',
@@ -488,7 +506,7 @@ PrivateData = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
+# HelpInfoURI = 'https://github.com/bk-cs/PSFalcon/blob/master/README.md'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

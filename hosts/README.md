@@ -9,7 +9,7 @@ Search for hosts in your environment
 
 `-Limit`: The maximum records to return
 
-`-Offset`: The offset to start retrieving records from
+`-Offset`: The offset to page from, for the next result set
 
 `-All`: Repeat request until all results are returned
 
