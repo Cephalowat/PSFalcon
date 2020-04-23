@@ -23,7 +23,7 @@ function Get-CsUserId {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Id' { $Param.Uri = '/users/queries/user-uuids-by-email/v1?uid=' + $Username }
+            'Username' { $Param.Uri = '/users/queries/user-uuids-by-email/v1?uid=' + $Username }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }
