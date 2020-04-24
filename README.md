@@ -14,6 +14,10 @@ To update to the latest version:
 PS> Update-Module -Name PSFalcon
 ```
 
+If you have any issues installing using the commands above, you can download this repository
+and place the files inside your PowerShell module folder under `\PSFalcon`, or use `Import-Module`
+to directly import the PSFalcon manifest.
+
 # Getting Started
 
 Interacting with the CrowdStrike Falcon OAuth2 APIs requires an **[API Client ID and Secret](https://falcon.crowdstrike.com/support/api-clients-and-keys)** and a valid
@@ -194,16 +198,24 @@ PS> Start-RtrBatch -Id $HostId -OutVariable Batch | ConvertTo-Json
 Using your newly generated Batch Id, you now have the ability to send commands to the devices contained
 in the batch. Using **[Real-time Response](https://falcon.crowdstrike.com/support/documentation/71/real-time-response-and-network-containment#real-time-response)**, you can...
 
-Put a file **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/files)** onto your devices:
+Put a file **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/files)**:
 
 ```powershell
 PS> Send-RtrCommand -Id $Batch.batch_id -Command put -String Example.exe
 ```
 
-Or run a script **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/scripts)** on your devices:
+Run a script **[from the cloud](https://falcon.crowdstrike.com/configuration/real-time-response/tools/scripts)**:
 
 ```powershell
-PS> Send-RtrCommand -Id $Batch.batch_id -Command runscript -String "-CloudFile=`"Example`""
+PS> Send-RtrCommand -Id $Batch.batch_id -Command runscript -String "-CloudFile='Example'"
+```
+
+Or run a custom PowerShell script or command on the fly:
+
+```powershell
+PS> $Script = "Get-LocalGroupMember -Group 'Administrators'"
+PS> $String = '-Raw=```' + $Script + '```'
+PS> Send-RtrCommand -ID $Batch.batch_id -Command runscript -String $String
 ```
 
 # Commands
