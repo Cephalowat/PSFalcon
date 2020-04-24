@@ -52,6 +52,12 @@ By default, token requests are sent to the US cloud. The `-Cloud` parameter can 
 destination. Your choice is saved in `$Falcon` and all requests will be sent to the chosen cloud unless a new
 `Get-CsToken` request is made.
 
+### Specifying a Child Environment
+
+If you're in an MSSP configuration, you can target specific child environments using the `-CID` parameter
+during token requests. Your choice is saved in `$Falcon` and all requests will be sent to that particular
+CID unless a new `Get-CsToken` request is made.
+
 ### Using a Proxy
 
 The `-Proxy` parameter can be added to a token request to define a proxy. Your choice is saved in `$Falcon`

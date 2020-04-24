@@ -10,10 +10,10 @@ function Get-CsFirewallRuleGroupId {
         Search all firewall rules for the provided string
 
     .PARAMETER LIMIT
-        The maximum records to return [default: 5000]
+        The maximum records to return
 
-    .PARAMETER OFFSET
-        The offset to start retrieving records from [default: 0]
+    .PARAMETER AFTER
+        The pagination token to continue results after an initial request
 
     .PARAMETER ALL
         Repeat request until all results are returned
@@ -29,17 +29,17 @@ function Get-CsFirewallRuleGroupId {
 
         [ValidateRange(1,5000)]
         [int]
-        $Limit = 5000,
+        $Limit,
 
-        [int]
-        $Offset = 0,
+        [string]
+        $After,
 
         [switch]
         $All
     )
     process{
         $Param = @{
-            Uri = '/fwmgr/queries/rule-groups/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset
+            Uri = '/fwmgr/queries/rule-groups/v1?'
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -49,6 +49,8 @@ function Get-CsFirewallRuleGroupId {
         switch ($PSBoundParameters.Keys) {
             'Filter' { $Param.Uri += '&filter=' + $Filter }
             'Query' { $Param.Uri += '&q=' + $Query }
+            'Limit' { $Param.Uri += '&limit=' + [string] $Limit }
+            'After' { $Param.Uri += '&after=' + $After }
             'Verbose' { $Param['Verbose'] = $true }
             'Debug' { $Param['Debug'] = $true }
         }

@@ -9,6 +9,8 @@ Request an OAuth2 access token
 
 `-Secret`: Client Secret
 
+`-CID`: Specific CID to target in MSSP configurations
+
 `-Cloud`: CrowdStrike destination cloud [default: 'US']
 
 `-Proxy`: Web proxy address
