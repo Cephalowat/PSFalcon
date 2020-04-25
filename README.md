@@ -262,6 +262,10 @@ Additionally, each API includes a README file with references and generic exampl
 
 **[CrowdStrike Falcon Sensor Download API](/sensor-download)**
 
+### Falcon MalQuery
+
+**[CrowdStrike MalQuery API](/malquery)**
+
 ### Policies
 
 **[CrowdStrike Falcon Device Control Policy API](/device-control-policies)**

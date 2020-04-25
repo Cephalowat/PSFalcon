@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.3.3'
+ModuleVersion = '1.3.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -188,6 +188,16 @@ NestedModules = @(
 
     # oauth2
     '.\oauth2\Get-CsToken.psm1',
+
+    # malquery
+    '.\malquery\Get-CsMalQueryQuota.psm1',
+    '.\malquery\Get-CsMalQueryRequestInfo.psm1',
+    '.\malquery\Get-CsMalQuerySampleInfo.psm1',
+    '.\malquery\New-CsMalQueryArchive.psm1',
+    '.\malquery\New-CsMalQueryHunt.psm1',
+    '.\malquery\New-CsMalQuerySearch.psm1',
+    '.\malquery\Receive-CsMalQueryArchive.psm1',
+    '.\malquery\Receive-CsMalQuerySample.psm1',
 
     # prevention-policies
     '.\prevention-policies\Add-CsPreventGroup.psm1',
@@ -387,6 +397,16 @@ FunctionsToExport = @(
 
     # oauth2
     'Get-CsToken',
+
+    # malquery
+    'Get-CsMalQueryQuota',
+    'Get-CsMalQueryRequestInfo',
+    'Get-CsMalQuerySampleInfo',
+    'New-CsMalQueryArchive',
+    'New-CsMalQueryHunt',
+    'New-CsMalQuerySearch',
+    'Receive-CsMalQueryArchive',
+    'Receive-CsMalQuerySample',
 
     # prevention-policies
     'Add-CsPreventGroup',
