@@ -36,7 +36,7 @@ function Hide-CsHost {
         for ($i = 0; $i -lt $Id.count; $i += $Max) {
             if ($i -gt 0) {
                 $Progress = @{
-                    Activity = $Activity
+                    Activity = $MyInvocation.MyCommand.Name
                     Status = [string] $i + ' of ' + [string] $Id.count
                     PercentComplete = (($i/$Id.count)*100)
                 }
