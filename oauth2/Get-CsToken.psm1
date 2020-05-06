@@ -83,7 +83,7 @@ function Get-CsToken {
             Body = 'client_id=' + [string] $Falcon.id + '&client_secret='
         }
         # Add secret to token request
-        if ($Host.Version.Major -gt 5) {
+        if ($PSVersionTable.PSVersion.Major -gt 5) {
             $Param.Body += ($Falcon.secret | ConvertFrom-SecureString -AsPlainText)
         } else {
             $Param.Body += ([System.Runtime.InteropServices.Marshal]::PtrToStringAuto(

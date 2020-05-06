@@ -80,7 +80,7 @@ function Invoke-CsAPI {
             $Param['ProxyUseDefaultCredentials'] = $true
         }
         # Add UseBasicParsing for older PowerShell versions
-        if ($Host.Version.Major -lt 6) {
+        if ($PSVersionTable.PSVersion.Major -lt 6) {
             $Param['UseBasicParsing'] = $true
         }
         # Remove progress bar to speed up file downloads (Invoke-WebRequest bug)
